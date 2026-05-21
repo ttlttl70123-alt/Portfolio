@@ -4,17 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="TEXT TEXT — 포트폴리오 메인 페이지. 심층적인 조사와 분석을 통해 새로운 가치를 발굴합니다.">
-  <title>PORTFOLIO</title>
+  <title>HYEONGU LEE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="is-loading">
+
+  <!-- ===== PRELOADER ===== -->
+  <div class="preloader" id="preloader">
+    <div class="preloader__counter" id="preloader-counter">0</div>
+  </div>
 
   <!-- ===== HEADER / NAVIGATION ===== -->
   <header class="header" id="header">
-    <a href="#" class="header__logo">HOME</a>
+    <a href="#" class="header__logo">HYEONGU LEE</a>
     <nav class="header__nav" id="main-nav">
       <a href="#projects" class="header__link">PROJECTS</a>
       <a href="#about" class="header__link">ABOUT</a>
@@ -30,20 +35,23 @@
   <section class="hero" id="hero">
     <div class="hero__content">
       <h1 class="hero__title">
-        <span class="hero__line">JUST AS FORM</span>
-        <span class="hero__line">FOLLOWS</span>
-        <span class="hero__line hero__line--with-script">
-          FUNCTION,
-          <span class="hero__script">
-            ( <em class="hero__cursive">thoughtfully designed</em> )
-          </span>
+        <span class="hero__line">SPATIAL EXPERIENCE</span>
+        <span class="hero__line hero__line--script-row">
+          <span class="hero__paren">(</span>
+          <em class="hero__cursive">thoughtfully designed</em>
+          <span class="hero__paren">)</span>
+        </span>
+        <span class="hero__line hero__line--arrow-row">
+          <span>CREATES CHANGE</span>
+          <span class="hero__arrow hero__arrow--text">↓</span>
+          <svg class="hero__arrow hero__arrow--svg" viewBox="0 0 24 20" fill="currentColor">
+            <path d="M10 0v12l-5.6-5.6L3 7.8 12 16.8l9-9-1.4-1.4L14 12V0h-4z"/>
+          </svg>
         </span>
       </h1>
-      <p class="hero__subtitle">SPACE SHOULD FOLLOW HUMANS.</p>
     </div>
-    <div class="hero__scroll-indicator">
-      <span class="hero__scroll-text">SCROLL</span>
-      <div class="hero__scroll-line"></div>
+    <div class="hero__bottom">
+      <div class="hero__copyright">2025 © HYEONGU LEE</div>
     </div>
   </section>
 
@@ -108,71 +116,62 @@
         </div>
       </div>
 
-      <a href="#about" class="dark-section__more-link">More About →</a>
+      <a href="#about" class="dark-section__more-link">MORE ABOUT →</a>
     </div>
   </section>
 
   <!-- ===== PROJECTS SECTION ===== -->
   <section class="projects" id="projects">
     <div class="projects__header">
-      <h2 class="projects__title">WHAT WE DO</h2>
-      <p class="projects__subtitle">Let's take a look at a project that is working on now.</p>
-      <a href="#" class="projects__more-link">More PROJECTS →</a>
+      <div class="projects__header-left">
+        <h2 class="projects__title">WHAT I DO</h2>
+        <p class="projects__subtitle">Let's take a look at a project that is working on now.</p>
+      </div>
+      <a href="#" class="projects__more-link">MORE PROJECTS →</a>
     </div>
 
     <div class="projects__grid">
-      <!-- Project Card 1 - Confidential -->
-      <div class="project-card project-card--confidential">
+      <!-- Project Card 1 -->
+      <div class="project-card">
         <div class="project-card__image">
+          <img src="images/opt_Thumnail_01.jpg" alt="Hospitality" class="project-card__img" />
           <div class="project-card__overlay">
-            <span class="project-card__lock">🔒</span>
+            <svg class="project-card__lock" viewBox="0 0 24 24">
+              <path d="M17 10h-1V7c0-2.21-1.79-4-4-4S8 4.79 8 7v3H7c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm-7-3c0-1.1.9-2 2-2s2 .9 2 2v3h-4V7zm2 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+            </svg>
             <span class="project-card__confidential-text">CONFIDENTIAL</span>
           </div>
+        </div>
+        <div class="project-card__info">
+          <h3 class="project-card__name">Hospitality</h3>
+          <p class="project-card__description">Text text text text text text text text text text text text text text text text.</p>
         </div>
       </div>
 
       <!-- Project Card 2 -->
       <div class="project-card">
-        <div class="project-card__image"></div>
-        <div class="project-card__info">
-          <h3 class="project-card__name">PROJECT TITLE A</h3>
-          <p class="project-card__description">Text text text text text text text text text text text text text text text text.</p>
-        </div>
-      </div>
-
-      <!-- Project Card 3 - Confidential -->
-      <div class="project-card project-card--confidential">
         <div class="project-card__image">
+          <img src="images/opt_Thumnail_03.jpg" alt="Residential" class="project-card__img" />
           <div class="project-card__overlay">
-            <span class="project-card__lock">🔒</span>
+            <svg class="project-card__lock" viewBox="0 0 24 24">
+              <path d="M17 10h-1V7c0-2.21-1.79-4-4-4S8 4.79 8 7v3H7c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2v-8c0-1.1-.9-2-2-2zm-7-3c0-1.1.9-2 2-2s2 .9 2 2v3h-4V7zm2 10c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+            </svg>
             <span class="project-card__confidential-text">CONFIDENTIAL</span>
           </div>
         </div>
-      </div>
-
-      <!-- Project Card 4 -->
-      <div class="project-card">
-        <div class="project-card__image"></div>
         <div class="project-card__info">
-          <h3 class="project-card__name">PROJECT TITLE B</h3>
+          <h3 class="project-card__name">Residential</h3>
           <p class="project-card__description">Text text text text text text text text text text text text text text text text.</p>
         </div>
       </div>
 
-      <!-- Project Card 5 -->
+      <!-- Project Card 3 -->
       <div class="project-card">
-        <div class="project-card__image"></div>
-        <div class="project-card__info">
-          <h3 class="project-card__name">PROJECT TITLE C</h3>
-          <p class="project-card__description">Text text text text text text text text text text text text text text text text.</p>
+        <div class="project-card__image">
+          <img src="images/opt_Thumnail_02.jpg" alt="Commercial" class="project-card__img" />
         </div>
-      </div>
-
-      <!-- Project Card 6 -->
-      <div class="project-card">
-        <div class="project-card__image"></div>
         <div class="project-card__info">
-          <h3 class="project-card__name">PROJECT TITLE D</h3>
+          <h3 class="project-card__name">Commercial</h3>
           <p class="project-card__description">Text text text text text text text text text text text text text text text text.</p>
         </div>
       </div>
@@ -205,7 +204,7 @@
   <footer class="footer" id="footer">
     <div class="footer__inner">
       <div class="footer__brand">
-        <span class="footer__brand-name">PORTFOLIO</span>
+        <span class="footer__brand-name">HYEONGU LEE</span>
         <div class="footer__brand-tagline">
           <span>CREATES</span>
           <span>CHANGE</span>
@@ -216,12 +215,14 @@
           <span>Designed by <a href="#">TEXT</a> and <a href="#">TEXT</a></span>
         </div>
         <div class="footer__copyright">
-          2025 © <a href="mailto:email@example.com">PORTFOLIO</a>
+          2025 © <a href="mailto:email@example.com">HYEONGU LEE</a>
         </div>
       </div>
     </div>
   </footer>
 
+  <div class="custom-cursor"></div>
+  <canvas class="cursor-canvas"></canvas>
   <script src="js/script.js"></script>
 </body>
 </html>
