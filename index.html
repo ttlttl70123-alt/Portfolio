@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=32">
 </head>
 <body class="is-loading">
 
@@ -35,14 +35,16 @@
   <section class="hero" id="hero">
     <div class="hero__content">
       <h1 class="hero__title">
-        <span class="hero__line">SPATIAL EXPERIENCE</span>
+        <span class="hero__line">HELLO,</span>
         <span class="hero__line hero__line--script-row">
           <span class="hero__paren">(</span>
-          <em class="hero__cursive">thoughtfully designed</em>
-          <span class="hero__paren">)</span>
+          <img class="hero__flag" id="hero-flag" src="" alt="" style="display:none;" />
+          <em class="hero__cursive" id="hero-country">welcome</em>
+          <span class="hero__paren hero__paren--right">)</span>
+          <span class="hero__disclaimer">*Display based on location data</span>
         </span>
         <span class="hero__line hero__line--arrow-row">
-          <span>CREATES CHANGE</span>
+          <span>Nice to meet your spaces.</span>
           <span class="hero__arrow hero__arrow--text">↓</span>
           <svg class="hero__arrow hero__arrow--svg" viewBox="0 0 24 20" fill="currentColor">
             <path d="M10 0v12l-5.6-5.6L3 7.8 12 16.8l9-9-1.4-1.4L14 12V0h-4z"/>
@@ -51,67 +53,100 @@
       </h1>
     </div>
     <div class="hero__bottom">
-      <div class="hero__copyright">2025 © HYEONGU LEE</div>
+      <div class="hero__copyright">2026 © HYEONGU LEE</div>
     </div>
   </section>
 
-  <!-- ===== DARK SECTION (CORE OF OUR WORK) ===== -->
-  <section class="dark-section" id="about">
+  <!-- ===== DARK SECTION (CORE OF MY WORK) ===== -->
+  <section class="dark-section is-bouncing" id="about">
     <div class="dark-section__inner">
-      <!-- Quote area -->
+
+      <!-- ① Philosophy Quote - 손글씨 스타일 -->
       <div class="dark-section__quote">
-        <p class="dark-section__quote-text">THE CORE OF MY WORK</p>
+        <p class="dark-section__quote-text">ABOUT MY SPACE</p>
       </div>
 
-      <!-- 4-Column Services -->
-      <div class="services-grid">
-        <div class="service-card">
-          <div class="service-card__icon">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-              <circle cx="24" cy="24" r="20" stroke="#3A3AF4" stroke-width="2" stroke-dasharray="4 4"/>
-              <path d="M16 32 L24 16 L32 32" stroke="#3A3AF4" stroke-width="2" fill="none"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">RESEARCH</h3>
-          <p class="service-card__desc-en">Text text text text text text text text text text text text text text.</p>
-          <p class="service-card__desc-ko">텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트.</p>
+      <div class="dark-section__philosophy">
+        <div class="philosophy__text-block">
+          <span class="philosophy__line">NOTHING IS</span>
+          <span class="philosophy__line philosophy__line--accent">WASTED</span>
+          <span class="philosophy__cursive">— every experience</span>
+          <span class="philosophy__line">BECOMES</span>
+          <span class="philosophy__line philosophy__line--accent">SYNERGY.</span>
         </div>
-        <div class="service-card">
-          <div class="service-card__icon">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-              <rect x="8" y="8" width="32" height="32" rx="4" stroke="#3A3AF4" stroke-width="2" stroke-dasharray="4 4"/>
-              <circle cx="24" cy="24" r="8" stroke="#3A3AF4" stroke-width="2"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">BRAND PLANNING</h3>
-          <p class="service-card__desc-en">Text text text text text text text text text text text text text text.</p>
-          <p class="service-card__desc-ko">텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트.</p>
+        <!-- 손그림 느낌 SVG 낙서 장식들 -->
+        <svg class="philosophy__doodle philosophy__doodle--arrow" viewBox="0 0 60 80" fill="none" stroke="#3A3AF4" stroke-width="2" stroke-linecap="round">
+          <path d="M30 5 C25 20, 20 40, 30 60 C32 65, 28 70, 30 75" />
+          <path d="M20 65 L30 75 L40 65" />
+        </svg>
+        <svg class="philosophy__doodle philosophy__doodle--star" viewBox="0 0 40 40" fill="none" stroke="#3A3AF4" stroke-width="2" stroke-linecap="round">
+          <path d="M20 5 L22 15 L32 15 L24 21 L27 32 L20 25 L13 32 L16 21 L8 15 L18 15 Z" />
+        </svg>
+        <svg class="philosophy__doodle philosophy__doodle--circle" viewBox="0 0 50 50" fill="none" stroke="#3A3AF4" stroke-width="2" stroke-linecap="round">
+          <ellipse cx="25" cy="25" rx="22" ry="18" transform="rotate(-8 25 25)" stroke-dasharray="6 4" />
+        </svg>
+        <svg class="philosophy__doodle philosophy__doodle--zigzag" viewBox="0 0 80 20" fill="none" stroke="#3A3AF4" stroke-width="2" stroke-linecap="round">
+          <polyline points="5,15 15,5 25,15 35,5 45,15 55,5 65,15 75,5" />
+        </svg>
+        <span class="philosophy__side-note">(다양한 전공의<br>힘을 믿습니다)</span>
+      </div>
+
+      <div class="dark-section__divider"></div>
+
+      <!-- ② 경력 & 프로젝트 통계 -->
+      <div class="dark-section__stats">
+        <div class="stat-card">
+          <span class="stat-card__number">2.8<sup class="stat-card__plus">+</sup></span>
+          <span class="stat-card__label">Years Experience</span>
         </div>
-        <div class="service-card">
-          <div class="service-card__icon">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-              <polygon points="24,6 42,42 6,42" stroke="#3A3AF4" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
-              <line x1="24" y1="18" x2="24" y2="34" stroke="#3A3AF4" stroke-width="2"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">SPACE DESIGN</h3>
-          <p class="service-card__desc-en">Text text text text text text text text text text text text text text.</p>
-          <p class="service-card__desc-ko">텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트.</p>
-        </div>
-        <div class="service-card">
-          <div class="service-card__icon">
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-              <circle cx="24" cy="24" r="20" stroke="#3A3AF4" stroke-width="2"/>
-              <path d="M14 24 H34 M24 14 V34" stroke="#3A3AF4" stroke-width="2" stroke-dasharray="4 4"/>
-            </svg>
-          </div>
-          <h3 class="service-card__title">SPACE PROGRAMMING</h3>
-          <p class="service-card__desc-en">Text text text text text text text text text text text text text text.</p>
-          <p class="service-card__desc-ko">텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트.</p>
+        <div class="stat-card">
+          <span class="stat-card__number">12<sup class="stat-card__plus" style="color: #3A3AF4;">+</sup></span>
+          <span class="stat-card__label">Total Projects</span>
         </div>
       </div>
 
-      <a href="#about" class="dark-section__more-link">MORE ABOUT →</a>
+      <div class="dark-section__divider"></div>
+
+      <!-- ③ 할 수 있는 일 -->
+      <div class="dark-section__services">
+        <h3 class="dark-section__section-title">WHAT I CAN DO</h3>
+        <div class="services-list">
+          <div class="services-list__item">
+            <span class="services-list__number">01</span>
+            <span class="services-list__name">INTERIOR DESIGN</span>
+            <span class="services-list__desc">공간의 본질을 이해하고, 사용자 중심의 경험을 설계합니다.</span>
+          </div>
+          <div class="services-list__item">
+            <span class="services-list__number">02</span>
+            <span class="services-list__name">PLANNING</span>
+            <span class="services-list__desc">리서치부터 브랜드 기획까지, 전략적 사고로 방향을 제시합니다.</span>
+          </div>
+          <div class="services-list__item">
+            <span class="services-list__number">03</span>
+            <span class="services-list__name">PRODUCT DESIGN</span>
+            <span class="services-list__desc">공간을 넘어 제품까지, 사용자와 만나는 접점을 디자인합니다.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="dark-section__divider"></div>
+
+      <!-- ④ 사용 가능 툴 -->
+      <div class="dark-section__tools">
+        <h3 class="dark-section__section-title">TOOLS</h3>
+        <div class="tools-tags">
+          <span class="tools-tag">PHOTOSHOP</span>
+          <span class="tools-tag">ILLUSTRATOR</span>
+          <span class="tools-tag">INDESIGN</span>
+          <span class="tools-tag">SKETCHUP</span>
+          <span class="tools-tag">AUTOCAD</span>
+          <span class="tools-tag">ENSCAPE</span>
+          <span class="tools-tag">3DS MAX</span>
+          <span class="tools-tag">FIGMA</span>
+          <span class="tools-tag">ANTIGRAVITY</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -120,7 +155,7 @@
     <div class="projects__header">
       <div class="projects__header-left">
         <h2 class="projects__title">WHAT I DO</h2>
-        <p class="projects__subtitle">Let's take a look at a project that is working on now.</p>
+        <p class="projects__subtitle">Let's take a look at a project I worked on.</p>
       </div>
       <a href="#" class="projects__more-link">MORE PROJECTS →</a>
     </div>

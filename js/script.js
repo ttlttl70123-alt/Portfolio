@@ -12,6 +12,39 @@ document.addEventListener('DOMContentLoaded', () => {
   const nav = document.getElementById('main-nav');
   const darkSections = document.querySelectorAll('.dark-section, .inquiries, .footer');
 
+  // ===== GEO GREETING (IP 기반 국가 감지) =====
+  const geoGreeting = document.getElementById('geo-greeting');
+  const heroCountry = document.getElementById('hero-country');
+  
+  fetch('https://ipapi.co/json/')
+    .then(res => res.json())
+    .then(data => {
+      const country = (data.country_name || '').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+      // 국기 이미지 매핑 (이미지 폴더의 파일명과 매칭)
+      const flagMap = {
+        'South Korea': 'KOREA',
+        'Canada': 'CANADA'
+      };
+      if (country) {
+        if (geoGreeting) geoGreeting.textContent = `HI, ${country}`;
+        if (heroCountry) heroCountry.textContent = country;
+        
+        // 국기 이미지 표시
+        const heroFlag = document.getElementById('hero-flag');
+        const flagKey = flagMap[country];
+        if (heroFlag && flagKey) {
+          heroFlag.src = `images/${flagKey}.png`;
+          heroFlag.alt = `${country} flag`;
+          heroFlag.style.display = 'inline-block';
+        }
+      }
+    })
+    .catch(() => {
+      // API 실패 시 기본값 유지
+      if (geoGreeting) geoGreeting.textContent = 'HI, THERE';
+      if (heroCountry) heroCountry.textContent = 'welcome';
+    });
+
   // ===== MOBILE MENU TOGGLE =====
   if (menuBtn && nav) {
     menuBtn.addEventListener('click', () => {
@@ -25,6 +58,59 @@ document.addEventListener('DOMContentLoaded', () => {
         menuBtn.classList.remove('header__menu-btn--open');
         nav.classList.remove('header__nav--open');
       });
+    });
+  }
+
+  // ===== HERO ARROW SCROLL =====
+  const heroArrows = document.querySelectorAll('.hero__arrow');
+  const aboutSection = document.getElementById('about');
+  
+  if (heroArrows.length > 0 && aboutSection) {
+    heroArrows.forEach(arrow => {
+      arrow.style.cursor = 'pointer';
+      arrow.addEventListener('click', () => {
+        const sectionRect = aboutSection.getBoundingClientRect();
+        const absoluteTop = sectionRect.top + window.scrollY;
+        // 화면 정중앙에 오도록 계산 (요소의 절대 좌표 - 화면 절반 + 요소 높이 절반)
+        const centerPos = absoluteTop - (window.innerHeight / 2) + (aboutSection.offsetHeight / 2);
+        
+        window.scrollTo({
+          top: centerPos,
+          behavior: 'smooth'
+        });
+      });
+    });
+  }
+
+  // ===== DARK SECTION CLICK & BOUNCE =====
+  if (aboutSection) {
+    // 클릭 시 중앙으로 이동
+    aboutSection.style.cursor = 'pointer';
+    aboutSection.addEventListener('click', () => {
+      const sectionRect = aboutSection.getBoundingClientRect();
+      const absoluteTop = sectionRect.top + window.scrollY;
+      const centerPos = absoluteTop - (window.innerHeight / 2) + (aboutSection.offsetHeight / 2);
+      
+      window.scrollTo({
+        top: centerPos,
+        behavior: 'smooth'
+      });
+      aboutSection.classList.remove('is-bouncing');
+    });
+
+    // 스크롤 위치에 따라 애니메이션 멈춤/재시작
+    window.addEventListener('scroll', () => {
+      const rect = aboutSection.getBoundingClientRect();
+      // 검은색 영역이 화면의 중앙보다 아래에 있을 때만 동동거림 (즉, 메인 화면을 보고 있을 때)
+      if (rect.top > window.innerHeight * 0.5) {
+        if (!aboutSection.classList.contains('is-bouncing')) {
+          aboutSection.classList.add('is-bouncing');
+        }
+      } else {
+        if (aboutSection.classList.contains('is-bouncing')) {
+          aboutSection.classList.remove('is-bouncing');
+        }
+      }
     });
   }
 
@@ -63,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== SCROLL REVEAL ANIMATIONS =====
   const revealElements = document.querySelectorAll(
-    '.service-card, .project-card, .dark-section__quote, .inquiries__card, .projects__header, .footer__brand'
+    '.dark-section__philosophy, .stat-card, .services-list__item, .dark-section__tools, .project-card, .dark-section__quote, .inquiries__card, .projects__header, .footer__brand'
   );
 
   revealElements.forEach((el, index) => {
