@@ -91,6 +91,77 @@ document.addEventListener('DOMContentLoaded', () => {
 
   revealElements.forEach(el => observer.observe(el));
 
+  // ===== PROJECT PAGE TRANSITION =====
+  const projectTransition = document.getElementById('project-transition');
+  const projectPage = document.getElementById('project-page');
+  const projectBack = document.getElementById('project-back');
+  const projectCards = document.querySelectorAll('.project-card[data-project]');
+  const moreProjectsLink = document.querySelector('.projects__more-link');
+
+  function openProjectPage() {
+    // 1) Black screen slides up
+    projectTransition.classList.remove('project-transition--down');
+    projectTransition.classList.add('project-transition--up');
+
+    // 2) After black covers everything, show white page behind it
+    setTimeout(() => {
+      projectPage.classList.add('project-page--open');
+      document.body.style.overflow = 'hidden';
+      projectPage.scrollTop = 0;
+    }, 400);
+
+    // 3) Then slide black screen away upward to reveal white page
+    setTimeout(() => {
+      projectTransition.classList.remove('project-transition--up');
+      projectTransition.classList.add('project-transition--down');
+    }, 500);
+
+    // 4) Reset transition div after animation
+    setTimeout(() => {
+      projectTransition.classList.remove('project-transition--down');
+    }, 1000);
+  }
+
+  function closeProjectPage() {
+    // Reverse: black slides up to cover white page
+    projectTransition.classList.remove('project-transition--down');
+    projectTransition.classList.add('project-transition--up');
+
+    setTimeout(() => {
+      projectPage.classList.remove('project-page--open');
+      document.body.style.overflow = '';
+    }, 400);
+
+    setTimeout(() => {
+      projectTransition.classList.remove('project-transition--up');
+      projectTransition.classList.add('project-transition--down');
+    }, 500);
+
+    setTimeout(() => {
+      projectTransition.classList.remove('project-transition--down');
+    }, 1000);
+  }
+
+  projectCards.forEach(card => {
+    card.addEventListener('click', openProjectPage);
+  });
+
+  if (moreProjectsLink) {
+    moreProjectsLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      openProjectPage();
+    });
+  }
+
+  projectBack.addEventListener('click', closeProjectPage);
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && projectPage.classList.contains('project-page--open')) {
+      closeProjectPage();
+    }
+  });
+
+
   // ===== PRELOADER & HERO TEXT ANIMATION =====
   const preloader = document.getElementById('preloader');
   const counterElement = document.getElementById('preloader-counter');
@@ -151,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const trail = [];
-  const maxAge = 180; // ~3 seconds at 60fps
+  const maxAge = 90; // ~1.5 seconds at 60fps
   const mouse = { x: width / 2, y: height / 2 };
 
   // Track mouse movement
@@ -184,9 +255,35 @@ document.addEventListener('DOMContentLoaded', () => {
         // Shift drawing Y by current scroll to make it stick to the page
         ctx.moveTo(p1.x, p1.y - currentScrollY);
         ctx.lineTo(p2.x, p2.y - currentScrollY);
-        ctx.strokeStyle = `rgba(120, 120, 120, ${opacity * 0.8})`;
-        ctx.lineWidth = 1.2;
-        ctx.lineCap = 'round';
+        // Base soft stroke (half thickness: 6)
+        ctx.strokeStyle = `rgba(58, 58, 244, ${opacity * 0.4})`;
+        ctx.lineWidth = 6;
+        ctx.lineCap = 'butt';
+        ctx.lineJoin = 'miter';
+        ctx.stroke();
+
+        // Core solid stroke
+        ctx.beginPath();
+        ctx.moveTo(p1.x, p1.y - currentScrollY);
+        ctx.lineTo(p2.x, p2.y - currentScrollY);
+        ctx.strokeStyle = `rgba(58, 58, 244, ${opacity * 0.8})`;
+        ctx.lineWidth = 3;
+        ctx.stroke();
+
+        // Offset stroke 1 (chisel texture)
+        ctx.beginPath();
+        ctx.moveTo(p1.x + 1.5, p1.y - currentScrollY + 1.5);
+        ctx.lineTo(p2.x + 1.5, p2.y - currentScrollY + 1.5);
+        ctx.strokeStyle = `rgba(58, 58, 244, ${opacity * 0.5})`;
+        ctx.lineWidth = 2;
+        ctx.stroke();
+
+        // Offset stroke 2 (chisel texture)
+        ctx.beginPath();
+        ctx.moveTo(p1.x - 1, p1.y - currentScrollY - 1);
+        ctx.lineTo(p2.x - 1, p2.y - currentScrollY - 1);
+        ctx.strokeStyle = `rgba(58, 58, 244, ${opacity * 0.6})`;
+        ctx.lineWidth = 1.5;
         ctx.stroke();
       }
       trail[trail.length - 1].age++;

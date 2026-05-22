@@ -60,12 +60,7 @@
     <div class="dark-section__inner">
       <!-- Quote area -->
       <div class="dark-section__quote">
-        <p class="dark-section__quote-text">
-          "TEXT TEXT TEXT TEXT TEXT,<br>
-          TEXT TEXT TEXT TEXT<br>
-          TEXT TEXT TEXT TEXT."
-        </p>
-        <span class="dark-section__quote-author">— TEXT TEXT</span>
+        <p class="dark-section__quote-text">THE CORE OF MY WORK</p>
       </div>
 
       <!-- 4-Column Services -->
@@ -132,7 +127,7 @@
 
     <div class="projects__grid">
       <!-- Project Card 1 -->
-      <div class="project-card">
+      <div class="project-card" data-project="hospitality">
         <div class="project-card__image">
           <img src="images/opt_Thumnail_01.jpg" alt="Hospitality" class="project-card__img" />
           <div class="project-card__overlay">
@@ -149,7 +144,7 @@
       </div>
 
       <!-- Project Card 2 -->
-      <div class="project-card">
+      <div class="project-card" data-project="residential">
         <div class="project-card__image">
           <img src="images/opt_Thumnail_03.jpg" alt="Residential" class="project-card__img" />
           <div class="project-card__overlay">
@@ -166,7 +161,7 @@
       </div>
 
       <!-- Project Card 3 -->
-      <div class="project-card">
+      <div class="project-card" data-project="commercial">
         <div class="project-card__image">
           <img src="images/opt_Thumnail_02.jpg" alt="Commercial" class="project-card__img" />
         </div>
@@ -220,6 +215,77 @@
       </div>
     </div>
   </footer>
+
+  <!-- ===== PROJECT TRANSITION & PAGE ===== -->
+  <div class="project-transition" id="project-transition"></div>
+  <div class="project-page" id="project-page">
+    <div class="project-page__header">
+      <button class="project-page__back" id="project-back">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        <span>BACK</span>
+      </button>
+      <h2 class="project-page__title">ALL PROJECTS</h2>
+    </div>
+
+    <div class="project-page__grid">
+      <div class="project-page__card">
+        <div class="project-page__image-wrapper">
+          <div class="project-page__thumb"></div>
+          <div class="project-page__hover">
+            <h3 class="project-page__name">PROJECT NAME</h3>
+            <span class="project-page__date">2024.03 — 2024.09</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-page__card">
+        <div class="project-page__image-wrapper">
+          <div class="project-page__thumb"></div>
+          <div class="project-page__hover">
+            <h3 class="project-page__name">PROJECT NAME</h3>
+            <span class="project-page__date">2024.01 — 2024.06</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-page__card">
+        <div class="project-page__image-wrapper">
+          <div class="project-page__thumb"></div>
+          <div class="project-page__hover">
+            <h3 class="project-page__name">PROJECT NAME</h3>
+            <span class="project-page__date">2023.08 — 2024.02</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-page__card">
+        <div class="project-page__image-wrapper">
+          <div class="project-page__thumb"></div>
+          <div class="project-page__hover">
+            <h3 class="project-page__name">PROJECT NAME</h3>
+            <span class="project-page__date">2023.05 — 2023.11</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-page__card">
+        <div class="project-page__image-wrapper">
+          <div class="project-page__thumb"></div>
+          <div class="project-page__hover">
+            <h3 class="project-page__name">PROJECT NAME</h3>
+            <span class="project-page__date">2023.01 — 2023.07</span>
+          </div>
+        </div>
+      </div>
+      <div class="project-page__card">
+        <div class="project-page__image-wrapper">
+          <div class="project-page__thumb"></div>
+          <div class="project-page__hover">
+            <h3 class="project-page__name">PROJECT NAME</h3>
+            <span class="project-page__date">2022.09 — 2023.03</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="custom-cursor"></div>
   <canvas class="cursor-canvas"></canvas>
