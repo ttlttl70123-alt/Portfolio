@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=32">
+  <link rel="stylesheet" href="css/style.css?v=100">
 </head>
 <body class="is-loading">
 
@@ -62,88 +62,176 @@
     <div class="dark-section__inner">
 
       <!-- ① Philosophy Quote - 손글씨 스타일 -->
-      <div class="dark-section__quote">
-        <p class="dark-section__quote-text">ABOUT MY SPACE</p>
-      </div>
-
-      <div class="dark-section__philosophy">
-        <div class="philosophy__text-block">
-          <span class="philosophy__line">NOTHING IS</span>
-          <span class="philosophy__line philosophy__line--accent">WASTED</span>
-          <span class="philosophy__cursive">— every experience</span>
-          <span class="philosophy__line">BECOMES</span>
-          <span class="philosophy__line philosophy__line--accent">SYNERGY.</span>
+      <!-- 통통 튀는 상단 영역 전체를 클릭할 수 있도록 래퍼 추가 -->
+      <div class="dark-section__top-clickable">
+        <!-- ① Philosophy Quote - 손글씨 스타일 -->
+        <div class="dark-section__quote">
+          <p class="dark-section__quote-text">ABOUT MY SPACE</p>
         </div>
-        <!-- 손그림 느낌 SVG 낙서 장식들 -->
-        <svg class="philosophy__doodle philosophy__doodle--arrow" viewBox="0 0 60 80" fill="none" stroke="#3A3AF4" stroke-width="2" stroke-linecap="round">
-          <path d="M30 5 C25 20, 20 40, 30 60 C32 65, 28 70, 30 75" />
-          <path d="M20 65 L30 75 L40 65" />
-        </svg>
-        <svg class="philosophy__doodle philosophy__doodle--star" viewBox="0 0 40 40" fill="none" stroke="#3A3AF4" stroke-width="2" stroke-linecap="round">
-          <path d="M20 5 L22 15 L32 15 L24 21 L27 32 L20 25 L13 32 L16 21 L8 15 L18 15 Z" />
-        </svg>
-        <svg class="philosophy__doodle philosophy__doodle--circle" viewBox="0 0 50 50" fill="none" stroke="#3A3AF4" stroke-width="2" stroke-linecap="round">
-          <ellipse cx="25" cy="25" rx="22" ry="18" transform="rotate(-8 25 25)" stroke-dasharray="6 4" />
-        </svg>
-        <svg class="philosophy__doodle philosophy__doodle--zigzag" viewBox="0 0 80 20" fill="none" stroke="#3A3AF4" stroke-width="2" stroke-linecap="round">
-          <polyline points="5,15 15,5 25,15 35,5 45,15 55,5 65,15 75,5" />
-        </svg>
-        <span class="philosophy__side-note">(다양한 전공의<br>힘을 믿습니다)</span>
+  
+        <div class="dark-section__philosophy">
+          <div class="philosophy__text-block">
+            <div class="philosophy__row">
+              <span class="philosophy__line">NOTHING</span>
+            </div>
+            <div class="philosophy__row philosophy__row--gap-small">
+              <span class="philosophy__line">IS&nbsp;</span>
+              <span class="philosophy__line philosophy__line--accent">
+                WASTED
+                <img src="images/Smile_emoji.png" class="philosophy__doodle philosophy__doodle--smile" alt="">
+              </span>
+            </div>
+            <div class="philosophy__row philosophy__row--gap-large philosophy__row--no-gap">
+              <h2 class="philosophy__cursive" style="position: relative;">
+                (every experience)
+                <img src="images/Underline.png" class="philosophy__doodle philosophy__doodle--underline" alt="">
+              </h2>
+            </div>
+            <div class="philosophy__row philosophy__row--gap-large">
+              <span class="philosophy__line">
+                <img src="images/Someday.png" class="philosophy__doodle philosophy__doodle--someday" alt="">
+                BECOMES
+              </span>
+            </div>
+            <div class="philosophy__row philosophy__row--gap-small">
+              <span class="philosophy__line philosophy__line--accent">
+                SYNERGY.
+                <img src="images/Circle.png" class="philosophy__doodle philosophy__doodle--circle" alt="">
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="dark-section__divider"></div>
 
       <!-- ② 경력 & 프로젝트 통계 -->
-      <div class="dark-section__stats">
-        <div class="stat-card">
-          <span class="stat-card__number">2.8<sup class="stat-card__plus">+</sup></span>
-          <span class="stat-card__label">Years Experience</span>
+      <div class="dark-section__experience">
+        <div class="experience__index-wrapper">
+          <span class="experience__index">
+            <span class="experience__paren">(</span>01<span class="experience__paren">)</span>
+          </span>
         </div>
-        <div class="stat-card">
-          <span class="stat-card__number">12<sup class="stat-card__plus" style="color: #3A3AF4;">+</sup></span>
-          <span class="stat-card__label">Total Projects</span>
+        <div class="experience__right-group">
+          <div class="experience__title-wrapper">
+            <h3 class="experience__title">About my experience</h3>
+          </div>
+          <div class="experience__content">
+            <p class="experience__desc">
+              Starting with a background in industrial and automotive design,<br>
+              I later transitioned to interior design. Since then,<br>
+              I have worked at firms in Korea specializing in commercial<br>
+              spaces, high-end residential, and hospitality projects.<br>
+              Every experience along this journey has been invaluable,<br>
+              enabling me to deliver exceptional results.
+            </p>
+            <div class="experience__stats">
+              <div class="stat-card">
+                <span class="stat-card__number">2.8<sup class="stat-card__plus">+</sup></span>
+                <span class="stat-card__label">Years Experience</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__number">12<sup class="stat-card__plus" style="color: #3A3AF4;">+</sup></span>
+                <span class="stat-card__label">Total Projects</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       <div class="dark-section__divider"></div>
 
       <!-- ③ 할 수 있는 일 -->
-      <div class="dark-section__services">
-        <h3 class="dark-section__section-title">WHAT I CAN DO</h3>
-        <div class="services-list">
-          <div class="services-list__item">
-            <span class="services-list__number">01</span>
-            <span class="services-list__name">INTERIOR DESIGN</span>
-            <span class="services-list__desc">공간의 본질을 이해하고, 사용자 중심의 경험을 설계합니다.</span>
+      <div class="dark-section__experience">
+        <div class="experience__index-wrapper">
+          <span class="experience__index">
+            <span class="experience__paren">(</span>02<span class="experience__paren">)</span>
+          </span>
+        </div>
+        <div class="experience__right-group">
+          <div class="experience__title-wrapper">
+            <h3 class="experience__title">WHAT I CAN DO</h3>
           </div>
-          <div class="services-list__item">
-            <span class="services-list__number">02</span>
-            <span class="services-list__name">PLANNING</span>
-            <span class="services-list__desc">리서치부터 브랜드 기획까지, 전략적 사고로 방향을 제시합니다.</span>
+          <div class="experience__content">
+            <p class="experience__desc">
+              Blending spatial thinking with brand strategy,<br>
+              I craft holistic design solutions that connect<br>
+              people, products, and environments.
+            </p>
           </div>
-          <div class="services-list__item">
-            <span class="services-list__number">03</span>
-            <span class="services-list__name">PRODUCT DESIGN</span>
-            <span class="services-list__desc">공간을 넘어 제품까지, 사용자와 만나는 접점을 디자인합니다.</span>
-          </div>
+        </div>
+        
+        <div class="service-tags">
+          <span class="service-tag">
+            <span class="service-tag__number">01</span>INTERIOR DESIGN
+          </span>
+          <span class="service-tag">
+            <span class="service-tag__number">02</span>PLANNING
+          </span>
+          <span class="service-tag">
+            <span class="service-tag__number">03</span>PRODUCT DESIGN
+          </span>
         </div>
       </div>
 
       <div class="dark-section__divider"></div>
 
       <!-- ④ 사용 가능 툴 -->
-      <div class="dark-section__tools">
-        <h3 class="dark-section__section-title">TOOLS</h3>
+      <div class="dark-section__experience">
+        <div class="experience__index-wrapper">
+          <span class="experience__index">
+            <span class="experience__paren">(</span>03<span class="experience__paren">)</span>
+          </span>
+        </div>
+        <div class="experience__right-group">
+          <div class="experience__title-wrapper">
+            <h3 class="experience__title">TOOLS I USE</h3>
+          </div>
+          <div class="experience__content">
+            <p class="experience__desc">
+              Proficient across industry-standard software<br>
+              for design, visualization, and collaboration.
+            </p>
+          </div>
+        </div>
+        
         <div class="tools-tags">
-          <span class="tools-tag">PHOTOSHOP</span>
-          <span class="tools-tag">ILLUSTRATOR</span>
-          <span class="tools-tag">INDESIGN</span>
-          <span class="tools-tag">SKETCHUP</span>
-          <span class="tools-tag">AUTOCAD</span>
-          <span class="tools-tag">ENSCAPE</span>
-          <span class="tools-tag">3DS MAX</span>
-          <span class="tools-tag">FIGMA</span>
-          <span class="tools-tag">ANTIGRAVITY</span>
+          <span class="tools-tag">
+            <img class="tools-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobephotoshop.svg" alt="Photoshop">
+            <span class="tools-text">PHOTOSHOP</span>
+          </span>
+          <span class="tools-tag">
+            <img class="tools-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobeillustrator.svg" alt="Illustrator">
+            <span class="tools-text">ILLUSTRATOR</span>
+          </span>
+          <span class="tools-tag">
+            <img class="tools-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/adobeindesign.svg" alt="InDesign">
+            <span class="tools-text">INDESIGN</span>
+          </span>
+          <span class="tools-tag">
+            <img class="tools-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/sketchup.svg" alt="SketchUp">
+            <span class="tools-text">SKETCHUP</span>
+          </span>
+          <span class="tools-tag">
+            <img class="tools-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/autocad.svg" alt="AutoCAD" onerror="this.src='https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/autodesk.svg'">
+            <span class="tools-text">AUTOCAD</span>
+          </span>
+          <span class="tools-tag">
+            <img class="tools-logo" src="images/ENSCAPE LOGO.png" alt="Enscape">
+            <span class="tools-text">ENSCAPE</span>
+          </span>
+          <span class="tools-tag">
+            <img class="tools-logo" src="images/3ds_max_logo_fixed.svg" alt="3ds Max">
+            <span class="tools-text">3DS MAX</span>
+          </span>
+          <span class="tools-tag">
+            <img class="tools-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg" alt="Figma">
+            <span class="tools-text">FIGMA</span>
+          </span>
+          <span class="tools-tag">
+            <img class="tools-logo" src="images/Antigravity_logo.png" alt="Antigravity">
+            <span class="tools-text">ANTIGRAVITY</span>
+          </span>
         </div>
       </div>
 
@@ -324,6 +412,6 @@
 
   <div class="custom-cursor"></div>
   <canvas class="cursor-canvas"></canvas>
-  <script src="js/script.js"></script>
+  <script src="js/script.js?v=3"></script>
 </body>
 </html>

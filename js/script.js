@@ -61,42 +61,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ===== SCROLL TO PHILOSOPHY AREA =====
+  function scrollToPhilosophyArea() {
+    const quoteEl = document.querySelector('.dark-section__quote-text');
+    const philEl = document.querySelector('.philosophy__text-block');
+    const aboutSection = document.getElementById('about');
+    
+    if (quoteEl && philEl) {
+      const quoteRect = quoteEl.getBoundingClientRect();
+      const philRect = philEl.getBoundingClientRect();
+      
+      const absoluteTop = quoteRect.top + window.scrollY;
+      const absoluteBottom = philRect.bottom + window.scrollY;
+      const totalHeight = absoluteBottom - absoluteTop;
+      
+      const targetCenter = absoluteTop + (totalHeight / 2);
+      const scrollPos = targetCenter - (window.innerHeight / 2);
+      
+      window.scrollTo({
+        top: scrollPos,
+        behavior: 'smooth'
+      });
+      
+      if (aboutSection && aboutSection.classList.contains('is-bouncing')) {
+        aboutSection.classList.remove('is-bouncing');
+      }
+    }
+  }
+
   // ===== HERO ARROW SCROLL =====
   const heroArrows = document.querySelectorAll('.hero__arrow');
   const aboutSection = document.getElementById('about');
   
-  if (heroArrows.length > 0 && aboutSection) {
+  if (heroArrows.length > 0) {
     heroArrows.forEach(arrow => {
       arrow.style.cursor = 'pointer';
-      arrow.addEventListener('click', () => {
-        const sectionRect = aboutSection.getBoundingClientRect();
-        const absoluteTop = sectionRect.top + window.scrollY;
-        // 화면 정중앙에 오도록 계산 (요소의 절대 좌표 - 화면 절반 + 요소 높이 절반)
-        const centerPos = absoluteTop - (window.innerHeight / 2) + (aboutSection.offsetHeight / 2);
-        
-        window.scrollTo({
-          top: centerPos,
-          behavior: 'smooth'
-        });
-      });
+      arrow.addEventListener('click', scrollToPhilosophyArea);
     });
   }
 
   // ===== DARK SECTION CLICK & BOUNCE =====
   if (aboutSection) {
-    // 클릭 시 중앙으로 이동
-    aboutSection.style.cursor = 'pointer';
-    aboutSection.addEventListener('click', () => {
-      const sectionRect = aboutSection.getBoundingClientRect();
-      const absoluteTop = sectionRect.top + window.scrollY;
-      const centerPos = absoluteTop - (window.innerHeight / 2) + (aboutSection.offsetHeight / 2);
-      
-      window.scrollTo({
-        top: centerPos,
-        behavior: 'smooth'
-      });
-      aboutSection.classList.remove('is-bouncing');
-    });
+    const topClickableArea = aboutSection.querySelector('.dark-section__top-clickable');
+    if (topClickableArea) {
+      topClickableArea.style.cursor = 'pointer';
+      topClickableArea.addEventListener('click', scrollToPhilosophyArea);
+    }
 
     // 스크롤 위치에 따라 애니메이션 멈춤/재시작
     window.addEventListener('scroll', () => {
@@ -341,9 +351,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Shift drawing Y by current scroll to make it stick to the page
         ctx.moveTo(p1.x, p1.y - currentScrollY);
         ctx.lineTo(p2.x, p2.y - currentScrollY);
-        // Base soft stroke (half thickness: 6)
+        // Base soft stroke (half thickness: 7.2)
         ctx.strokeStyle = `rgba(58, 58, 244, ${opacity * 0.4})`;
-        ctx.lineWidth = 6;
+        ctx.lineWidth = 7.2;
         ctx.lineCap = 'butt';
         ctx.lineJoin = 'miter';
         ctx.stroke();
@@ -353,23 +363,23 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.moveTo(p1.x, p1.y - currentScrollY);
         ctx.lineTo(p2.x, p2.y - currentScrollY);
         ctx.strokeStyle = `rgba(58, 58, 244, ${opacity * 0.8})`;
-        ctx.lineWidth = 3;
+        ctx.lineWidth = 3.6;
         ctx.stroke();
 
         // Offset stroke 1 (chisel texture)
         ctx.beginPath();
-        ctx.moveTo(p1.x + 1.5, p1.y - currentScrollY + 1.5);
-        ctx.lineTo(p2.x + 1.5, p2.y - currentScrollY + 1.5);
+        ctx.moveTo(p1.x + 1.8, p1.y - currentScrollY + 1.8);
+        ctx.lineTo(p2.x + 1.8, p2.y - currentScrollY + 1.8);
         ctx.strokeStyle = `rgba(58, 58, 244, ${opacity * 0.5})`;
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 2.4;
         ctx.stroke();
 
         // Offset stroke 2 (chisel texture)
         ctx.beginPath();
-        ctx.moveTo(p1.x - 1, p1.y - currentScrollY - 1);
-        ctx.lineTo(p2.x - 1, p2.y - currentScrollY - 1);
+        ctx.moveTo(p1.x - 1.2, p1.y - currentScrollY - 1.2);
+        ctx.lineTo(p2.x - 1.2, p2.y - currentScrollY - 1.2);
         ctx.strokeStyle = `rgba(58, 58, 244, ${opacity * 0.6})`;
-        ctx.lineWidth = 1.5;
+        ctx.lineWidth = 1.8;
         ctx.stroke();
       }
       trail[trail.length - 1].age++;
