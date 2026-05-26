@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=100">
+  <link rel="stylesheet" href="css/style.css?v=126">
 </head>
 <body class="is-loading">
 
@@ -162,14 +162,17 @@
         </div>
         
         <div class="service-tags">
-          <span class="service-tag">
-            <span class="service-tag__number">01</span>INTERIOR DESIGN
+          <span class="service-tag" data-title="INTERIOR DESIGN" data-desc="Over two and a half years at Jong Kim Design Studio,<br>I managed a broad range of responsibilities,<br>including design planning, drawing reviews, material selection,<br>FF&E, domestic and international client relations, and site supervision.<br><br>Through seamless communication and collaboration with both<br>business partners and team members, I have developed into a<br>highly adaptable communicator.">
+            <span><span class="service-tag__number">01</span>INTERIOR DESIGN</span>
+            <span class="service-tag__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg></span>
           </span>
-          <span class="service-tag">
-            <span class="service-tag__number">02</span>PLANNING
+          <span class="service-tag" data-title="PLANNING" data-desc="Providing strategic direction from research to brand planning.">
+            <span><span class="service-tag__number">02</span>PLANNING</span>
+            <span class="service-tag__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg></span>
           </span>
-          <span class="service-tag">
-            <span class="service-tag__number">03</span>PRODUCT DESIGN
+          <span class="service-tag" data-title="PRODUCT DESIGN" data-desc="Designing every touchpoint with the user in mind, from spaces to products.">
+            <span><span class="service-tag__number">03</span>PRODUCT DESIGN</span>
+            <span class="service-tag__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg></span>
           </span>
         </div>
       </div>
@@ -410,8 +413,56 @@
     </div>
   </div>
 
+  <!-- ===== SERVICE MODAL ===== -->
+  <div class="service-modal" id="serviceModal">
+    <div class="service-modal__overlay"></div>
+    <div class="service-modal__content">
+      <button class="service-modal__close" aria-label="Close modal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+      </button>
+      <div class="service-modal__layout">
+        <!-- Left Side: Texts -->
+        <div class="service-modal__left">
+          <h3 class="service-modal__title" id="serviceModalTitle">Title</h3>
+          <p class="service-modal__desc" id="serviceModalDesc">Description</p>
+        </div>
+        
+        <!-- Right Side: Gallery -->
+        <div class="service-modal__right">
+          <!-- Main Image -->
+          <div class="service-modal__gallery-main">
+            <button class="gallery-nav gallery-nav--prev" aria-label="Previous image">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
+            </button>
+            <div class="gallery-image-container">
+              <img src="images/Interior design_02.jpg" alt="Interior Design" class="gallery-image">
+            </div>
+            <button class="gallery-nav gallery-nav--next" aria-label="Next image">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
+            </button>
+          </div>
+          <!-- Side Thumbnails (vertical, 3 items, active = center) -->
+          <div class="service-modal__gallery-side">
+            <div class="gallery-side-thumb" data-index="0">
+              <img src="images/Interior design_02.jpg" alt="Thumb 1" class="gallery-image">
+              <div class="gallery-side-overlay"></div>
+            </div>
+            <div class="gallery-side-thumb is-active" data-index="1">
+              <img src="images/Interior design_02.jpg" alt="Thumb 2" class="gallery-image">
+              <div class="gallery-side-overlay"></div>
+            </div>
+            <div class="gallery-side-thumb" data-index="2">
+              <img src="images/Interior design_02.jpg" alt="Thumb 3" class="gallery-image">
+              <div class="gallery-side-overlay"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="custom-cursor"></div>
   <canvas class="cursor-canvas"></canvas>
-  <script src="js/script.js?v=3"></script>
+  <script src="js/script.js?v=11"></script>
 </body>
 </html>

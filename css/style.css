@@ -670,8 +670,8 @@ body.is-loading {
 .service-tag {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
-  padding-left: 15vw; /* 좌측 여백을 충분히 주어 텍스트 라인과 맞춤 */
+  justify-content: space-between;
+  padding-left: var(--space-lg); /* 좌측 여백 수정: 사용자가 지정한 좌측 붉은 영역 부근으로 텍스트 이동 */
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2vw, 1.6rem);
   font-weight: 400;
@@ -682,7 +682,7 @@ body.is-loading {
   border: 1px solid var(--color-border);
   border-radius: 10px;
   transition: all var(--transition-base);
-  cursor: default;
+  cursor: pointer;
   width: 100%;
 }
 
@@ -697,6 +697,24 @@ body.is-loading {
   color: var(--color-text-light);
   border-color: var(--color-accent);
   background-color: rgba(58, 58, 244, 0.08);
+}
+
+.service-tag__arrow {
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  margin-right: var(--space-md);
+  opacity: 0.5;
+  transition: opacity var(--transition-base);
+}
+
+.service-tag__arrow svg {
+  width: 24px;
+  height: 24px;
+}
+
+.service-tag:hover .service-tag__arrow {
+  opacity: 1;
 }
 
 /* Tool Tags Inline (03 - TOOLS I USE) */
@@ -1524,3 +1542,252 @@ body.is-loading {
   }
 }
 
+/* ==========================================
+   SERVICE MODAL
+   ========================================== */
+
+.service-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s;
+}
+
+.service-modal.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.service-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.service-modal__content {
+  position: relative;
+  background-color: #050505;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  padding: var(--space-2xl) var(--space-xl);
+  max-width: 1400px;
+  width: 90vw;
+  height: 52vh; /* 기존 65vh에서 약 20% 축소 */
+  display: flex;
+  flex-direction: column;
+  transform: translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+
+.service-modal.is-active .service-modal__content {
+  transform: translateY(0);
+}
+
+.service-modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-base);
+}
+
+.service-modal__close:hover {
+  color: var(--color-text-light);
+}
+
+.service-modal__close svg {
+  width: 24px;
+  height: 24px;
+}
+
+.service-modal__title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--color-text-light);
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.05em;
+}
+
+.service-modal__body {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-muted-light);
+}
+
+/* ==========================================
+   MODAL LAYOUT
+   ========================================== */
+.service-modal__layout {
+  display: flex; /* grid 대신 flex를 사용하여 우측 영역이 내용물 너비만큼만 차지하도록 함 */
+  justify-content: space-between;
+  gap: var(--space-xl);
+  margin-top: var(--space-md);
+  flex-grow: 1;
+  min-height: 0; /* 내용물이 대지를 뚫고 나가는 것 방지 */
+}
+
+/* Left Side: Texts */
+.service-modal__left {
+  flex: 1; /* 남은 공간을 모두 차지 */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.service-modal__desc {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--color-text-muted-light);
+  margin-bottom: 0; /* 사진 최하단 라인과 맞추기 위해 여백 제거 */
+}
+
+/* Right Side: Gallery */
+.service-modal__right {
+  display: flex; /* 우측으로 치우치도록 flex 사용 */
+  gap: var(--space-sm);
+  align-items: stretch;
+  min-height: 0;
+  transform: scale(1.2); /* 모달 크기는 유지한 채 이미지만 20% 확대 */
+  transform-origin: center right; /* 우측을 기준으로 확대하여 텍스트 침범 최소화 */
+}
+
+/* Main Image Area */
+.service-modal__gallery-main {
+  position: relative;
+  height: 100%;
+  background: none; /* 빈 여백(레터박스) 안보이게 배경색 제거 */
+  border-radius: 4px;
+  /* overflow: hidden; 제거하여 화살표가 바깥으로 나갈 수 있게 허용 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+}
+
+.gallery-image-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-image {
+  height: 100%;
+  width: auto; /* 높이에 맞춰 원본 비율대로 너비 자동 계산 */
+  object-fit: contain;
+  display: block;
+}
+
+.gallery-placeholder-text {
+  font-family: var(--font-display);
+  color: var(--color-accent);
+  font-size: 1.2rem;
+  letter-spacing: 0.05em;
+  opacity: 0.7;
+}
+
+/* Navigation Arrows */
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #ffffff; /* 화이트 컬러로 변경 */
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7)); /* 모던한 드롭 섀도우로 사진 위에서 시인성 확보 */
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-base);
+  z-index: 2;
+}
+
+.gallery-nav--next.disabled,
+.gallery-nav--prev.disabled {
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.gallery-nav--prev {
+  left: 2px; /* 이전(10px)과 방금 전(-8px)의 중간 정도로 조정 */
+}
+
+.gallery-nav--next {
+  right: 2px; /* 이전(10px)과 방금 전(-8px)의 중간 정도로 조정 */
+}
+
+.gallery-nav svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* Side Thumbnails (vertical, 3 items) */
+.service-modal__gallery-side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  width: 80px; /* 메인 이미지 축소에 맞춰 썸네일 너비도 약 20% 축소 */
+  flex-shrink: 0;
+  min-height: 0;
+}
+
+.gallery-side-thumb {
+  position: relative;
+  flex: 1;
+  background-color: #1a1a1a;
+  border-radius: 4px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.gallery-side-thumb .gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 비활성 썸네일: 검은색 50% 오버레이 */
+.gallery-side-overlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+/* 활성(중앙) 썸네일: 오버레이 숨김 */
+.gallery-side-thumb.is-active .gallery-side-overlay {
+  opacity: 0;
+}
+
+.gallery-side-thumb:hover .gallery-side-overlay {
+  opacity: 0.3;
+}
+
+@media (max-width: 1024px) {
+  .service-modal__layout {
+    grid-template-columns: 1fr;
+  }
+}

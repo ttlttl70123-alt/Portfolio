@@ -408,3 +408,130 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
+
+  // ===== SERVICE MODAL =====
+  const serviceTags = document.querySelectorAll('.service-tag');
+  const serviceModal = document.getElementById('serviceModal');
+  
+  if (serviceModal && serviceTags.length > 0) {
+    const modalTitle = document.getElementById('serviceModalTitle');
+    const modalBody = document.getElementById('serviceModalDesc');
+    const modalClose = serviceModal.querySelector('.service-modal__close');
+    const modalOverlay = serviceModal.querySelector('.service-modal__overlay');
+
+    const openModal = (title, desc) => {
+      if (modalTitle) modalTitle.textContent = title;
+      if (modalBody) modalBody.innerHTML = desc; /* <br> 태그 인식을 위해 innerHTML 사용 */
+      serviceModal.classList.add('is-active');
+    };
+
+    const closeModal = () => {
+      serviceModal.classList.remove('is-active');
+    };
+
+    serviceTags.forEach(tag => {
+      tag.addEventListener('click', () => {
+        const title = tag.getAttribute('data-title');
+        const desc = tag.getAttribute('data-desc');
+        openModal(title, desc);
+      });
+    });
+
+    if (modalClose) {
+      modalClose.addEventListener('click', closeModal);
+    }
+    if (modalOverlay) {
+      modalOverlay.addEventListener('click', closeModal);
+    }
+    
+    // --- Gallery navigation logic (vertical carousel) ---
+    const sideThumbs = document.querySelectorAll('.gallery-side-thumb');
+    const mainImageContainer = document.querySelector('.gallery-image-container');
+    const prevBtn = document.querySelector('.gallery-nav--prev');
+    const nextBtn = document.querySelector('.gallery-nav--next');
+
+    // 이미지 목록 (나중에 동적으로 변경 가능)
+    const galleryImages = [
+      'images/Interior design_02.jpg',
+      'images/Interior design_02.jpg',
+      'images/Interior design_02.jpg',
+    ];
+    let centerImageIndex = 1; // 현재 가운데에 표시되는 이미지의 인덱스
+
+    const updateCarousel = () => {
+      // 가운데 썸네일은 항상 활성(밝게)
+      sideThumbs.forEach((thumb, i) => {
+        thumb.classList.toggle('is-active', i === 1); // 항상 가운데(1번)만 밝게
+      });
+
+      // 각 슬롯에 이미지 배정: [위 = center-1, 가운데 = center, 아래 = center+1]
+      const topIdx = centerImageIndex - 1;
+      const bottomIdx = centerImageIndex + 1;
+
+      sideThumbs.forEach((thumb, slotIndex) => {
+        const img = thumb.querySelector('img');
+        if (!img) return;
+        let imgIdx;
+        if (slotIndex === 0) imgIdx = topIdx;
+        else if (slotIndex === 1) imgIdx = centerImageIndex;
+        else imgIdx = bottomIdx;
+
+        if (imgIdx >= 0 && imgIdx < galleryImages.length) {
+          img.src = galleryImages[imgIdx];
+          thumb.style.visibility = 'visible';
+        } else {
+          thumb.style.visibility = 'hidden'; // 범위 밖이면 숨김
+        }
+      });
+
+      // 메인 이미지 업데이트
+      if (mainImageContainer) {
+        const mainImg = mainImageContainer.querySelector('img');
+        if (mainImg) {
+          mainImg.src = galleryImages[centerImageIndex];
+        }
+      }
+
+      // 화살표 비활성화
+      if (prevBtn) prevBtn.classList.toggle('disabled', centerImageIndex <= 0);
+      if (nextBtn) nextBtn.classList.toggle('disabled', centerImageIndex >= galleryImages.length - 1);
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        if (centerImageIndex > 0) {
+          centerImageIndex--;
+          updateCarousel();
+        }
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        if (centerImageIndex < galleryImages.length - 1) {
+          centerImageIndex++;
+          updateCarousel();
+        }
+      });
+    }
+    // 썸네일 클릭으로도 이동
+    sideThumbs.forEach((thumb, slotIndex) => {
+      thumb.addEventListener('click', () => {
+        if (slotIndex === 0 && centerImageIndex > 0) {
+          centerImageIndex--;
+          updateCarousel();
+        } else if (slotIndex === 2 && centerImageIndex < galleryImages.length - 1) {
+          centerImageIndex++;
+          updateCarousel();
+        }
+      });
+    });
+    // Initialize
+    updateCarousel();
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && serviceModal.classList.contains('is-active')) {
+        closeModal();
+      }
+    });
+  }
