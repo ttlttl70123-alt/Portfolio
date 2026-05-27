@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroFlag = document.getElementById('hero-flag');
         const flagKey = flagMap[country];
         if (heroFlag && flagKey) {
-          heroFlag.src = `images/${flagKey}.png`;
+          heroFlag.src = `images/${flagKey}.webp`;
           heroFlag.alt = `${country} flag`;
           heroFlag.style.display = 'inline-block';
         }
@@ -423,32 +423,46 @@ document.addEventListener('DOMContentLoaded', () => {
       if (modalTitle) modalTitle.textContent = title;
       if (modalBody) modalBody.innerHTML = desc; /* <br> 태그 인식을 위해 innerHTML 사용 */
       
-      // 02번 탭(Spatial Strategy Planning)일 경우 가로 레이아웃 적용 및 모든 이미지 12장 로드
-      if (index === 1) {
+      // 탭 인덱스에 따라 이미지 및 레이아웃 설정
+      if (index === 1) { // 02번 탭 (Spatial Strategy Planning)
         serviceModal.classList.add('service-modal--horizontal');
         galleryImages = [
-          'images/02_Spatial_Strategy_Planning/20260527_104840.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104850.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104859.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104902.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104904.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104910.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104912.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104914.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104916.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104918.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104920.png',
-          'images/02_Spatial_Strategy_Planning/20260527_104922.png'
+          'images/02_Spatial_Strategy_Planning/20260527_104840.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104850.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104859.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104902.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104904.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104910.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104912.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104914.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104916.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104918.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104920.webp',
+          'images/02_Spatial_Strategy_Planning/20260527_104922.webp'
         ];
-      } else {
+      } else if (index === 2) { // 03번 탭 (Industrial design)
+        serviceModal.classList.add('service-modal--horizontal');
+        galleryImages = [
+          'images/03_Product_design1/1.webp',
+          'images/03_Product_design1/2.webp',
+          'images/03_Product_design1/3.webp',
+          'images/03_Product_design1/4.webp',
+          'images/03_Product_design1/5.webp'
+        ];
+      } else { // 01번 탭 (Interior design)
         serviceModal.classList.remove('service-modal--horizontal');
         galleryImages = [
-          'images/Interior design_02.jpg',
-          'images/Interior design_02.jpg',
-          'images/Interior design_02.jpg'
+          'images/01_Interior desgin/Interior design_03_2.webp',
+          'images/01_Interior desgin/Interior design_07_2.webp',
+          'images/01_Interior desgin/Interior design_05_2.webp',
+          'images/01_Interior desgin/Interior design_01.webp',
+          'images/01_Interior desgin/Interior design_06_2.webp',
+          'images/01_Interior desgin/Interior design_02.webp',
+          'images/01_Interior desgin/Interior design_04_2.webp'
         ];
       }
       centerImageIndex = 0; // 초기 화면에서 첫 번째 이미지가 활성화되도록 0으로 설정 (좌측/상단 썸네일 비움)
+      currentTabIndex = index;
       updateCarousel();
 
       serviceModal.classList.add('is-active');
@@ -481,11 +495,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 이미지 목록 (나중에 동적으로 변경 가능)
     let galleryImages = [
-      'images/Interior design_02.jpg',
-      'images/Interior design_02.jpg',
-      'images/Interior design_02.jpg',
+      'images/01_Interior desgin/Interior design_02.webp',
+      'images/01_Interior desgin/Interior design_02.webp',
+      'images/01_Interior desgin/Interior design_02.webp',
     ];
     let centerImageIndex = 0; // 초기 화면에서 첫 번째 이미지가 활성화되도록 0으로 설정
+    let currentTabIndex = 0;
 
     function updateCarousel() {
       // 가운데 썸네일은 항상 활성(밝게)
@@ -518,6 +533,77 @@ document.addEventListener('DOMContentLoaded', () => {
         const mainImg = mainImageContainer.querySelector('img');
         if (mainImg) {
           mainImg.src = galleryImages[centerImageIndex];
+        }
+        
+        // 캡션 업데이트
+        const captionEl = document.getElementById('galleryCaption');
+        if (captionEl) {
+          if (currentTabIndex === 1) {
+            // 02번 탭일 경우 모든 사진에 동일한 캡션 유지
+            captionEl.textContent = '* Selected pages to ensure project confidentiality.';
+          } else if (currentTabIndex === 2) {
+            // 03번 탭일 경우 캡션
+            const captions03 = [
+              '* Maserati Snowmobile Designed During Associate Degree',
+              '* From the Graduation Exhibition',
+              '* Automotive Exterior Sketches for Study Abroad Portfolio',
+              '* Automotive Interior Sketches for Study Abroad Portfolio',
+              '* “The Familiar Seat” – Zero Waste Furniture Design'
+            ];
+            captionEl.textContent = captions03[centerImageIndex] || '';
+          } else {
+            // 01번 탭일 경우 각각 지정된 캡션 표시
+            const captions = [
+              '* After second project shoot with Director and team',
+              '* At the site in China (It was so hot)',
+              '* At the workshop in Jeju, Korea',
+              '* At the project site in China',
+              '* At the ski resort',
+              '* Alone at the office on the weekend',
+              '* At the workshop in Japan'
+            ];
+            
+            if (captions[centerImageIndex]) {
+              captionEl.textContent = captions[centerImageIndex];
+            } else {
+              captionEl.textContent = ''; // 문구가 지정되지 않은 남은 사진은 빈 텍스트
+            }
+          }
+          
+          // 사진 렌더링 후 테두리 위치 계산 및 캡션 배치
+          mainImg.onload = () => {
+            let topOffset = 0;
+            let leftOffset = 0;
+
+            // 1번 탭(세로형 컨테인)일 때만 실제 렌더링 영역 계산 (2번 탭은 꽉 차있으므로 0유지)
+            if (!serviceModal.classList.contains('service-modal--horizontal')) {
+              const containerRatio = mainImg.clientWidth / mainImg.clientHeight;
+              const imageRatio = mainImg.naturalWidth / mainImg.naturalHeight;
+              let renderedWidth, renderedHeight;
+
+              if (containerRatio > imageRatio) {
+                renderedHeight = mainImg.clientHeight;
+                renderedWidth = renderedHeight * imageRatio;
+              } else {
+                renderedWidth = mainImg.clientWidth;
+                renderedHeight = renderedWidth / imageRatio;
+              }
+
+              topOffset = (mainImg.clientHeight - renderedHeight) / 2;
+              leftOffset = (mainImg.clientWidth - renderedWidth) / 2;
+            }
+
+            captionEl.style.top = `calc(${topOffset}px - 18px)`; // 24px과 12px의 중간값 18px 적용
+            captionEl.style.left = `${leftOffset}px`;
+          };
+          
+          // 만약 이미 캐시된 이미지라면 onload가 안 불릴 수 있으므로 강제 실행
+          if (mainImg.complete) {
+            mainImg.onload();
+          }
+          
+          // 창 크기 조절 시에도 캡션 위치 업데이트
+          window.addEventListener('resize', mainImg.onload);
         }
       }
 
