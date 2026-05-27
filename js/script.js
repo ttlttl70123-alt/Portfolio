@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const trail = [];
-  const maxAge = 90; // ~1.5 seconds at 60fps
+  const maxAge = 45; // ~0.75 seconds at 60fps (50% reduced)
   const mouse = { x: width / 2, y: height / 2 };
 
   // Track mouse movement
@@ -419,9 +419,38 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalClose = serviceModal.querySelector('.service-modal__close');
     const modalOverlay = serviceModal.querySelector('.service-modal__overlay');
 
-    const openModal = (title, desc) => {
+    const openModal = (title, desc, index) => {
       if (modalTitle) modalTitle.textContent = title;
       if (modalBody) modalBody.innerHTML = desc; /* <br> 태그 인식을 위해 innerHTML 사용 */
+      
+      // 02번 탭(Spatial Strategy Planning)일 경우 가로 레이아웃 적용 및 모든 이미지 12장 로드
+      if (index === 1) {
+        serviceModal.classList.add('service-modal--horizontal');
+        galleryImages = [
+          'images/02_Spatial_Strategy_Planning/20260527_104840.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104850.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104859.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104902.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104904.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104910.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104912.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104914.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104916.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104918.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104920.png',
+          'images/02_Spatial_Strategy_Planning/20260527_104922.png'
+        ];
+      } else {
+        serviceModal.classList.remove('service-modal--horizontal');
+        galleryImages = [
+          'images/Interior design_02.jpg',
+          'images/Interior design_02.jpg',
+          'images/Interior design_02.jpg'
+        ];
+      }
+      centerImageIndex = 0; // 초기 화면에서 첫 번째 이미지가 활성화되도록 0으로 설정 (좌측/상단 썸네일 비움)
+      updateCarousel();
+
       serviceModal.classList.add('is-active');
     };
 
@@ -429,11 +458,11 @@ document.addEventListener('DOMContentLoaded', () => {
       serviceModal.classList.remove('is-active');
     };
 
-    serviceTags.forEach(tag => {
+    serviceTags.forEach((tag, index) => {
       tag.addEventListener('click', () => {
         const title = tag.getAttribute('data-title');
         const desc = tag.getAttribute('data-desc');
-        openModal(title, desc);
+        openModal(title, desc, index);
       });
     });
 
@@ -451,14 +480,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const nextBtn = document.querySelector('.gallery-nav--next');
 
     // 이미지 목록 (나중에 동적으로 변경 가능)
-    const galleryImages = [
+    let galleryImages = [
       'images/Interior design_02.jpg',
       'images/Interior design_02.jpg',
       'images/Interior design_02.jpg',
     ];
-    let centerImageIndex = 1; // 현재 가운데에 표시되는 이미지의 인덱스
+    let centerImageIndex = 0; // 초기 화면에서 첫 번째 이미지가 활성화되도록 0으로 설정
 
-    const updateCarousel = () => {
+    function updateCarousel() {
       // 가운데 썸네일은 항상 활성(밝게)
       sideThumbs.forEach((thumb, i) => {
         thumb.classList.toggle('is-active', i === 1); // 항상 가운데(1번)만 밝게

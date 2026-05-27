@@ -1665,7 +1665,7 @@ body.is-loading {
   gap: var(--space-sm);
   align-items: stretch;
   min-height: 0;
-  transform: scale(1.2); /* 모달 크기는 유지한 채 이미지만 20% 확대 */
+  transform: scale(1.2) translateX(16px); /* 모달 크기는 유지한 채 이미지만 20% 확대, 전체적으로 우측으로 살짝 이동 */
   transform-origin: center right; /* 우측을 기준으로 확대하여 텍스트 침범 최소화 */
 }
 
@@ -1704,15 +1704,15 @@ body.is-loading {
   opacity: 0.7;
 }
 
-/* Navigation Arrows */
 .gallery-nav {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: none;
+  background: transparent;
   border: none;
-  color: #ffffff; /* 화이트 컬러로 변경 */
-  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.7)); /* 모던한 드롭 섀도우로 사진 위에서 시인성 확보 */
+  color: #ffffff; 
+  /* 세련된 이중 드롭 섀도우: 짙고 좁은 그림자 + 넓고 부드러운 그림자로 어떤 배경에서도 흰 화살표가 선명하게 보임 */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.8)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.4));
   width: 40px;
   height: 40px;
   cursor: pointer;
@@ -1723,6 +1723,10 @@ body.is-loading {
   z-index: 2;
 }
 
+.gallery-nav:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
 .gallery-nav--next.disabled,
 .gallery-nav--prev.disabled {
   opacity: 0.2;
@@ -1730,11 +1734,11 @@ body.is-loading {
 }
 
 .gallery-nav--prev {
-  left: 2px; /* 이전(10px)과 방금 전(-8px)의 중간 정도로 조정 */
+  left: 8px; /* 사진 테두리 안쪽으로 8px 이동 */
 }
 
 .gallery-nav--next {
-  right: 2px; /* 이전(10px)과 방금 전(-8px)의 중간 정도로 조정 */
+  right: 8px; /* 사진 테두리 안쪽으로 8px 이동 */
 }
 
 .gallery-nav svg {
@@ -1775,6 +1779,52 @@ body.is-loading {
   background-color: rgba(0, 0, 0, 0.5);
   transition: opacity var(--transition-base);
   pointer-events: none;
+}
+
+/* Hover on inactive thumb to reveal a bit */
+.gallery-side-thumb:not(.is-active):hover .gallery-side-overlay {
+  opacity: 0.2;
+}
+
+/* ==========================================
+   HORIZONTAL LAYOUT FOR TAB 02
+   ========================================== */
+.service-modal--horizontal .service-modal__right {
+  flex-direction: column;
+  align-items: center; /* 전체 너비를 메인 이미지 너비에 맞춤 */
+  height: 100%; /* 명시적 높이 제공 */
+}
+
+.service-modal--horizontal .service-modal__gallery-main {
+  height: calc(100% - 70px - var(--space-sm)); 
+  flex: none;
+  width: auto; 
+  aspect-ratio: 16 / 9; /* 명확한 16:9 비율 고정 */
+  max-width: 100%;
+}
+
+/* 2번 탭 가로 이미지 꽉 채우기 (크롭되더라도 빈 여백 없이 16:9 꽉 차게) */
+.service-modal--horizontal .gallery-image-container {
+  width: 100%;
+  height: 100%;
+}
+
+.service-modal--horizontal .gallery-image-container .gallery-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 가로를 꽉 채우고 넘치는 부분은 잘라냄 */
+  object-position: center; /* 가운데 정렬 */
+}
+
+.service-modal--horizontal .service-modal__gallery-side {
+  flex-direction: row;
+  width: 100%; /* 메인 이미지 너비(16:9로 계산된 너비)에 정확히 맞춤 */
+  height: 70px; /* 고정 높이 */
+}
+
+.service-modal--horizontal .gallery-side-thumb {
+  width: auto;
+  flex: 1; /* 3개의 썸네일이 가로 영역을 균등하게 나눠 가짐 */
 }
 
 /* 활성(중앙) 썸네일: 오버레이 숨김 */
