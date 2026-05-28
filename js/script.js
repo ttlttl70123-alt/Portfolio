@@ -195,47 +195,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const moreProjectsLink = document.querySelector('.projects__more-link');
 
   function openProjectPage() {
-    // 1) Black screen slides up
-    projectTransition.classList.remove('project-transition--down');
-    projectTransition.classList.add('project-transition--up');
-
-    // 2) After black covers everything, show white page behind it
-    setTimeout(() => {
-      projectPage.classList.add('project-page--open');
-      document.body.style.overflow = 'hidden';
-      projectPage.scrollTop = 0;
-    }, 400);
-
-    // 3) Then slide black screen away upward to reveal white page
-    setTimeout(() => {
-      projectTransition.classList.remove('project-transition--up');
-      projectTransition.classList.add('project-transition--down');
-    }, 500);
-
-    // 4) Reset transition div after animation
-    setTimeout(() => {
-      projectTransition.classList.remove('project-transition--down');
-    }, 1000);
+    projectPage.classList.add('project-page--open');
+    document.body.style.overflow = 'hidden';
+    projectPage.scrollTop = 0;
   }
 
   function closeProjectPage() {
-    // Reverse: black slides up to cover white page
-    projectTransition.classList.remove('project-transition--down');
-    projectTransition.classList.add('project-transition--up');
-
-    setTimeout(() => {
-      projectPage.classList.remove('project-page--open');
-      document.body.style.overflow = '';
-    }, 400);
-
-    setTimeout(() => {
-      projectTransition.classList.remove('project-transition--up');
-      projectTransition.classList.add('project-transition--down');
-    }, 500);
-
-    setTimeout(() => {
-      projectTransition.classList.remove('project-transition--down');
-    }, 1000);
+    projectPage.classList.remove('project-page--open');
+    document.body.style.overflow = '';
   }
 
   projectCards.forEach(card => {

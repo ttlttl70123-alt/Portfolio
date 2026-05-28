@@ -936,7 +936,7 @@ body.is-loading {
 
 .project-card__image {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   background-color: var(--color-gray-placeholder);
   border-radius: 6px;
   position: relative;
@@ -1254,7 +1254,7 @@ body.is-loading {
     top: 0;
     right: -100%;
     width: 100%;
-    height: 100vh;
+    height: 94vh;
     background-color: #FFFFFF;
     flex-direction: column;
     align-items: center;
@@ -1449,7 +1449,7 @@ body.is-loading {
     top: 0;
     right: -100%;
     width: 100%;
-    height: 100vh;
+    height: 94vh;
     background-color: #FFFFFF;
     flex-direction: column;
     align-items: center;
@@ -1594,7 +1594,7 @@ body.is-loading {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 94vh;
   pointer-events: none;
   z-index: 9998; /* Just below cursor */
   filter: url(#crayon); /* 크레용 효과 필터 적용 */
@@ -1636,10 +1636,9 @@ body.is-loading {
 .project-page {
   position: fixed;
   inset: 0;
-  background-color: var(--color-bg-light);
+  background-color: #ffffff;
   z-index: 9050;
   overflow-y: auto;
-  padding: var(--space-lg);
   opacity: 0;
   pointer-events: none;
 }
@@ -1649,127 +1648,215 @@ body.is-loading {
   pointer-events: auto;
 }
 
-/* Page Header */
-.project-page__header {
+/* ── PP HEADER ── */
+.pp-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-xl);
-  padding-top: var(--space-sm);
+  height: var(--header-height);
+  padding: 0 var(--space-lg);
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  transition: background-color var(--transition-base);
 }
 
-.project-page__back {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: none;
-  border: none;
-  color: var(--color-text-dark);
+.pp-header__logo {
   font-family: var(--font-display);
   font-size: 1.1rem;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  transition: opacity var(--transition-base);
-}
-
-.project-page__back:hover {
-  opacity: 0.5;
-}
-
-.project-page__title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 4rem);
+  letter-spacing: 0.15em;
+  color: #111;
+  text-decoration: none;
   font-weight: 400;
-  color: var(--color-text-dark);
-  letter-spacing: 0.05em;
+  transition: opacity 0.2s;
 }
 
-/* Project Grid */
-.project-page__grid {
+.pp-header__logo:hover { opacity: 0.4; }
+
+.pp-header__nav {
+  display: flex;
+  gap: var(--space-md);
+  align-items: center;
+}
+
+.pp-header__link {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: #111;
+  text-decoration: none;
+  font-weight: 400;
+  transition: opacity 0.2s;
+}
+
+.pp-header__link:hover { opacity: 0.4; }
+
+/* ── PP HERO (full-bleed: covers from very top, header floats above) ── */
+.pp-hero {
+  position: relative;
+  width: 100%;
+  height: 89vh; /* 상단 끝(0)부터 88vh - 헤더는 fixed로 그 위에 떠있음 */
+  margin-top: calc(-1 * var(--header-height)); /* 헤더 높이만큼 위로 당겨 완전 풀블리드 */
+  overflow: hidden;
+}
+
+.pp-hero__img-placeholder {
+  width: 100%;
+  height: 100%;
+  background-color: #c0c0c0;
+  object-fit: cover;
+}
+
+.pp-hero__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: clamp(32px, 5vw, 64px) 10.4vw clamp(51px, 8vh, 96px) 5.2vw; /* 붉은 박스 좌우 여백 */
+  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pp-hero__title {
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 9rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  color: #ffffff;
+  margin: 0;
+}
+
+.pp-hero__subtitle {
+  font-family: var(--font-body);
+  font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.03em;
+  margin: 0;
+}
+
+/* Year tag: top-right corner of hero image (below header) */
+.pp-hero__year {
+  position: absolute;
+  top: calc(var(--header-height) + 4vw);
+  right: 4vw; /* 우측 잉여 여백의 50% 지점 */
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 8vw, 9rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 0.95;
+  color: #ffffff;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.pp-hero__paren {
+  font-family: var(--font-body);
+  font-weight: 600; /* 두께 600 */
+  font-size: 0.8em; /* 크기 20% 줄임 */
+}
+
+/* ── PP CONTENT (3-col layout matching reference image) ── */
+.pp-content {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  /* 좌: 라벨 | 가운데: 큰 본문 | 우: 일반 본문 */
+  grid-template-columns: auto 1fr 1fr;
+  gap: clamp(40px, 5vw, 80px);
+  padding: clamp(48px, 7vw, 96px) 10.4vw; /* 붉은 박스 좌우 여백 동일 */
+  align-items: start;
+}
+
+.pp-content__left {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  white-space: nowrap;
+}
+
+/* 좌측 라벨: 메인페이지 TOOLS I USE와 동일한 폰트·크기 */
+.pp-content__label {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 4.8vw, 4.2rem);
+  font-weight: 400;
+  color: #111;
+  letter-spacing: 0.02em;
+  line-height: 1.05;
+  margin: 0;
+}
+
+/* 가운데 본문: experience__desc 크기 (RESIDENTIAL 영역 폰트·크기) */
+.pp-content__center .pp-content__body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #222;
+  margin: 0;
+}
+
+/* 우측 본문: 일반 body 사이즈 */
+.pp-content__right .pp-content__body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #444;
+  margin: 0;
+}
+
+.pp-content__body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #444;
+  margin: 0;
+}
+
+/* ── PP GALLERY ── */
+.pp-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: clamp(24px, 4vw, 48px) 10.4vw clamp(80px, 10vw, 120px); /* 붉은 박스 좌우 여백 동일 */
+}
+
+.pp-gallery__img-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  background-color: #c0c0c0;
+  border-radius: 2px;
+}
+
+.pp-gallery__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
 
-.project-page__card {
-  border-radius: 24px;
-  overflow: hidden;
-  cursor: pointer;
-  background-color: #494949;
-  padding: 18px 18px 96px 18px;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.project-page__card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
-}
-
-/* Image wrapper (blue border area) */
-.project-page__image-wrapper {
-  position: relative;
+.pp-gallery__img-placeholder--half {
   aspect-ratio: 16 / 10;
-  border-radius: 16px;
-  overflow: hidden;
 }
 
-.project-page__thumb {
-  width: 100%;
-  height: 100%;
-  background-color: #BFBFBF;
-}
-
-/* Hover overlay - only on image */
-.project-page__hover {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: var(--space-md);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.project-page__card:hover .project-page__hover {
-  opacity: 1;
-}
-
-.project-page__name {
-  font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2vw, 1.8rem);
-  font-weight: 400;
-  color: var(--color-text-light);
-  letter-spacing: 0.05em;
-  margin-bottom: 6px;
-}
-
-.project-page__date {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 300;
-  color: var(--color-text-muted-light);
-  letter-spacing: 0.03em;
-}
-
-/* Responsive: Portrait */
-@media (orientation: portrait) {
-  .project-page__grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .pp-content { grid-template-columns: 1fr 1fr; }
+  .pp-content__left { grid-column: 1 / -1; flex-direction: row; flex-wrap: wrap; gap: 12px; }
 }
 
 @media (max-width: 600px) {
-  .project-page__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-page__header {
-    flex-direction: column-reverse;
-    align-items: flex-start;
-    gap: var(--space-sm);
-  }
+  .pp-content { grid-template-columns: 1fr; }
+  .pp-header { padding: 0 var(--space-md); }
+  .pp-header__nav { gap: var(--space-md); }
+  .pp-gallery__row { grid-template-columns: 1fr; }
 }
 
 /* ==========================================
@@ -2046,7 +2133,7 @@ body.is-loading {
   height: calc(100% - 70px - var(--space-sm)); 
   flex: none;
   width: auto; 
-  aspect-ratio: 16 / 9; /* 명확한 16:9 비율 고정 */
+  aspect-ratio: 16 / 10; /* 명확한 16:9 비율 고정 */
   max-width: 100%;
 }
 
