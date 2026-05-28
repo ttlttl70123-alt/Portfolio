@@ -61,6 +61,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ===== SCROLL TO PROJECTS AREA =====
+  function scrollToProjectsArea() {
+    const projectsSection = document.getElementById('projects');
+    if (projectsSection) {
+      const rect = projectsSection.getBoundingClientRect();
+      const absoluteTop = rect.top + window.scrollY;
+      const targetCenter = absoluteTop + (rect.height / 2);
+      const scrollPos = targetCenter - (window.innerHeight / 2);
+      
+      window.scrollTo({
+        top: scrollPos,
+        behavior: 'smooth'
+      });
+    }
+  }
+
   // ===== SCROLL TO PHILOSOPHY AREA =====
   function scrollToPhilosophyArea() {
     const quoteEl = document.querySelector('.dark-section__quote-text');
@@ -96,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroArrows.length > 0) {
     heroArrows.forEach(arrow => {
       arrow.style.cursor = 'pointer';
-      arrow.addEventListener('click', scrollToPhilosophyArea);
+      arrow.addEventListener('click', scrollToProjectsArea);
     });
   }
 
@@ -193,17 +209,41 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectBack = document.getElementById('project-back');
   const projectCards = document.querySelectorAll('.project-card[data-project]');
   const moreProjectsLink = document.querySelector('.projects__more-link');
+  const ppHeader = document.querySelector('.pp-header');
+
+  projectPage.addEventListener('scroll', () => {
+    // .pp-hero 높이(89vh)를 기준으로, 스크롤이 헤더 영역을 지나 흰색 배경에 닿으면 클래스 추가
+    const threshold = (window.innerHeight * 0.89) - 80; // 헤더 높이 여유분 약 80px
+    if (projectPage.scrollTop > threshold) {
+      ppHeader.classList.add('pp-header--scrolled');
+    } else {
+      ppHeader.classList.remove('pp-header--scrolled');
+    }
+  });
 
   function openProjectPage() {
     projectPage.classList.add('project-page--open');
     document.body.style.overflow = 'hidden';
     projectPage.scrollTop = 0;
+    // 브라우저 히스토리에 상태 추가 (뒤로가기 지원)
+    history.pushState({ isProjectOpen: true }, '', '#project');
   }
 
-  function closeProjectPage() {
+  function closeProjectPage(isPopState) {
     projectPage.classList.remove('project-page--open');
     document.body.style.overflow = '';
+    // 직접 닫기 버튼/ESC를 누른 경우 히스토리에서도 뒤로가기 실행
+    if (isPopState !== true && window.location.hash === '#project') {
+      history.back();
+    }
   }
+
+  // 브라우저 뒤로가기 버튼 감지
+  window.addEventListener('popstate', (e) => {
+    if (projectPage.classList.contains('project-page--open')) {
+      closeProjectPage(true); // 히스토리 변경으로 인한 호출임을 표시
+    }
+  });
 
   projectCards.forEach(card => {
     card.addEventListener('click', openProjectPage);
@@ -285,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const trail = [];
-  const maxAge = 45; // ~0.75 seconds at 60fps (50% reduced)
+  const maxAge = 22; // 50% reduced again
   const mouse = { x: width / 2, y: height / 2 };
 
   // Track mouse movement

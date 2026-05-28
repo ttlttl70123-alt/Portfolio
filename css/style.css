@@ -151,22 +151,23 @@ body.is-loading {
 
 .header__logo {
   font-family: var(--font-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.15em;
+  font-size: 1.32rem; /* 원본 1.1rem에서 총 20% 확대 */
+  letter-spacing: 0.03em; /* 기존 0.06em에서 50% 축소 */
   color: var(--color-text-dark);
   font-weight: 400;
 }
 
 .header__nav {
   display: flex;
-  gap: var(--space-md);
+  gap: 26.4px; /* 기존 var(--space-md)(24px)에서 10% 넓힘 */
+  align-items: center;
 }
 
 .header__link {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.32rem; /* 원본 1.1rem에서 총 20% 확대 */
   font-weight: 400;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em; /* 기존 0.06em에서 50% 축소 */
   text-transform: uppercase;
   color: var(--color-text-dark);
   position: relative;
@@ -209,7 +210,7 @@ body.is-loading {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: calc(var(--header-height) + 20px) var(--space-lg) calc(clamp(8rem, 15vw, 15rem) - calc(var(--header-height) * 1.5));
+  padding: calc(var(--header-height) + 60px) var(--space-lg) calc(clamp(8rem, 15vw, 15rem) - calc(var(--header-height) * 1.5) - 40px);
   background-color: var(--color-bg-light);
   position: relative;
 }
@@ -290,7 +291,7 @@ body.is-loading {
   font-size: clamp(15rem, 24vw, 24rem);
   font-weight: 900;
   line-height: 0.75;
-  transform: translateY(calc(50% - calc(var(--header-height) * 1.5)));
+  transform: translateY(calc(30% - calc(var(--header-height) * 1.5)));
   -webkit-text-stroke: 5px currentColor;
   display: block;
 }
@@ -298,7 +299,7 @@ body.is-loading {
 .hero__arrow--svg {
   width: clamp(7rem, 12vw, 12rem);
   height: auto;
-  transform: translateY(calc(50% - calc(var(--header-height) * 1.5)));
+  transform: translateY(calc(30% - calc(var(--header-height) * 1.5)));
   display: none;
 }
 
@@ -327,7 +328,7 @@ body.is-loading {
 
 .hero__copyright {
   font-family: var(--font-display);
-  font-size: 1rem;
+  font-size: 1.18rem;
   font-weight: 400;
   letter-spacing: 0.05em;
   color: var(--color-text-muted);
@@ -902,8 +903,8 @@ body.is-loading {
 
 .projects__description {
   font-family: var(--font-body);
-  font-size: 1.1rem;
-  font-weight: 300;
+  font-size: 0.95rem;
+  font-weight: 400;
   color: var(--color-text-muted);
   line-height: 1.6;
   margin: 0;
@@ -1009,8 +1010,9 @@ body.is-loading {
 }
 
 .project-card__description {
-  font-size: 1rem;
-  font-weight: 300;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 400;
   line-height: 1.6;
   margin-top: 0;
   color: var(--color-text-muted);
@@ -1034,7 +1036,7 @@ body.is-loading {
   position: absolute;
   inset: 0;
   background-color: #B0B0B0;
-  background-image: url('../images/opt_Background.webp');
+  background-image: url('../images/opt_Background_01.webp?v=2');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -1109,8 +1111,13 @@ body.is-loading {
 
 .footer {
   background-color: var(--color-bg-footer);
+  /* 기존처럼 검은색 배경(반투명)이 앞에 덧대어지도록 리니어 그라디언트 추가 */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/opt_Background_01.webp?v=2');
+  background-size: cover;
+  background-position: center;
   color: var(--color-text-light);
   padding: var(--space-2xl) var(--space-lg) var(--space-lg);
+  position: relative;
 }
 
 .footer__inner {
@@ -1145,44 +1152,56 @@ body.is-loading {
   color: var(--color-text-muted);
 }
 
+.footer-bottom-wrap {
+  background-color: #ffffff;
+  padding: 0 var(--space-lg);
+}
+
+.footer-bottom-wrap .footer__inner {
+  max-width: none;
+  margin: 0 auto;
+}
+
 .footer__bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: var(--space-lg);
-  border-top: 1px solid var(--color-border);
+  padding-bottom: calc(var(--space-lg) * 2);
+  border-top: none; /* 흰색 여백이므로 테두리 제거 */
 }
 
 .footer__credits {
   font-size: 0.75rem;
-  font-weight: 300;
-  color: var(--color-text-muted);
+  font-weight: 400;
+  color: #777;
   letter-spacing: 0.05em;
 }
 
 .footer__credits a {
-  color: var(--color-text-muted-light);
+  color: #111;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .footer__credits a:hover {
-  color: var(--color-text-light);
+  color: var(--color-accent);
 }
 
 .footer__copyright {
-  font-size: 0.75rem;
-  font-weight: 300;
-  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 400;
+  color: #777;
   letter-spacing: 0.05em;
 }
 
 .footer__copyright a {
-  color: var(--color-text-muted-light);
+  color: inherit;
 }
 
 .footer__copyright a:hover {
-  color: var(--color-text-light);
+  color: var(--color-accent);
 }
 
 /* ==========================================
@@ -1340,44 +1359,56 @@ body.is-loading {
   color: var(--color-text-muted);
 }
 
+.footer-bottom-wrap {
+  background-color: #ffffff;
+  padding: 0 var(--space-lg);
+}
+
+.footer-bottom-wrap .footer__inner {
+  max-width: none;
+  margin: 0 auto;
+}
+
 .footer__bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: var(--space-lg);
-  border-top: 1px solid var(--color-border);
+  padding-bottom: calc(var(--space-lg) * 2);
+  border-top: none; /* 흰색 여백이므로 테두리 제거 */
 }
 
 .footer__credits {
   font-size: 0.75rem;
-  font-weight: 300;
-  color: var(--color-text-muted);
+  font-weight: 400;
+  color: #777;
   letter-spacing: 0.05em;
 }
 
 .footer__credits a {
-  color: var(--color-text-muted-light);
+  color: #111;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
 
 .footer__credits a:hover {
-  color: var(--color-text-light);
+  color: var(--color-accent);
 }
 
 .footer__copyright {
-  font-size: 0.75rem;
-  font-weight: 300;
-  color: var(--color-text-muted);
+  font-family: var(--font-display);
+  font-size: 1.18rem;
+  font-weight: 400;
+  color: #777;
   letter-spacing: 0.05em;
 }
 
 .footer__copyright a {
-  color: var(--color-text-muted-light);
+  color: inherit;
 }
 
 .footer__copyright a:hover {
-  color: var(--color-text-light);
+  color: var(--color-accent);
 }
 
 /* ==========================================
@@ -1594,10 +1625,10 @@ body.is-loading {
   top: 0;
   left: 0;
   width: 100vw;
-  height: 94vh;
+  height: 100vh;
   pointer-events: none;
-  z-index: 9998; /* Just below cursor */
-  filter: url(#crayon); /* 크레용 효과 필터 적용 */
+  z-index: 9998;
+  filter: url(#crayon);
 }
 
 /* ==========================================
@@ -1617,7 +1648,6 @@ body.is-loading {
 .project-transition--up {
   animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
-
 .project-transition--down {
   animation: slideDown 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
@@ -1660,38 +1690,41 @@ body.is-loading {
   justify-content: space-between;
   height: var(--header-height);
   padding: 0 var(--space-lg);
-  background-color: rgba(255, 255, 255, 0.65);
-  backdrop-filter: blur(12px) saturate(180%);
-  -webkit-backdrop-filter: blur(12px) saturate(180%);
-  transition: background-color var(--transition-base);
+  background-color: transparent;
+  transition: background-color 0.3s;
 }
 
 .pp-header__logo {
   font-family: var(--font-display);
-  font-size: 1.1rem;
-  letter-spacing: 0.15em;
-  color: #111;
+  font-size: 1.32rem; /* 원본 1.1rem에서 총 20% 확대 */
+  letter-spacing: 0.05em; /* 기존 0.1em에서 50% 축소 */
+  color: #fff;
   text-decoration: none;
   font-weight: 400;
-  transition: opacity 0.2s;
+  transition: color 0.3s, opacity 0.2s;
 }
 
 .pp-header__logo:hover { opacity: 0.4; }
 
 .pp-header__nav {
   display: flex;
-  gap: var(--space-md);
+  gap: 26.4px; /* 기존 var(--space-md)(24px)에서 10% 넓힘 */
   align-items: center;
 }
 
 .pp-header__link {
   font-family: var(--font-display);
-  font-size: 0.9rem;
-  letter-spacing: 0.1em;
-  color: #111;
+  font-size: 1.32rem; /* 원본 1.1rem에서 총 20% 확대 */
+  letter-spacing: 0.05em; /* 기존 0.1em에서 50% 축소 */
+  color: #fff;
   text-decoration: none;
   font-weight: 400;
-  transition: opacity 0.2s;
+  transition: color 0.3s, opacity 0.2s;
+}
+
+.pp-header--scrolled .pp-header__logo,
+.pp-header--scrolled .pp-header__link {
+  color: #111;
 }
 
 .pp-header__link:hover { opacity: 0.4; }
@@ -1761,7 +1794,12 @@ body.is-loading {
 .pp-hero__paren {
   font-family: var(--font-body);
   font-weight: 600; /* 두께 600 */
-  font-size: 0.8em; /* 크기 20% 줄임 */
+  font-size: 0.9em; /* 크기 10% 키움 */
+}
+
+.pp-hero__num {
+  display: inline-block;
+  transform: translateY(12%); /* 숫자만 살짝 내림 */
 }
 
 /* ── PP CONTENT (3-col layout matching reference image) ── */
@@ -1770,7 +1808,7 @@ body.is-loading {
   /* 좌: 라벨 | 가운데: 큰 본문 | 우: 일반 본문 */
   grid-template-columns: auto 1fr 1fr;
   gap: clamp(40px, 5vw, 80px);
-  padding: clamp(48px, 7vw, 96px) 10.4vw; /* 붉은 박스 좌우 여백 동일 */
+  padding: clamp(48px, 7vw, 96px) 17.68vw; /* 원본 10.4vw에서 1.7배 넓힘 */
   align-items: start;
 }
 
@@ -1779,6 +1817,7 @@ body.is-loading {
   flex-direction: column;
   gap: 0;
   white-space: nowrap;
+  margin-top: calc(-1 * clamp(24px, 3.5vw, 48px)); /* 좌측 라벨만 위로 이동 */
 }
 
 /* 좌측 라벨: 메인페이지 TOOLS I USE와 동일한 폰트·크기 */
@@ -1788,52 +1827,107 @@ body.is-loading {
   font-weight: 400;
   color: #111;
   letter-spacing: 0.02em;
-  line-height: 1.05;
+  line-height: 0.85;
+  margin: 0;
+}
+
+.pp-content__meta {
+  margin-top: clamp(40px, 5vw, 80px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1px, 0.15vw, 2.5px);
+}
+
+.pp-content__meta p {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem); /* label 크기의 50% */
+  font-weight: 400;
+  color: #111;
+  letter-spacing: 0.02em;
+  line-height: 0.85; /* 기존 1.0에서 15% 축소 */
   margin: 0;
 }
 
 /* 가운데 본문: experience__desc 크기 (RESIDENTIAL 영역 폰트·크기) */
 .pp-content__center .pp-content__body {
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.75;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
   color: #222;
   margin: 0;
+}
+
+.pp-content__right {
+  grid-column: 3; /* 우측 끝으로 고정 */
+  /* Type 리스트의 상단과 위치를 정확히 맞추기 위한 동적 계산식: 
+     (라벨 2줄 높이) + (meta 리스트 상단 여백) - (좌측 라벨 끌어올린 여백) */
+  margin-top: calc((clamp(3rem, 4.8vw, 4.2rem) * 0.85 * 2) + clamp(40px, 5vw, 80px) - clamp(24px, 3.5vw, 48px));
 }
 
 /* 우측 본문: 일반 body 사이즈 */
 .pp-content__right .pp-content__body {
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.75;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.25; /* 기존 30% 축소 유지 또는 원하시면 1.6으로 변경 가능 */
   color: #444;
   margin: 0;
 }
 
 .pp-content__body {
   font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.75;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
   color: #444;
   margin: 0;
 }
 
 /* ── PP GALLERY ── */
 .pp-gallery {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: clamp(24px, 4vw, 48px) 10.4vw clamp(80px, 10vw, 120px); /* 붉은 박스 좌우 여백 동일 */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 1.5vw, 24px);
+  padding: clamp(24px, 4vw, 48px) 17.68vw clamp(80px, 10vw, 120px); /* 텍스트 여백과 동일하게 맞춤 */
 }
 
 .pp-gallery__img-placeholder {
   width: 100%;
-  aspect-ratio: 16 / 10;
-  background-color: #c0c0c0;
-  border-radius: 2px;
+  height: auto;
+  background-color: var(--color-gray-placeholder);
+  border-radius: 0; /* R값 모두 제거 */
+  object-fit: cover;
+}
+
+.pp-gallery__img-placeholder.landscape {
+  grid-column: span 2;
+  aspect-ratio: 4 / 3;
+}
+
+.pp-gallery__img-placeholder.portrait {
+  grid-column: span 1;
+  aspect-ratio: 2 / 3;
+}
+
+.pp-gallery__empty {
+  grid-column: span 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vw; /* 텍스트가 박스 가장자리에 붙지 않도록 여유 공간 */
+}
+
+.pp-gallery__caption {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 3.84vw, 3.36rem); /* 기존 크기에서 20% 축소 */
+  font-weight: 400;
+  color: #111;
+  letter-spacing: 0.02em;
+  line-height: 0.85;
+  text-align: left; /* 글자 자체는 좌측 정렬 */
+  width: max-content; /* 박스 너비를 내용물에 맞춰 전체 박스가 중앙에 오게 함 */
+  max-width: 100%; /* 부모를 넘지 않도록 제한 */
 }
 
 .pp-gallery__row {

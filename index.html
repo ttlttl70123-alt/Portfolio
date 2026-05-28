@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=208">
+  <link rel="stylesheet" href="css/style.css?v=254">
 </head>
 <body class="is-loading">
 
@@ -307,30 +307,8 @@
     </div>
   </section>
 
-  <!-- ===== INQUIRIES & JOIN SECTION ===== -->
-  <section class="inquiries" id="contact">
-    <div class="inquiries__bg-image"></div>
-    <div class="inquiries__content">
-      <div class="inquiries__card">
-        <h3 class="inquiries__card-title">
-          <a href="mailto:email@example.com">Project Inquiries →</a>
-        </h3>
-        <p class="inquiries__card-desc-en">Text text text text text text text text text text text text text text.</p>
-        <p class="inquiries__card-desc-ko">텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트.</p>
-      </div>
-      <div class="inquiries__divider"></div>
-      <div class="inquiries__card">
-        <h3 class="inquiries__card-title">
-          <a href="mailto:email@example.com">Join Us →</a>
-        </h3>
-        <p class="inquiries__card-desc-en">Text text text text text text text text text text text text text text.</p>
-        <p class="inquiries__card-desc-ko">텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트 텍스트.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer" id="footer">
+  <!-- ===== FOOTER (CONTACT) ===== -->
+  <footer class="footer" id="contact">
     <div class="footer__inner">
       <div class="footer__brand">
         <span class="footer__brand-name">HYEONG-U LEE</span>
@@ -339,6 +317,11 @@
           <span>CHANGE</span>
         </div>
       </div>
+    </div>
+  </footer>
+
+  <div class="footer-bottom-wrap">
+    <div class="footer__inner">
       <div class="footer__bottom">
         <div class="footer__credits">
           <span>Designed by <a href="#">TEXT</a> and <a href="#">TEXT</a></span>
@@ -348,7 +331,7 @@
         </div>
       </div>
     </div>
-  </footer>
+  </div>
 
   <!-- ===== PROJECT TRANSITION & PAGE ===== -->
   <div class="project-transition" id="project-transition"></div>
@@ -367,7 +350,8 @@
     <!-- ── FULL-BLEED HERO IMAGE WITH TITLE OVERLAY ── -->
     <section class="pp-hero">
       <img src="images/opt_Thumnail_02.webp" alt="" class="pp-hero__img-placeholder">
-      <span class="pp-hero__year"><span class="pp-hero__paren">(</span>'25<span class="pp-hero__paren">)</span></span>
+
+      <span class="pp-hero__year"><span class="pp-hero__paren">(</span><span class="pp-hero__num">'25</span><span class="pp-hero__paren">)</span></span>
       <div class="pp-hero__overlay">
         <h1 class="pp-hero__title">PROJECT NAME</h1>
         <p class="pp-hero__subtitle">TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT</p>
@@ -379,10 +363,14 @@
       <div class="pp-content__left">
         <p class="pp-content__label">BRANDING</p>
         <p class="pp-content__label">SPACE PROGRAMMING</p>
-      </div>
-      <div class="pp-content__center">
-        <p class="pp-content__body">TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT.</p>
-        <p class="pp-content__body">TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT.</p>
+        <div class="pp-content__meta">
+          <p>Type</p>
+          <p>Completion Date</p>
+          <p>Location</p>
+          <p>Interior Surface</p>
+          <p>Role</p>
+          <p>Tools</p>
+        </div>
       </div>
       <div class="pp-content__right">
         <p class="pp-content__body">TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT.</p>
@@ -391,16 +379,63 @@
 
     <!-- ── GALLERY ── -->
     <div class="pp-gallery">
-      <div class="pp-gallery__img-placeholder"></div>
-      <div class="pp-gallery__row">
-        <div class="pp-gallery__img-placeholder pp-gallery__img-placeholder--half"></div>
-        <div class="pp-gallery__img-placeholder pp-gallery__img-placeholder--half"></div>
+      <!-- 1 -->
+      <div class="pp-gallery__img-placeholder landscape"></div>
+      
+      <!-- 2 -->
+      <div class="pp-gallery__img-placeholder portrait"></div>
+      <div class="pp-gallery__empty">
+        <div class="pp-gallery__caption">THIS IS<br>A SAMPLE<br>DESCRIPTION<br>TEXT BOX</div>
       </div>
-      <div class="pp-gallery__img-placeholder"></div>
-      <div class="pp-gallery__row">
-        <div class="pp-gallery__img-placeholder pp-gallery__img-placeholder--half"></div>
-        <div class="pp-gallery__img-placeholder pp-gallery__img-placeholder--half"></div>
+      
+      <!-- 3 -->
+      <div class="pp-gallery__empty"></div>
+      <div class="pp-gallery__img-placeholder portrait"></div>
+      
+      <!-- 4 -->
+      <div class="pp-gallery__img-placeholder landscape"></div>
+      
+      <!-- 5 -->
+      <div class="pp-gallery__empty">
+        <div class="pp-gallery__caption">HERE IS<br>ANOTHER<br>FOUR LINE<br>EXAMPLE</div>
       </div>
+      <div class="pp-gallery__img-placeholder portrait"></div>
+      
+      <!-- 6 -->
+      <div class="pp-gallery__img-placeholder landscape"></div>
+      
+      <!-- 7 -->
+      <div class="pp-gallery__img-placeholder portrait"></div>
+      <div class="pp-gallery__empty"></div>
+      
+      <!-- 8 -->
+      <div class="pp-gallery__img-placeholder portrait"></div>
+      <div class="pp-gallery__empty"></div>
+      
+      <!-- 9 -->
+      <div class="pp-gallery__img-placeholder landscape"></div>
+      
+      <!-- 10 -->
+      <div class="pp-gallery__empty"></div>
+      <div class="pp-gallery__img-placeholder portrait"></div>
+      
+      <!-- 11 -->
+      <div class="pp-gallery__img-placeholder portrait"></div>
+      <div class="pp-gallery__empty"></div>
+      
+      <!-- 12 -->
+      <div class="pp-gallery__img-placeholder landscape"></div>
+      
+      <!-- 13 -->
+      <div class="pp-gallery__empty"></div>
+      <div class="pp-gallery__img-placeholder portrait"></div>
+      
+      <!-- 14 -->
+      <div class="pp-gallery__empty"></div>
+      <div class="pp-gallery__img-placeholder portrait"></div>
+      
+      <!-- 15 -->
+      <div class="pp-gallery__img-placeholder landscape"></div>
     </div>
 
   </div>
@@ -456,6 +491,6 @@
 
   <div class="custom-cursor"></div>
   <canvas class="cursor-canvas"></canvas>
-  <script src="js/script.js?v=38"></script>
+  <script src="js/script.js?v=256"></script>
 </body>
 </html>
