@@ -1,0 +1,37 @@
+
+/* --- ABOUT PAGE LIGHT THEME OVERRIDES --- */
+.page-about {
+  background-color: #ffffff;
+  color: #000000;
+}
+.page-about .dark-section {
+  background-color: #ffffff;
+  color: #000000;
+}
+.page-about .header__logo,
+.page-about .header__link {
+  color: #000000;
+}
+.page-about .header__menu-btn span {
+  background-color: #000000;
+}
+.page-about .experience__title,
+.page-about .experience__index,
+.page-about .experience__desc,
+.page-about .stat-card__number,
+.page-about .stat-card__label,
+.page-about .tools__desc,
+.page-about .tools__pill,
+.page-about .dark-section__section-title,
+.page-about .experience__paren,
+.page-about .footer__brand-name,
+.page-about .footer__brand-tagline span,
+.page-about .footer__link,
+.page-about .footer__copyright {
+  color: #000000;
+}
+.page-about .dark-section__divider,
+.page-about .footer-bottom-wrap {
+  border-top-color: #e0e0e0;
+  background-color: #ffffff;
+}

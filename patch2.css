@@ -1,0 +1,22 @@
+
+.page-about .service-tag {
+  color: #000000;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+}
+.page-about .service-tag:hover {
+  color: #000000;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #000000;
+}
+.page-about .tools-tag {
+  color: #000000;
+  border-color: rgba(0, 0, 0, 0.2);
+}
+.page-about .tools-tag:hover {
+  color: #000000;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-color: #000000;
+}
+.page-about .tools-text {
+  color: #000000;
+}

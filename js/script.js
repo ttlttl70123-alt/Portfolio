@@ -79,19 +79,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== SCROLL TO PHILOSOPHY AREA =====
   function scrollToPhilosophyArea() {
-    const quoteEl = document.querySelector('.dark-section__quote-text');
-    const philEl = document.querySelector('.philosophy__text-block');
     const aboutSection = document.getElementById('about');
     
-    if (quoteEl && philEl) {
-      const quoteRect = quoteEl.getBoundingClientRect();
-      const philRect = philEl.getBoundingClientRect();
-      
-      const absoluteTop = quoteRect.top + window.scrollY;
-      const absoluteBottom = philRect.bottom + window.scrollY;
-      const totalHeight = absoluteBottom - absoluteTop;
-      
-      const targetCenter = absoluteTop + (totalHeight / 2);
+    if (aboutSection) {
+      const rect = aboutSection.getBoundingClientRect();
+      const absoluteTop = rect.top + window.scrollY;
+      const targetCenter = absoluteTop + (rect.height / 2);
       const scrollPos = targetCenter - (window.innerHeight / 2);
       
       window.scrollTo({
@@ -112,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (heroArrows.length > 0) {
     heroArrows.forEach(arrow => {
       arrow.style.cursor = 'pointer';
-      arrow.addEventListener('click', scrollToProjectsArea);
+      arrow.addEventListener('click', scrollToPhilosophyArea);
     });
   }
 
@@ -208,7 +201,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectPage = document.getElementById('project-page');
   const projectBack = document.getElementById('project-back');
   const projectCards = document.querySelectorAll('.project-card[data-project]');
-  const moreProjectsLink = document.querySelector('.projects__more-link');
+  const moreProjectsLink = document.querySelector('.projects__header-right .projects__more-link');
   const ppHeader = document.querySelector('.pp-header');
 
   projectPage.addEventListener('scroll', () => {
