@@ -318,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   const trail = [];
-  const maxAge = 22; // 50% reduced again
+  const maxAge = 16; // increased by 20%
   const mouse = { x: width / 2, y: height / 2 };
 
   // Track mouse movement

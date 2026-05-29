@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=277">
+  <link rel="stylesheet" href="css/style.css?v=327">
 </head>
 <body class="is-loading">
 
@@ -21,8 +21,9 @@
   <header class="header" id="header">
     <a href="#" class="header__logo">HYEONG-U LEE</a>
     <nav class="header__nav" id="main-nav">
-      <a href="#projects" class="header__link">PROJECTS</a>
       <a href="about.html" class="header__link">ABOUT</a>
+      <a href="#projects" class="header__link">PROJECTS</a>
+      <a href="#archive" class="header__link">ARCHIVE</a>
       <a href="#contact" class="header__link">CONTACT</a>
     </nav>
     <button class="header__menu-btn" id="menu-btn" aria-label="메뉴 열기">
@@ -62,10 +63,10 @@
     <div class="dark-section__inner">
 
       <!-- ① Philosophy Quote - 손글씨 스타일 -->
-      <!-- 통통 튀는 상단 영역 전체를 클릭할 수 있도록 래퍼 추가 -->
-      <div class="dark-section__top-clickable">
+      <!-- 통통 튀는 상단 영역(ABOUT MY SPACE)만 클릭할 수 있도록 설정 -->
+      <div>
         <!-- ① Philosophy Quote - 손글씨 스타일 -->
-        <div class="dark-section__quote">
+        <div class="dark-section__quote dark-section__top-clickable">
           <p class="dark-section__quote-text">ABOUT MY SPACE</p>
         </div>
   
@@ -104,8 +105,8 @@
       </div>
 
       
-        <div style="text-align: center; margin-top: 0; padding-bottom: 3rem;">
-          <a href="about.html" class="projects__more-link" style="color: #fff;">MORE ABOUT →</a>
+        <div class="dark-section__more-wrap">
+          <a href="about.html" class="projects__more-link projects__more-link--white">LET'S GET TO KNOW MORE ABOUT ME</a>
         </div>
       </div>
     </div>
@@ -115,8 +116,8 @@
   <section class="projects" id="projects">
     <div class="projects__header">
       <div class="projects__header-left">
-        <span class="projects__anyways"><span class="script-paren">(</span>Anyways<span class="script-paren">)</span></span>
         <h2 class="projects__title">WHAT I DO</h2>
+        <p class="projects__subtitle">Let's take a look at the main projects I worked on.</p>
       </div>
       <div class="projects__header-right">
         <p class="projects__description">
@@ -124,7 +125,7 @@
           showcasing the representative work of each.<br><br>
           To view more projects, please click the button below.
         </p>
-        <a href="#" class="projects__more-link">MORE PROJECTS →</a>
+        <a href="#" class="projects__more-link">MORE PROJECTS</a>
       </div>
     </div>
 
@@ -210,8 +211,9 @@
     <header class="pp-header">
       <a href="#" class="pp-header__logo" id="project-back">HOME</a>
       <nav class="pp-header__nav">
-        <a href="#projects" class="pp-header__link">PROJECTS</a>
         <a href="#about" class="pp-header__link">ABOUT</a>
+        <a href="#projects" class="pp-header__link">PROJECTS</a>
+        <a href="#archive" class="pp-header__link">ARCHIVE</a>
         <a href="#contact" class="pp-header__link">CONTACT</a>
       </nav>
     </header>
@@ -360,6 +362,6 @@
 
   <div class="custom-cursor"></div>
   <canvas class="cursor-canvas"></canvas>
-  <script src="js/script.js?v=269"></script>
+  <script src="js/script.js?v=321"></script>
 </body>
 </html>
