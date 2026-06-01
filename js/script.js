@@ -241,7 +241,47 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   projectCards.forEach(card => {
-    card.addEventListener('click', openProjectPage);
+    const authOverlay = card.querySelector('.project-card__auth');
+    if (authOverlay) {
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.project-card__submit')) {
+          const pwInput = card.querySelector('.project-card__password');
+          const pw = pwInput.value;
+          if (pw === '4598') {
+            openProjectPage({ currentTarget: card, preventDefault: () => {} });
+          } else {
+            pwInput.classList.add('is-error');
+              setTimeout(() => {
+                pwInput.classList.remove('is-error');
+              pwInput.value = '';
+                pwInput.focus();
+              }, 400);
+          }
+        } else if (e.target.closest('.project-card__pw-container')) {
+          e.stopPropagation();
+          return; // Ignore clicks inside the input container
+        } else {
+          e.stopPropagation();
+          authOverlay.classList.toggle('is-active');
+          if (authOverlay.classList.contains('is-active')) {
+            const input = card.querySelector('.project-card__password');
+            if (input) input.focus();
+          }
+        }
+      });
+      // Allow pressing Enter in the password field
+      const inputField = card.querySelector('.project-card__password');
+      if (inputField) {
+        inputField.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            const btn = card.querySelector('.project-card__submit');
+            if (btn) btn.click();
+          }
+        });
+      }
+    } else {
+      card.addEventListener('click', openProjectPage);
+    }
   });
 
   if (moreProjectsLink) {
