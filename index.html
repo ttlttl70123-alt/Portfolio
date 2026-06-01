@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=355">
+  <link rel="stylesheet" href="css/style.css?v=403">
 </head>
 <body class="is-loading">
 
@@ -141,10 +141,10 @@
             <span class="project-card__confidential-text">CONFIDENTIAL</span>
           </div>
         </div>
-        <div class="project-card__info">
-          <h3 class="project-card__name">Hospitality</h3>
-          <p class="project-card__description">Text text text text text text text text text text text text text text text text.</p>
-        </div>
+          <div class="project-card__info">
+            <h3 class="project-card__name">Hospitality</h3>
+            <p class="project-card__description">Moving beyond simple design, I curate spaces that holistically consider function, layout, and service tailored to their purpose. This includes exclusive membership community spaces for South Korea's premier branded residences.</p>
+          </div>
       </div>
 
       <!-- Project Card 2 -->
@@ -158,10 +158,10 @@
             <span class="project-card__confidential-text">CONFIDENTIAL</span>
           </div>
         </div>
-        <div class="project-card__info">
-          <h3 class="project-card__name">Residential</h3>
-          <p class="project-card__description">Text text text text text text text text text text text text text text text text.</p>
-        </div>
+          <div class="project-card__info">
+            <h3 class="project-card__name">Residential</h3>
+            <p class="project-card__description">Focusing on the true essence of a home, I deliver designs that offer timeless elegance and an intimate sanctuary. These private residence projects encapsulate the lifestyles and unique personal narratives of South Korea's VVIP entrepreneurs.</p>
+          </div>
       </div>
 
       <!-- Project Card 3 -->
@@ -169,37 +169,57 @@
         <div class="project-card__image">
           <img src="images/opt_Thumnail_02.webp" alt="Commercial" class="project-card__img" />
         </div>
-        <div class="project-card__info">
-          <h3 class="project-card__name">Commercial</h3>
-          <p class="project-card__description">Text text text text text text text text text text text text text text text text.</p>
-        </div>
+          <div class="project-card__info">
+            <h3 class="project-card__name">Commercial</h3>
+            <p class="project-card__description">From department store boutiques to holistic store identities, I translate brand philosophies into physical spaces. I pursue a perfect balance between commercial functionality and sculptural beauty.</p>
+          </div>
       </div>
     </div>
+
+    <div class="footer__top-links">
+        <div class="footer__top-links-col">
+          <a href="#archive" class="projects__more-link">And More.. <span class="pp-hero__paren">(</span>ARCHIVE<span class="pp-hero__paren">)</span></a>
+          <p class="project-card__description" style="margin-top: 12px;">Here you can explore a variety of my work beyond interior design. Click here if you'd like to know more about me!</p>
+        </div>
+        <div></div>
+        <div class="footer__top-links-col">
+          <a href="#contact" class="projects__more-link" id="btn-get-in-touch">Just Get in Touch</a>
+          <p class="project-card__description" style="margin-top: 12px;">I'd love it if it's about a job opportunity... but a simple 'hi' is always welcome too!</p>
+        </div>
+      </div>
   </section>
 
   <!-- ===== FOOTER (CONTACT) ===== -->
-    <footer class="footer" id="contact">
-      <div class="footer__inner footer__top-flex">
-        <div class="footer__brand">
-          <span class="footer__brand-name">HYEONG-U LEE</span>
-          <div class="footer__brand-tagline">
-            <span>CREATES</span>
-            <span>CHANGE</span>
+      <footer class="footer" id="contact" style="position: relative;">
+        <!-- Absolute overlay for business card to align with full-bleed projects grid -->
+        <div style="position: absolute; left: var(--space-lg); right: var(--space-lg); bottom: calc(var(--space-lg) * 0.6); top: calc(var(--space-2xl) * 0.6); display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; align-items: flex-end; pointer-events: none; z-index: 10;">
+          <div style="grid-column: 3; justify-self: start; transform: translateX(-7rem); pointer-events: auto;">
+            <div class="footer__contact-info" id="footer-contact-info">
+              <div class="contact-info__wrapper">
+                <p class="contact-info__name">HYEONG-U LEE</p>
+                <a href="mailto:hyeongu.spatial@gmail.com" class="contact-info__link" data-text="EMAIL">EMAIL</a>
+                <a href="https://www.linkedin.com/in/hyeongu-lee-562a73381/" target="_blank" rel="noopener noreferrer" class="contact-info__link" data-text="LinkedIn">LinkedIn</a>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="footer__right-buttons">
-          <a href="#archive" class="projects__more-link projects__more-link--white">And More.. <span class="pp-hero__paren">(</span>ARCHIVE<span class="pp-hero__paren">)</span></a>
-          <span class="footer__divider">/</span>
-          <a href="mailto:email@example.com" class="projects__more-link projects__more-link--white">Just Get in Touch</a>
+
+        <div class="footer__inner" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; align-items: flex-end;">
+          <div class="footer__brand" style="grid-column: 1 / 3;">
+            <span class="footer__brand-name">HYEONG-U LEE</span>
+            <div class="footer__brand-tagline">
+              <span>CREATES</span>
+              <span>CHANGE</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
 
   <div class="footer-bottom-wrap">
     <div class="footer__inner">
       <div class="footer__bottom">
         <div class="footer__credits">
-          <a href="#" class="header__logo" style="text-decoration: none;">HYEONG-U LEE</a>
+          <img src="images/Smile_emoji.webp" alt="Smile" style="height: 2.86rem; display: block;" />
         </div>
         <div class="footer__copyright">
           2026 <span class="copyright-symbol">©</span> <a href="mailto:email@example.com">HYEONG-U LEE</a>
@@ -368,5 +388,57 @@
   <div class="custom-cursor"></div>
   <canvas class="cursor-canvas"></canvas>
   <script src="js/script.js?v=321"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btnGetInTouch = document.getElementById('btn-get-in-touch');
+      const contactInfo = document.getElementById('footer-contact-info');
+      const links = contactInfo ? contactInfo.querySelectorAll('.contact-info__link') : [];
+      
+      const typeWriter = (el, delay = 0) => {
+        const originalText = el.getAttribute('data-text');
+        el.innerHTML = '';
+        let i = 0;
+        clearInterval(el.interval);
+        clearTimeout(el.timeout);
+        
+        el.timeout = setTimeout(() => {
+          el.innerHTML = '<span style="border-right: 2px solid #111; padding-right: 2px;"></span>';
+          const textNode = document.createTextNode('');
+          el.insertBefore(textNode, el.firstChild);
+          
+          el.interval = setInterval(() => {
+            if (i < originalText.length) {
+              textNode.nodeValue += originalText.charAt(i);
+              i++;
+            } else {
+              clearInterval(el.interval);
+              setTimeout(() => {
+                el.innerHTML = originalText;
+              }, 400); // keep cursor for a moment then remove
+            }
+          }, 30 + Math.random() * 40); // 30-70ms per char
+        }, delay);
+      };
+
+      if (btnGetInTouch && contactInfo) {
+        btnGetInTouch.addEventListener('click', (e) => {
+          const footer = document.getElementById('contact');
+          if (contactInfo.classList.contains('is-visible')) {
+            contactInfo.classList.remove('is-visible');
+            contactInfo.classList.add('is-hiding');
+            if (footer) footer.classList.remove('is-card-open');
+            setTimeout(() => {
+              contactInfo.classList.remove('is-hiding');
+            }, 300);
+          } else {
+            contactInfo.classList.remove('is-hiding');
+            contactInfo.classList.add('is-visible');
+            if (footer) footer.classList.add('is-card-open');
+            links.forEach((link, idx) => typeWriter(link, idx * 150));
+          }
+        });
+      }
+    });
+  </script>
 </body>
 </html>
