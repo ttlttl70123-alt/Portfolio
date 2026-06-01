@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HYEONG-U LEE - ARCHIVE">
+  <title>ARCHIVE | HYEONG-U LEE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=419">
+  <style>
+    html, body {
+      -ms-overflow-style: none; 
+      scrollbar-width: none; 
+    }
+    html::-webkit-scrollbar, body::-webkit-scrollbar {
+      display: none; 
+    }
+  </style>
+</head>
+<body class="page-archive">
+
+  <!-- ===== HEADER / NAVIGATION ===== -->
+  <header class="header" id="header">
+    <a href="index.html" class="header__logo">HYEONG-U LEE</a>
+    <nav class="header__nav" id="main-nav">
+      <a href="about.html" class="header__link">ABOUT</a>
+      <a href="index.html#projects" class="header__link">PROJECTS</a>
+      <a href="archive.html" class="header__link">ARCHIVE</a>
+      <a href="index.html#contact" class="header__link">CONTACT</a>
+    </nav>
+    <button class="header__menu-btn" id="menu-btn" aria-label="메뉴 열기">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main class="archive-main">
+    <!-- Masonry Gallery -->
+    <div class="archive-gallery" id="archive-gallery">
+      <!-- Items will be injected here by archive.js -->
+    </div>
+    
+    <!-- Loading Sentinel -->
+    <div id="archive-sentinel" class="archive-sentinel" style="height: 1px; visibility: hidden;"></div>
+  </main>
+
+  <div class="custom-cursor"></div>
+  <canvas class="cursor-canvas"></canvas>
+  
+  <script src="js/script.js?v=258"></script>
+  <script src="js/archive.js?v=10"></script>
+</body>
+</html>

@@ -1098,7 +1098,7 @@ body.is-loading {
   position: absolute;
   inset: 0;
   background-color: #B0B0B0;
-  background-image: url('../images/opt_Background_01.webp?v=2');
+  background-image: url('../images/opt_Background_01_v2.webp?v=3');
   background-size: cover;
   background-position: center;
   z-index: 0;
@@ -1186,7 +1186,7 @@ body.is-loading {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background-color: var(--color-bg-footer);
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/opt_Background_01.webp?v=2');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/opt_Background_01_v2.webp?v=3');
   background-size: cover;
   background-position: center;
   z-index: -1;
@@ -2485,7 +2485,7 @@ body.is-loading {
   position: fixed;
   top: 0;
   left: 0;
-  width: 28%;
+  width: 22%;
   height: 100vh;
   background-color: #ffffff;
   display: flex;
@@ -2500,8 +2500,8 @@ body.is-loading {
   display: block;
 }
 .about-right {
-  margin-left: 28%;
-  width: 72%;
+  margin-left: 22%;
+  width: 78%;
   position: relative;
 }
 .about-section {
@@ -2516,6 +2516,7 @@ body.is-loading {
   align-items: flex-start; /* Left align text lines */
   text-align: left;
   gap: 4px; /* Reduced vertical gap by another 50% */
+  margin-right: 0.5rem; /* Shifted slightly right (was 1.5rem) */
 }
 
 .page-about .header {
@@ -2634,7 +2635,7 @@ body.is-loading {
   width: 26.4rem; /* Increased size by 10% */
   max-width: 90vw;
   aspect-ratio: 3.5 / 2;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/opt_Background_01.webp?v=2');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/opt_Background_01_v2.webp?v=3');
   background-size: cover;
   background-position: center;
   border-radius: 12px;
@@ -2711,3 +2712,322 @@ body.is-loading {
   color: var(--color-accent);
 }
 
+
+/* ========================================
+   PROJECTS PAGE
+   ======================================== */
+.page-projects {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+}
+
+.projects-main {
+  padding: 120px 0 var(--space-2xl);
+  max-width: 100%; /* Stretch to ends, no margin */
+  margin: 0 auto;
+}
+
+.projects-main .projects__header-left, .projects-filter {
+  padding: 0 var(--space-lg); /* Keep padding for title and filter only in projects page */
+}
+
+.projects-filter {
+  list-style: none;
+  display: flex;
+  gap: calc(var(--space-lg) * 0.7); /* Reduced gap by 30% */
+  margin: 0;
+  margin-bottom: calc(var(--space-2xl) * 0.3); /* Reduced gap to thumbnails by 70% */
+  flex-wrap: wrap;
+}
+
+.projects-filter__item {
+  font-family: var(--font-display);
+  font-size: 2.39rem; /* 1.84rem + 30% */
+  color: var(--color-text); /* Black when unclicked too */
+  cursor: pointer;
+  position: relative;
+  transition: color 0.3s ease;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+}
+
+.projects-filter__checkbox {
+  display: inline-block;
+  width: 16px; /* Slightly larger to match 30% larger text */
+  height: 16px;
+  border: 1.5px solid #000000; /* Made visible with black border */
+  margin-right: 8px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.projects-filter__item.is-active .projects-filter__checkbox {
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.projects-filter__item.is-active::after {
+  display: none !important; /* Hide previous underline effect */
+}
+
+.projects-filter__item:hover {
+  color: var(--color-accent);
+}
+
+.projects-filter__item.is-active {
+  color: var(--color-text);
+}
+
+.projects-filter__item.is-active::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-text);
+}
+
+.projects-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* Reduced by 80% */
+  width: 100%;
+}
+
+.projects-list__item {
+  width: 100%;
+  aspect-ratio: 21 / 5.4; /* Reduced height by 40% from 21/9 */
+  background-color: #e0e0e0;
+  border-radius: 0; /* R removed */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect removed as requested */
+.projects-list__item:hover {
+  /* No transform or box-shadow */
+}
+
+/* Thumbnail 4 Corners Text */
+.thumb-corner {
+  position: absolute;
+  color: #ffffff;
+  padding: calc(var(--space-md) * 1.2); /* Increased margin from corners by 20% */
+  z-index: 2;
+  pointer-events: none;
+}
+
+.thumb-top-left {
+  top: 0;
+  left: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem; /* Matched project-card__description */
+  font-weight: 500; /* Thicker than 300 */
+  color: #ffffff; /* Matched bottom-right but white */
+  text-align: left;
+  line-height: 1.6; /* Matched bottom-right */
+}
+
+.thumb-top-right {
+  top: 0;
+  right: 0;
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 4.8vw, 6rem); /* Decreased 20% */
+  font-weight: 400;
+  letter-spacing: -0.01em; /* Matching pp-hero__year */
+  line-height: 0.95; /* Matching pp-hero__year */
+  text-align: right;
+}
+
+.thumb-paren {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9em;
+}
+
+.thumb-num {
+  display: inline-block;
+  transform: translateY(12%);
+}
+
+.thumb-bottom-left {
+  bottom: 0;
+  left: 0;
+  font-family: var(--font-display);
+  font-size: 6.3rem; /* Increased by 20% from 5.25rem */
+  font-weight: 400;
+  letter-spacing: -0.02em; /* Matched JUST GET IN TOUCH */
+  text-transform: uppercase;
+  line-height: 0.9;
+}
+
+.thumb-bottom-right {
+  bottom: 0;
+  right: 0;
+  font-family: var(--font-body);
+  font-size: 0.95rem; /* Matched project-card__description */
+  font-weight: 300; /* Restored to 300 */
+  color: #ffffff; /* Matched project-card__description but white */
+  text-align: left; /* Left-align the text itself */
+  max-width: 400px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .projects-list__item {
+    aspect-ratio: 16 / 9;
+  }
+  .projects-filter {
+    gap: var(--space-sm);
+  }
+  .projects-filter__item {
+    font-size: 1.2rem;
+  }
+}
+
+
+/* ========================================
+   ARCHIVE PAGE
+   ======================================== */
+.page-archive {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.page-archive::-webkit-scrollbar {
+  display: none;
+}
+
+.archive-main {
+  padding: 20px var(--space-lg) var(--space-2xl);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+.archive-header {
+  margin-bottom: var(--space-xl);
+  text-align: left;
+}
+
+.archive-title {
+  font-family: var(--font-display);
+  font-size: 5rem;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-md);
+  text-transform: uppercase;
+}
+
+.archive-desc {
+  font-size: 1.1rem;
+  color: var(--color-text-light);
+  max-width: 600px;
+}
+
+/* Masonry Layout via Flexbox */
+.archive-gallery {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.archive-column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  flex: 1;
+}
+
+.archive-item {
+  width: 100%;
+  display: block;
+  break-inside: avoid;
+  background: transparent;
+  transition: transform 0.3s ease;
+  position: relative;
+}
+
+.archive-item:hover {
+  transform: translateY(-4px);
+}
+
+.archive-item__img-wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.archive-item:hover .archive-item__img-wrapper {
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.archive-item__img-wrapper img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.archive-item:hover img {
+  transform: scale(1.05);
+}
+
+.archive-item__text-area {
+  padding: 12px 4px 0 4px;
+}
+
+.archive-item__title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.archive-item__title {
+  font-weight: 500;
+  font-size: 1.05rem;
+  color: #111;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+.archive-item__heart {
+  width: 26px; 
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.archive-item__heart:hover {
+  transform: scale(1.2);
+}
+
+.archive-item__desc {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.archive-sentinel {
+  text-align: center;
+  padding: 40px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .archive-title {
+    font-size: 3.5rem;
+  }
+}

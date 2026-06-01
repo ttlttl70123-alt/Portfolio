@@ -204,15 +204,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const moreProjectsLink = document.querySelector('.projects__header-right .projects__more-link');
   const ppHeader = document.querySelector('.pp-header');
 
-  projectPage.addEventListener('scroll', () => {
-    // .pp-hero 높이(89vh)를 기준으로, 스크롤이 헤더 영역을 지나 흰색 배경에 닿으면 클래스 추가
-    const threshold = (window.innerHeight * 0.89) - 80; // 헤더 높이 여유분 약 80px
-    if (projectPage.scrollTop > threshold) {
-      ppHeader.classList.add('pp-header--scrolled');
-    } else {
-      ppHeader.classList.remove('pp-header--scrolled');
-    }
-  });
+  if (projectPage) {
+    projectPage.addEventListener('scroll', () => {
+      // .pp-hero 높이(89vh)를 기준으로, 스크롤이 헤더 영역을 지나 흰색 배경에 닿으면 클래스 추가
+      const threshold = (window.innerHeight * 0.89) - 80; // 헤더 높이 여유분 약 80px
+      if (projectPage.scrollTop > threshold) {
+        ppHeader.classList.add('pp-header--scrolled');
+      } else {
+        ppHeader.classList.remove('pp-header--scrolled');
+      }
+    });
+  }
 
   function openProjectPage() {
     projectPage.classList.add('project-page--open');
@@ -243,16 +245,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   if (moreProjectsLink) {
-    moreProjectsLink.addEventListener('click', (e) => {
-      e.preventDefault();
-      openProjectPage();
-    });
+    // Let the default anchor link behavior take over (navigates to projects.html)
   }
 
-  projectBack.addEventListener('click', closeProjectPage);
+  if (projectBack) {
+    projectBack.addEventListener('click', closeProjectPage);
+  }
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && projectPage.classList.contains('project-page--open')) {
+    if (e.key === 'Escape' && projectPage && projectPage.classList.contains('project-page--open')) {
       closeProjectPage();
     }
   });
@@ -650,3 +651,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Handle email click to copy to clipboard (Fallback for mailto)
+  const emailLinks = document.querySelectorAll('a[href^="mailto:"]');
+  emailLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const email = link.getAttribute('href').replace('mailto:', '');
+      navigator.clipboard.writeText(email).then(() => {
+        const originalText = link.getAttribute('data-text') || link.textContent;
+        const originalColor = link.style.color;
+        link.textContent = 'COPIED!';
+        link.style.color = '#3A3AF4'; // Changed to brand blue color
+        setTimeout(() => {
+          link.textContent = originalText;
+          link.style.color = originalColor; // Restore original color
+        }, 1500);
+      });
+    });
+  });

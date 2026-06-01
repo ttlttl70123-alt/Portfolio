@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="HYEONG-U LEE - Projects">
+  <title>HYEONG-U LEE - Projects</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=274">
+</head>
+<body class="page-projects">
+
+  <!-- ===== HEADER / NAVIGATION ===== -->
+  <header class="header" id="header">
+    <a href="index.html" class="header__logo">HYEONG-U LEE</a>
+    <nav class="header__nav" id="main-nav">
+      <a href="about.html" class="header__link">ABOUT</a>
+      <a href="index.html#projects" class="header__link">PROJECTS</a>
+      <a href="archive.html" class="header__link">ARCHIVE</a>
+      <a href="index.html#contact" class="header__link">CONTACT</a>
+    </nav>
+    <button class="header__menu-btn" id="menu-btn" aria-label="메뉴 열기">
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <main class="projects-main">
+    <div class="projects__header-left" style="margin-bottom: var(--space-xl);">
+      <h2 class="projects__title">PROJECTS</h2>
+    </div>
+
+    <!-- Category Filter -->
+    <ul class="projects-filter" id="projects-filter">
+      <li class="projects-filter__item is-active" data-filter="all"><span class="projects-filter__checkbox"></span>ALL</li>
+      <li class="projects-filter__item" data-filter="hospitality"><span class="projects-filter__checkbox"></span>HOSPITALITY</li>
+      <li class="projects-filter__item" data-filter="residential"><span class="projects-filter__checkbox"></span>RESIDENTIAL</li>
+      <li class="projects-filter__item" data-filter="commercial"><span class="projects-filter__checkbox"></span>COMMERCIAL</li>
+      <li class="projects-filter__item" data-filter="academic"><span class="projects-filter__checkbox"></span>Academic Projects</li>
+    </ul>
+
+    <!-- Projects List -->
+    <div class="projects-list">
+      <!-- Placeholder 1 -->
+      <div class="projects-list__item" data-category="hospitality">
+        <div class="thumb-corner thumb-top-left">BRANDING<br>SPACE PROGRAMMING</div>
+        <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'25</span><span class="thumb-paren">)</span></div>
+        <div class="thumb-corner thumb-bottom-left">PROJECT TITLE</div>
+        <div class="thumb-corner thumb-bottom-right">This is a short description of the project detailing the overall concept and execution.</div>
+      </div>
+      <!-- Placeholder 2 -->
+      <div class="projects-list__item" data-category="residential">
+        <div class="thumb-corner thumb-top-left">INTERIOR DESIGN</div>
+        <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'24</span><span class="thumb-paren">)</span></div>
+        <div class="thumb-corner thumb-bottom-left">RESIDENTIAL PROJECT</div>
+        <div class="thumb-corner thumb-bottom-right">This is a short description of the project detailing the overall concept and execution.</div>
+      </div>
+      <!-- Placeholder 3 -->
+      <div class="projects-list__item" data-category="commercial">
+        <div class="thumb-corner thumb-top-left">BRANDING<br>INTERIOR DESIGN</div>
+        <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'24</span><span class="thumb-paren">)</span></div>
+        <div class="thumb-corner thumb-bottom-left">COMMERCIAL PROJECT</div>
+        <div class="thumb-corner thumb-bottom-right">This is a short description of the project detailing the overall concept and execution.</div>
+      </div>
+      <!-- Placeholder 4 -->
+      <div class="projects-list__item" data-category="academic">
+        <div class="thumb-corner thumb-top-left">ACADEMIC RESEARCH</div>
+        <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'23</span><span class="thumb-paren">)</span></div>
+        <div class="thumb-corner thumb-bottom-left">ACADEMIC PROJECT</div>
+        <div class="thumb-corner thumb-bottom-right">This is a short description of the project detailing the overall concept and execution.</div>
+      </div>
+    </div>
+  </main>
+
+  <div class="custom-cursor"></div>
+  <canvas class="cursor-canvas"></canvas>
+  <script src="js/script.js?v=261"></script>
+  <script>
+    // Handle category filter clicks
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterItems = document.querySelectorAll('.projects-filter__item');
+      filterItems.forEach(item => {
+        item.addEventListener('click', () => {
+          // Remove active class from all
+          filterItems.forEach(el => el.classList.remove('is-active'));
+          // Add active class to clicked
+          item.classList.add('is-active');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
