@@ -551,7 +551,16 @@ document.addEventListener('DOMContentLoaded', () => {
           'images/02_Spatial_Strategy_Planning/20260527_104920.webp',
           'images/02_Spatial_Strategy_Planning/20260527_104922.webp'
         ];
-      } else if (index === 2) { // 03번 탭 (Industrial design)
+      } else if (index === 2) { // 03번 탭 (3D visualization)
+        serviceModal.classList.add('service-modal--horizontal');
+        galleryImages = [
+          'images/3d_visualization/1.webp',
+          'images/3d_visualization/2.webp',
+          'images/3d_visualization/3.webp',
+          'images/3d_visualization/4.webp',
+          'images/3d_visualization/5.png'
+        ];
+      } else if (index === 3) { // 04번 탭 (Industrial design)
         serviceModal.classList.add('service-modal--horizontal');
         galleryImages = [
           'images/03_Product_design1/1.webp',
@@ -659,8 +668,8 @@ document.addEventListener('DOMContentLoaded', () => {
           if (currentTabIndex === 1) {
             // 02번 탭일 경우 모든 사진에 동일한 캡션 유지
             captionEl.textContent = '* Selected pages to ensure project confidentiality.';
-          } else if (currentTabIndex === 2) {
-            // 03번 탭일 경우 캡션
+          } else if (currentTabIndex === 2 || currentTabIndex === 3) {
+            // 03번, 04번 탭일 경우 캡션
             const captions03 = [
               '* Maserati Snowmobile Designed During Associate Degree',
               '* From the Graduation Exhibition',
@@ -711,7 +720,7 @@ document.addEventListener('DOMContentLoaded', () => {
               leftOffset = (mainImg.clientWidth - renderedWidth) / 2;
             }
 
-            captionEl.style.top = `calc(${topOffset}px - 18px)`; // 24px과 12px의 중간값 18px 적용
+            captionEl.style.top = `calc(${topOffset}px - 22px)`; // 24px과 12px의 중간값 18px 적용
             captionEl.style.left = `${leftOffset}px`;
           };
           
