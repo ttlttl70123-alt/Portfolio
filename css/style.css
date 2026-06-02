@@ -694,7 +694,7 @@ body.is-loading {
   color: var(--color-text-light);
   padding-top: var(--space-md);
   padding-bottom: var(--space-md);
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: 10px;
   transition: all var(--transition-base);
   cursor: pointer;
@@ -710,7 +710,7 @@ body.is-loading {
 
 .service-tag:hover {
   color: var(--color-text-light);
-  border-color: var(--color-accent);
+  
   background-color: rgba(58, 58, 244, 0.08);
 }
 
@@ -751,7 +751,7 @@ body.is-loading {
   letter-spacing: 0.05em;
   color: var(--color-text-muted-light);
   padding: 10px 6px;
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: 10px;
   transition: all var(--transition-base);
   cursor: default;
@@ -760,7 +760,7 @@ body.is-loading {
 
 .tool-tag-inline:hover {
   color: var(--color-text-light);
-  border-color: var(--color-accent);
+  
   background-color: rgba(58, 58, 244, 0.08);
 }
 
@@ -788,6 +788,7 @@ body.is-loading {
   grid-template-columns: repeat(9, 1fr);
   gap: 6px; /* 12px에서 50% 축소 */
   width: 100%;
+  margin-top: calc(var(--space-2xl) / 2); /* 3번 항목 제목/설명과 하단 컨텐츠 간의 여백 확보 */
 }
 
 @media (max-width: 1024px) {
@@ -808,7 +809,7 @@ body.is-loading {
   letter-spacing: 0.05em;
   color: var(--color-text-muted-light);
   padding: 12px 0; /* 기존 10px에서 2px 추가하여 전체 높이 약 10% 증가 */
-  border: 1px solid var(--color-border);
+  border: none;
   border-radius: 10px;
   overflow: hidden;
   transition: all var(--transition-base);
@@ -833,7 +834,7 @@ body.is-loading {
 
 .tools-tag:hover {
   color: var(--color-text-light);
-  border-color: var(--color-accent);
+  
   background-color: rgba(58, 58, 244, 0.08);
 }
 
@@ -1150,7 +1151,7 @@ body.is-loading {
 
 .inquiries__card-title a:hover {
   color: var(--color-accent);
-  border-color: var(--color-accent);
+  
 }
 
 .inquiries__card-desc-en {
@@ -2172,10 +2173,12 @@ body.is-loading {
 
 .service-modal__title {
   font-family: var(--font-display);
-  font-size: 3.38rem;
+  font-size: clamp(3rem, 4.8vw, 4.2rem);
+  font-weight: 400;
   color: var(--color-text-light);
+  line-height: 1;
+  text-transform: uppercase;
   margin-bottom: var(--space-md);
-  letter-spacing: 0.05em;
 }
 
 .service-modal__body {
@@ -2450,7 +2453,7 @@ body.is-loading {
   color: #000000;
 }
 .page-about .tools__pill {
-  border-color: #000000;
+  
 }
 .page-about .dark-section__divider { background: #e0e0e0; }
 .page-about .footer-bottom-wrap { border-top-color: #e0e0e0; background-color: #ffffff; }
@@ -2462,16 +2465,16 @@ body.is-loading {
 .page-about .service-tag:hover {
   color: #000000;
   background-color: rgba(0, 0, 0, 0.05);
-  border-color: #000000;
+  
 }
 .page-about .tools-tag {
   color: #000000;
-  border-color: rgba(0, 0, 0, 0.2);
+  
 }
 .page-about .tools-tag:hover {
   color: #000000;
   background-color: rgba(0, 0, 0, 0.05);
-  border-color: #000000;
+  
 }
 .page-about .tools-text {
   color: #000000;
@@ -2768,7 +2771,7 @@ body.is-loading {
 
 .projects-filter__item.is-active .projects-filter__checkbox {
   background-color: #000000;
-  border-color: #000000;
+  
 }
 
 .projects-filter__item.is-active::after {
@@ -3261,7 +3264,15 @@ body.is-loading {
 /* ====================================================
    LAYOUT & SCALING OVERRIDES (Fixed)
    ==================================================== */
-.service-modal__title { font-size: 3.38rem !important; }
+.service-modal__title {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 4.8vw, 4.2rem);
+  font-weight: 400;
+  color: var(--color-text-light);
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: var(--space-md);
+}
 .service-modal__content { max-width: 1700px !important; width: 96vw !important; }
 .gallery-caption { font-size: 0.88rem !important; font-weight: 200 !important; }
 
@@ -3326,6 +3337,9 @@ body.is-loading {
 img.gallery-image[src*="3d_visualization/1.webp"] {
   object-position: center 40% !important;
 }
+
+
+
 
 
 
