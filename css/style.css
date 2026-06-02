@@ -2147,10 +2147,10 @@ body.is-loading {
 
 .service-modal__close {
   position: absolute;
-  top: 16px;
+  top: 40px;
   right: 16px;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   background: none;
   border: none;
   color: var(--color-text-muted);
@@ -2166,8 +2166,8 @@ body.is-loading {
 }
 
 .service-modal__close svg {
-  width: 24px;
-  height: 24px;
+  width: 27px;
+  height: 27px;
 }
 
 .service-modal__title {
@@ -2315,8 +2315,8 @@ body.is-loading {
 }
 
 .gallery-nav svg {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
 }
 
 /* Side Thumbnails (vertical, 3 items) */
@@ -2345,11 +2345,11 @@ body.is-loading {
   object-fit: cover;
 }
 
-/* 비활성 썸네일: 검은색 50% 오버레이 */
+/* 비활성 썸네일: 검은색 70% 오버레이 */
 .gallery-side-overlay {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
   transition: opacity var(--transition-base);
   pointer-events: none;
 }
@@ -3321,3 +3321,8 @@ body.is-loading {
 img.gallery-image[src*="3d_visualization/1.webp"] {
   object-position: center 40% !important;
 }
+
+
+
+
+
