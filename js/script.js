@@ -189,8 +189,8 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     },
     {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px',
+      threshold: 0.15,
+      rootMargin: '0px 0px -100px 0px',
     }
   );
 
@@ -586,6 +586,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updateCarousel();
 
       if (modalServiceTagsContainer) {
+        modalServiceTagsContainer.classList.add('is-animating');
         modalServiceTagsContainer.classList.add('is-open');
       }
       serviceModal.classList.add('is-active');
@@ -594,6 +595,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModal = () => {
       if (modalServiceTagsContainer) {
         modalServiceTagsContainer.classList.remove('is-open');
+        setTimeout(() => { modalServiceTagsContainer.classList.remove('is-animating'); }, 550);
         modalServiceTagsContainer.classList.remove('is-hovering'); // 호버 상태 초기화
       }
       serviceModal.classList.remove('is-active');
@@ -805,3 +807,4 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
   });
+
