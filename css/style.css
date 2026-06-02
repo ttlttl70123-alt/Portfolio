@@ -2121,26 +2121,23 @@ body.is-loading {
 }
 
 .service-modal__overlay {
-  position: absolute;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(5px);
+  display: none;
 }
 
 .service-modal__content {
   position: relative;
-  background-color: #050505;
-  border: 1px solid var(--color-border);
+  background-color: transparent;
+  border: none;
   border-radius: 0;
   padding: var(--space-2xl) var(--space-xl);
   max-width: 1400px;
   width: 90vw;
-  height: 52vh; /* 기존 65vh에서 약 20% 축소 */
+  height: 70vh; /* 확대 */
   display: flex;
   flex-direction: column;
   transform: translateY(20px);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  box-shadow: none;
   z-index: 1;
 }
 
@@ -3218,7 +3215,7 @@ body.is-loading {
   align-items: center;
   justify-content: center;
   clip-path: inset(50% 0 50% 0);
-  transition: clip-path 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: clip-path 0.55s cubic-bezier(0.16, 1, 0.3, 1), top 0.55s cubic-bezier(0.16, 1, 0.3, 1), height 0.55s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: 2;
   pointer-events: none;
 }
@@ -3231,6 +3228,7 @@ body.is-loading {
   text-align: center;
   white-space: nowrap;
   line-height: 1;
+  transition: opacity 0.3s ease;
 }
 .service-tags-h.is-hovering .service-tags-h__overlay {
   clip-path: inset(0% 0 0% 0);
@@ -3239,4 +3237,12 @@ body.is-loading {
 .service-tags-h.is-open .service-tags-h__overlay {
   clip-path: inset(0% 0 0% 0);
   pointer-events: auto;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100vh !important;
+  width: 100vw !important;
+  z-index: 8000;
+}
+.service-tags-h.is-open .service-tags-h__overlay-text {
+  opacity: 0;
 }

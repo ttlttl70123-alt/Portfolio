@@ -520,8 +520,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== SERVICE MODAL =====
 
-  const serviceTags = document.querySelectorAll('.service-tag');
+  const serviceTags = document.querySelectorAll('.service-tag-h'); // 신규 태그
   const serviceModal = document.getElementById('serviceModal');
+  const modalServiceTagsContainer = document.querySelector('.service-tags-h');
   
   if (serviceModal && serviceTags.length > 0) {
     const modalTitle = document.getElementById('serviceModalTitle');
@@ -575,10 +576,17 @@ document.addEventListener('DOMContentLoaded', () => {
       currentTabIndex = index;
       updateCarousel();
 
+      if (modalServiceTagsContainer) {
+        modalServiceTagsContainer.classList.add('is-open');
+      }
       serviceModal.classList.add('is-active');
     };
 
     const closeModal = () => {
+      if (modalServiceTagsContainer) {
+        modalServiceTagsContainer.classList.remove('is-open');
+        modalServiceTagsContainer.classList.remove('is-hovering'); // 호버 상태 초기화
+      }
       serviceModal.classList.remove('is-active');
     };
 
