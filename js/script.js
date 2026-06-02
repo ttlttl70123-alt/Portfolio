@@ -16,10 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const geoGreeting = document.getElementById('geo-greeting');
   const heroCountry = document.getElementById('hero-country');
   
-  fetch('https://ipapi.co/json/')
+  fetch('https://get.geojs.io/v1/ip/geo.json')
     .then(res => res.json())
     .then(data => {
-      const country = (data.country_name || '').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
+      const country = (data.country || '').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
       // 국기 이미지 매핑 (이미지 폴더의 파일명과 매칭)
       const flagMap = {
         'South Korea': 'KOREA',
