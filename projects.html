@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
@@ -14,7 +14,7 @@
 
   <!-- ===== HEADER / NAVIGATION ===== -->
   <header class="header" id="header">
-    <a href="index.html" class="header__logo">HYEONG-U LEE</a>
+    <a href="index.html" class="header__logo">HOME</a>
     <nav class="header__nav" id="main-nav">
       <a href="about.html" class="header__link">ABOUT</a>
       <a href="index.html#projects" class="header__link">PROJECTS</a>
@@ -58,12 +58,12 @@
         <div class="thumb-corner thumb-bottom-right">This is a short description of the project detailing the overall concept and execution.</div>
       </div>
       <!-- Placeholder 3 -->
-      <div class="projects-list__item" data-category="commercial">
-        <div class="thumb-corner thumb-top-left">BRANDING<br>INTERIOR DESIGN</div>
+      <a href="cerruti1881.html" class="projects-list__item" data-category="commercial" style="display: block; text-decoration: none; background-image: url('images/1_Cerruti/0.jpg'); background-size: cover; background-position: center;">
+        <div class="thumb-corner thumb-top-left">BRANDING<br>SPACE PROGRAMMING</div>
         <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'24</span><span class="thumb-paren">)</span></div>
-        <div class="thumb-corner thumb-bottom-left">COMMERCIAL PROJECT</div>
-        <div class="thumb-corner thumb-bottom-right">This is a short description of the project detailing the overall concept and execution.</div>
-      </div>
+        <div class="thumb-corner thumb-bottom-left">CERRUTI1881</div>
+        <div class="thumb-corner thumb-bottom-right">Guangzhou, China<br>278.1m&sup2;<br>Commercial Space</div>
+      </a>
       <!-- Placeholder 4 -->
       <div class="projects-list__item" data-category="academic">
         <div class="thumb-corner thumb-top-left">ACADEMIC RESEARCH</div>
@@ -81,15 +81,28 @@
     // Handle category filter clicks
     document.addEventListener('DOMContentLoaded', () => {
       const filterItems = document.querySelectorAll('.projects-filter__item');
+      const projectItems = document.querySelectorAll('.projects-list__item');
+      
       filterItems.forEach(item => {
         item.addEventListener('click', () => {
           // Remove active class from all
           filterItems.forEach(el => el.classList.remove('is-active'));
           // Add active class to clicked
           item.classList.add('is-active');
+          
+          const filterValue = item.getAttribute('data-filter');
+          
+          projectItems.forEach(project => {
+            if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
+              project.style.display = 'block';
+            } else {
+              project.style.display = 'none';
+            }
+          });
         });
       });
     });
   </script>
 </body>
 </html>
+

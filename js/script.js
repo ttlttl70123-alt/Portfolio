@@ -204,16 +204,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const moreProjectsLink = document.querySelector('.projects__header-right .projects__more-link');
   const ppHeader = document.querySelector('.pp-header');
 
-  if (projectPage) {
-    projectPage.addEventListener('scroll', () => {
-      // .pp-hero 높이(89vh)를 기준으로, 스크롤이 헤더 영역을 지나 흰색 배경에 닿으면 클래스 추가
+  if (ppHeader) {
+    const scrollHandler = () => {
+      // Body scroll (for modal) or window scroll (for standalone page)
+      const scrollTop = (projectPage && projectPage.scrollTop > 0) ? projectPage.scrollTop : window.scrollY;
       const threshold = (window.innerHeight * 0.89) - 80; // 헤더 높이 여유분 약 80px
-      if (projectPage.scrollTop > threshold) {
+      if (scrollTop > threshold) {
         ppHeader.classList.add('pp-header--scrolled');
       } else {
         ppHeader.classList.remove('pp-header--scrolled');
       }
-    });
+    };
+    
+    if (projectPage) projectPage.addEventListener('scroll', scrollHandler);
+    window.addEventListener('scroll', scrollHandler);
   }
 
   function openProjectPage() {
@@ -808,3 +812,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+
+
+  // ===== HASH NAVIGATION =====
+  // If navigating from another page with #project-name (e.g. #commercial), open it automatically
+  window.addEventListener('load', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash) {
+      const targetCard = document.querySelector(`.project-card[data-project="${hash}"]`);
+      if (targetCard) {
+        // Trigger click if it doesn't require password, or just open directly
+        openProjectPage({ currentTarget: targetCard, preventDefault: () => {} });
+      }
+    }
+  });

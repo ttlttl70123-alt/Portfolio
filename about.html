@@ -14,7 +14,7 @@
 
   <!-- ===== HEADER / NAVIGATION ===== -->
   <header class="header" id="header">
-    <a href="index.html" class="header__logo">HYEONG-U LEE</a>
+    <a href="index.html" class="header__logo">HOME</a>
     <nav class="header__nav" id="main-nav">
       <a href="about.html" class="header__link">ABOUT</a>
       <a href="index.html#projects" class="header__link">PROJECTS</a>
@@ -32,11 +32,14 @@
     <div class="about-right">
 
     <section class="about-section" id="about">
-      <div class="projects__header" style="width: 100%; margin: 0 auto 126px auto;">
-        <div class="projects__header-left">
-          <h2 class="projects__title">ABOUT ME</h2>
+        <div class="projects__header" style="width: 100%; margin: 0 auto 65px auto;">
+          <div class="projects__header-left" style="display: flex; flex-direction: row; align-items: center; gap: clamp(1rem, 2vw, 2rem); margin-top: 50px;">
+            <h2 class="projects__title" style="margin-bottom: 0; margin-top: calc(3vw + 23px);">ABOUT ME</h2>
+            <a href="CV.pdf" download class="about-cv-link" style="display: inline-block; transition: transform 0.3s ease; position: relative; top: 2.8vw; left: calc(4vw - 30px);">
+              <img src="images/Folder.png" alt="Download CV" style="height: clamp(3rem, 6vw, 6rem); width: auto; object-fit: contain; cursor: pointer;">
+            </a>
+          </div>
         </div>
-      </div>
       <div class="dark-section__inner">
       <div class="dark-section__content">
 <!-- ② 경력 & 프로젝트 통계 -->
@@ -363,3 +366,4 @@
   <script src="js/script.js?v=258"></script>
 </body>
 </html>
+
