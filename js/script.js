@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 pwInput.classList.remove('is-error');
               pwInput.value = '';
                 pwInput.focus();
-              }, 400);
+              }, 280);
           }
         } else if (e.target.closest('.project-card__pw-container')) {
           e.stopPropagation();

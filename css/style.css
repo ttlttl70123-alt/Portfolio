@@ -2582,10 +2582,15 @@ body.is-loading {
   width: 0.85em;
   height: 0.85em;
   margin-left: 0.15em;
-  background-image: url('../images/Arrow.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: currentColor;
+  -webkit-mask-image: url('../images/Arrow.png');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url('../images/Arrow.png');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
   transform: translateY(0.16em);
 }
 
@@ -3068,7 +3073,7 @@ body.is-loading {
 .project-card__pw-container {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 1px;
   width: 0;
   opacity: 0;
   pointer-events: none;
@@ -3076,7 +3081,7 @@ body.is-loading {
 }
 
 .project-card__auth.is-active .project-card__pw-container {
-  width: 160px;
+  width: 146px;
   opacity: 1;
   pointer-events: auto;
   padding-right: 8px;
@@ -3087,17 +3092,17 @@ body.is-loading {
   background: transparent;
   color: white;
   border-radius: 0;
-  padding: 4px 0;
-  width: 90px;
-  font-family: monospace;
+  padding: 4px 0 4px 4px;
+  width: 92px;
+  font-family: sans-serif;
   font-size: 1.2rem;
-  letter-spacing: 12px;
-  text-indent: 6px;
+  letter-spacing: 16px;
+  text-indent: 0;
   outline: none;
-  background-image: linear-gradient(to right, white 14px, transparent 14px);
-  background-size: 22.5px 2px;
-  background-position: center bottom;
-  background-repeat: repeat-x;
+  background-image: repeating-linear-gradient(to right, white 0, white 14px, transparent 14px, transparent 23px);
+  background-size: 100% 2px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
 }
 .project-card__password::placeholder {
   color: rgba(255, 255, 255, 0.5);
@@ -3114,34 +3119,34 @@ body.is-loading {
   align-items: center;
   justify-content: center;
   padding: 0;
-  margin-left: 8px;
+  margin-left: 1px;
 }
 
 
 @keyframes shakeAuth { 0% { transform: translateX(0); } 25% { transform: translateX(-5px); } 50% { transform: translateX(5px); } 75% { transform: translateX(-5px); } 100% { transform: translateX(0); } }
-.project-card__auth.is-error { animation: shakeAuth 0.3s ease-in-out; }
+.project-card__auth.is-error { animation: shakeAuth 0.21s ease-in-out; }
 .project-card__auth.is-red .project-card__password {
   border: none;
   background: transparent;
   color: white;
   border-radius: 0;
-  padding: 4px 0;
-  width: 90px;
-  font-family: monospace;
+  padding: 4px 0 4px 4px;
+  width: 92px;
+  font-family: sans-serif;
   font-size: 1.2rem;
-  letter-spacing: 12px;
-  text-indent: 6px;
+  letter-spacing: 16px;
+  text-indent: 0;
   outline: none;
-  background-image: linear-gradient(to right, white 14px, transparent 14px);
-  background-size: 22.5px 2px;
-  background-position: center bottom;
-  background-repeat: repeat-x;
+  background-image: repeating-linear-gradient(to right, white 0, white 14px, transparent 14px, transparent 23px);
+  background-size: 100% 2px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
 }
 
 .project-card__password.is-error {
-  animation: shakeAuth 0.4s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  animation: shakeAuth 0.28s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   color: #ff4d4d;
-  background-image: repeating-linear-gradient(to right, #ff4d4d 0, #ff4d4d 14px, transparent 14px, transparent 24px) !important;
+  background-image: repeating-linear-gradient(to right, #ff4d4d 0, #ff4d4d 14px, transparent 14px, transparent 23px) !important;
 }
 
 .project-card__submit::after {
