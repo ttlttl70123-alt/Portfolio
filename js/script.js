@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         'Canada': 'CANADA'
       };
       if (country) {
-        if (geoGreeting) geoGreeting.textContent = `HI, ${country}`;
         if (heroCountry) heroCountry.textContent = country;
         
         // 국기 이미지 표시
@@ -166,35 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateHeader, { passive: true });
   updateHeader();
 
-  // ===== SCROLL REVEAL ANIMATIONS =====
-  const revealElements = document.querySelectorAll(
-    '.dark-section__philosophy, .stat-card, .services-list__item, .dark-section__tools, .project-card, .dark-section__quote, .inquiries__card, .projects__header, .footer__brand'
-  );
-
-  revealElements.forEach((el, index) => {
-    el.classList.add('reveal');
-    // Stagger delay within groups
-    const delay = index % 4;
-    if (delay > 0) {
-      el.classList.add(`reveal--delay-${delay}`);
-    }
-  });
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal--visible');
-        }
-      });
-    },
-    {
-      threshold: 0.15,
-      rootMargin: '0px 0px -100px 0px',
-    }
-  );
-
-  revealElements.forEach(el => observer.observe(el));
+  // ===== SCROLL REVEAL ANIMATIONS REMOVED AS REQUESTED =====
 
   // ===== PROJECT PAGE TRANSITION =====
   const projectTransition = document.getElementById('project-transition');
@@ -317,33 +288,17 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(updateCounter);
       
       counterElement.innerText = currentCount;
-      
-      // Complete loading
-      setTimeout(() => {
-        preloader.classList.add('is-hidden');
-        document.body.classList.remove('is-loading');
-        
-        // Trigger hero animations after loader hides
+            // Complete loading
         setTimeout(() => {
-          const heroLines = document.querySelectorAll('.hero__line, .hero__subtitle');
-          heroLines.forEach((line, i) => {
-            line.style.transition = `opacity 0.8s ease ${i * 0.15}s, transform 0.8s ease ${i * 0.15}s`;
-            line.style.opacity = '1';
-            line.style.transform = 'translateY(0)';
-          });
-        }, 300);
-      }, 300); // short delay after hitting 100
+          preloader.classList.add('is-hidden');
+          document.body.classList.remove('is-loading');
+        }, 500); // short delay after hitting 100
     } else {
       counterElement.innerText = currentCount;
     }
   }, 20); // Fast interval
 
-  // Initially hide hero texts
-  const heroLines = document.querySelectorAll('.hero__line, .hero__subtitle');
-  heroLines.forEach((line) => {
-    line.style.opacity = '0';
-    line.style.transform = 'translateY(20px)';
-  });
+  // Hero texts are now visible by default since we removed the fade-in effect
 
   // ===== CUSTOM CURSOR & CANVAS TRAIL =====
   const cursor = document.querySelector('.custom-cursor');
