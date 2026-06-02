@@ -688,7 +688,7 @@ body.is-loading {
   justify-content: space-between;
   padding-left: var(--space-lg); /* 좌측 여백 수정: 사용자가 지정한 좌측 붉은 영역 부근으로 텍스트 이동 */
   font-family: var(--font-display);
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: clamp(1.44rem, 2.4vw, 1.92rem);
   font-weight: 400;
   letter-spacing: 0.06em;
   color: var(--color-text-light);
