@@ -576,7 +576,7 @@ body.is-loading {
 
 .experience__right-group {
   flex: 1;
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-xl);
 }
@@ -734,7 +734,7 @@ body.is-loading {
 
 /* Tool Tags Inline (03 - TOOLS I USE) */
 .tool-tags-inline {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 6px;
   width: 100%;
@@ -784,10 +784,12 @@ body.is-loading {
 }
 
 .tools-tags {
-  display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  display: flex;
+  justify-content: space-between;
   gap: 6px; /* 12px에서 50% 축소 */
   width: 100%;
+  padding: 0 8%;
+  box-sizing: border-box;
   margin-top: calc(var(--space-2xl) / 2); /* 3번 항목 제목/설명과 하단 컨텐츠 간의 여백 확보 */
 }
 
@@ -800,7 +802,7 @@ body.is-loading {
 .tools-tag {
   position: relative;
   display: flex;
-  width: 100%;
+  width: auto;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
@@ -817,7 +819,7 @@ body.is-loading {
 }
 
 .tools-text {
-  display: inline-block;
+  position: absolute;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -825,7 +827,7 @@ body.is-loading {
 }
 
 .tools-logo {
-  position: absolute;
+  position: relative;
   height: 21.6px; /* 기존 18px에서 20% 증가 */
   width: auto;
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -990,7 +992,7 @@ body.is-loading {
 
 /* Project Grid */
 .projects__grid {
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
 }
@@ -1118,7 +1120,7 @@ body.is-loading {
   z-index: 1;
   max-width: 1000px;
   width: 100%;
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr auto 1fr;
   align-items: start;
   gap: var(--space-lg);
@@ -1232,7 +1234,7 @@ body.is-loading {
 
 .footer__top-links {
 
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(3, 1fr);
   gap: 6px;
   width: 100%;
@@ -1941,7 +1943,7 @@ body.is-loading {
 
 /* ── PP CONTENT (3-col layout matching reference image) ── */
 .pp-content {
-  display: grid;
+  display: flex;
   /* 좌: 라벨 | 가운데: 큰 본문 | 우: 일반 본문 */
   grid-template-columns: auto 1fr 1fr;
   gap: clamp(40px, 5vw, 80px);
@@ -2033,7 +2035,7 @@ body.is-loading {
 
 /* ── PP GALLERY ── */
 .pp-gallery {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   gap: clamp(12px, 1.5vw, 24px);
   padding: clamp(24px, 4vw, 48px) 17.68vw clamp(80px, 10vw, 120px); /* 텍스트 여백과 동일하게 맞춤 */
@@ -2078,7 +2080,7 @@ body.is-loading {
 }
 
 .pp-gallery__row {
-  display: grid;
+  display: flex;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
@@ -3337,6 +3339,9 @@ body.is-loading {
 img.gallery-image[src*="3d_visualization/1.webp"] {
   object-position: center 40% !important;
 }
+
+
+
 
 
 
