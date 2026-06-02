@@ -450,7 +450,76 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+  // ===== NEW HORIZONTAL SERVICE TAGS (about.html) =====
+  const serviceTagsContainer = document.querySelector('.service-tags-h');
+  if (serviceTagsContainer) {
+    const tagsH       = serviceTagsContainer.querySelectorAll('.service-tag-h');
+    const overlay     = serviceTagsContainer.querySelector('.service-tags-h__overlay');
+    const overlayText = serviceTagsContainer.querySelector('.service-tags-h__overlay-text');
+    let leaveTimer = null;
+    let rafId = null;
+
+    // 60fps rAF 루프로 카드 위치를 실시간 추적 → 스크롤해도 딱 붙음
+    function trackLoop() {
+      const rect = serviceTagsContainer.getBoundingClientRect();
+      const expandedHeight = rect.height * 1.44;
+      const topOffset = (expandedHeight - rect.height) / 2;
+      overlay.style.top    = (rect.top - topOffset) + 'px';
+      overlay.style.height = expandedHeight + 'px';
+      overlayText.style.fontSize = (expandedHeight * 1.17) + 'px';
+      rafId = requestAnimationFrame(trackLoop);
+    }
+
+    let stopTimer = null;
+
+    function startTracking() {
+      clearTimeout(stopTimer);
+      if (!rafId) trackLoop();
+    }
+    function stopTracking() {
+      clearTimeout(stopTimer);
+      // 닫히는 CSS 트랜지션(0.55s)이 끝난 뒤에 루프 정지 → 닫히는 동안도 고정 유지
+      stopTimer = setTimeout(function() {
+        if (!serviceTagsContainer.classList.contains('is-hovering')) {
+          if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        }
+      }, 550);
+    }
+
+    tagsH.forEach(function(tag) {
+      tag.addEventListener('mouseenter', function() {
+        clearTimeout(leaveTimer);
+        if (!serviceTagsContainer.classList.contains('is-open')) {
+          overlayText.textContent = tag.getAttribute('data-title').toLowerCase();
+          serviceTagsContainer.classList.add('is-hovering');
+          startTracking();
+        }
+      });
+      tag.addEventListener('mouseleave', function() {
+        if (!serviceTagsContainer.classList.contains('is-open')) {
+          leaveTimer = setTimeout(function() {
+            serviceTagsContainer.classList.remove('is-hovering');
+            stopTracking();
+          }, 60);
+        }
+      });
+    });
+
+    serviceTagsContainer.addEventListener('mouseleave', function() {
+      if (!serviceTagsContainer.classList.contains('is-open')) {
+        clearTimeout(leaveTimer);
+        serviceTagsContainer.classList.remove('is-hovering');
+        stopTracking();
+      }
+    });
+    serviceTagsContainer.addEventListener('mouseenter', function() {
+      clearTimeout(leaveTimer);
+    });
+  }
+
   // ===== SERVICE MODAL =====
+
   const serviceTags = document.querySelectorAll('.service-tag');
   const serviceModal = document.getElementById('serviceModal');
   
