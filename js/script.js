@@ -668,8 +668,18 @@ document.addEventListener('DOMContentLoaded', () => {
           if (currentTabIndex === 1) {
             // 02번 탭일 경우 모든 사진에 동일한 캡션 유지
             captionEl.textContent = '* Selected pages to ensure project confidentiality.';
-          } else if (currentTabIndex === 2 || currentTabIndex === 3) {
-            // 03번, 04번 탭일 경우 캡션
+          } else if (currentTabIndex === 2) {
+            // 03번 탭 (3D visualization)
+            const captions3D = [
+              "* Farnsworth House 3D Practice ('20)",
+              "* Farnsworth House 3D Practice ('20)",
+              "* Farnsworth House 3D Practice ('20)",
+              "* Automotive Scene 3D Practice ('21)",
+              "* 3D Commission Work for ARIJIAN (Korean Craft Brand) ('22)"
+            ];
+            captionEl.textContent = captions3D[centerImageIndex] || '';
+          } else if (currentTabIndex === 3) {
+            // 04번 탭 (Industrial design)
             const captions03 = [
               '* Maserati Snowmobile Designed During Associate Degree',
               '* From the Graduation Exhibition',
