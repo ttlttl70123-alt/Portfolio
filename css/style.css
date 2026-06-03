@@ -1893,6 +1893,7 @@ body.is-loading {
   height: 100%;
   background-color: #c0c0c0;
   object-fit: cover;
+  object-position: center 65%;
 }
 
 .pp-hero__overlay {
@@ -2039,7 +2040,7 @@ body.is-loading {
 .pp-content__body {
   font-family: var(--font-body);
   font-size: 0.95rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.6;
   color: #444;
   margin: 0;
