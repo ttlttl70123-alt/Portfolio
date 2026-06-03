@@ -2021,20 +2021,28 @@ body.is-loading {
 }
 
 .pp-content__right {
-  grid-column: 2 / 4; /* 우측으로 치우친 것을 안쪽으로 당겨 더 넓게 씀 */
+  grid-column: 3; /* 우측 끝으로 고정 */
   /* Type 리스트의 상단과 위치를 정확히 맞추기 위한 동적 계산식: 
      (라벨 2줄 높이) + (meta 리스트 상단 여백) - (좌측 라벨 끌어올린 여백) */
   margin-top: calc((clamp(3rem, 4.8vw, 4.2rem) * 0.85 * 2) + clamp(40px, 5vw, 80px) - clamp(24px, 3.5vw, 48px));
+}
+
+.pp-content__right--wide {
+  grid-column: 2 / 4; /* 우측으로 치우친 것을 안쪽으로 당겨 더 넓게 씀 */
+  width: 100%;
+  max-width: none;
+  justify-self: stretch;
 }
 
 /* 우측 본문: 일반 body 사이즈 */
 .pp-content__right .pp-content__body {
   font-family: var(--font-body);
   font-size: 0.95rem;
-  font-weight: 400;
-  line-height: 1.25; /* 기존 30% 축소 유지 또는 원하시면 1.6으로 변경 가능 */
+  font-weight: 300;
+  line-height: 1.6;
   color: #444;
   margin: 0;
+  max-width: none;
 }
 
 .pp-content__body {
