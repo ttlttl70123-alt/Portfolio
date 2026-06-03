@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const pwInput = card.querySelector('.project-card__password');
           const pw = pwInput.value;
           if (pw === '4598') {
-            openProjectPage({ currentTarget: card, preventDefault: () => {} });
+            navigateToProject(card);
           } else {
             pwInput.classList.add('is-error');
               setTimeout(() => {
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     } else {
-      card.addEventListener('click', openProjectPage);
+      card.addEventListener('click', () => navigateToProject(card));
     }
   });
 
