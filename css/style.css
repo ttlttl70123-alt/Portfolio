@@ -2003,10 +2003,10 @@ body.is-loading {
 
 .pp-content__meta p {
   font-family: var(--font-display);
-  font-size: clamp(1.35rem, 2.16vw, 1.89rem); /* 기존 대비 10% 축소 */
+  font-size: clamp(1.425rem, 2.28vw, 1.995rem); /* 기존 대비 5% 축소 */
   font-weight: 400;
   color: #111;
-  letter-spacing: 0.01em; /* 자간 넓힘 */
+  letter-spacing: 0; /* 자간 0 */
   line-height: 1.02; /* 0.85에서 20% 증가 (내부 줄바꿈 간격 적용) */
   margin: 0;
 }
