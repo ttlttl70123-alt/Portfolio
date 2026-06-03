@@ -2007,7 +2007,7 @@ body.is-loading {
   font-weight: 400;
   color: #111;
   letter-spacing: -0.01em;
-  line-height: 0.85; /* 기존 1.0에서 15% 축소 */
+  line-height: 1.02; /* 0.85에서 20% 증가 (내부 줄바꿈 간격 적용) */
   margin: 0;
 }
 
