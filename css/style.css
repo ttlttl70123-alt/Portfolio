@@ -1998,7 +1998,7 @@ body.is-loading {
   display: grid;
   grid-template-columns: max-content 1fr;
   column-gap: clamp(42px, 6vw, 84px);
-  row-gap: clamp(1px, 0.15vw, 2.5px);
+  row-gap: clamp(1.2px, 0.18vw, 3px); /* 기존 대비 20% 증가 */
 }
 
 .pp-content__meta p {
