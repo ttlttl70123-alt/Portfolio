@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=1780341882747">
+  <link rel="stylesheet" href="css/style.css?v=1780476142820">
 </head>
 <body class="page-about">
 
@@ -49,7 +49,7 @@
             <span class="experience__paren">(</span>01<span class="experience__paren">)</span>
           </span>
         </div>
-        <div class="experience__right-group">
+        <div class="experience__right-group" style="pointer-events: none;">
           <div class="experience__title-wrapper">
             <h3 class="experience__title">About my experience</h3>
           </div>
@@ -85,7 +85,7 @@
             <span class="experience__paren">(</span>02<span class="experience__paren">)</span>
           </span>
         </div>
-        <div class="experience__right-group">
+        <div class="experience__right-group" style="pointer-events: none;">
           <div class="experience__title-wrapper">
             <h3 class="experience__title">WHAT I CAN DO</h3>
           </div>
@@ -141,7 +141,7 @@
             <span class="experience__paren">(</span>03<span class="experience__paren">)</span>
           </span>
         </div>
-        <div class="experience__right-group">
+        <div class="experience__right-group" style="pointer-events: none;">
           <div class="experience__title-wrapper">
             <h3 class="experience__title">TOOLS I USE</h3>
           </div>
@@ -183,7 +183,7 @@
             <span class="tools-text">3DS MAX</span>
           </span>
           <span class="tools-tag">
-            <img class="tools-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/figma.svg" alt="Figma">
+            <img class="tools-logo" src="images/figma.svg" alt="Figma">
             <span class="tools-text">FIGMA</span>
           </span>
           <span class="tools-tag">
@@ -363,7 +363,25 @@
   </div>
 <div class="custom-cursor"></div>
   <canvas class="cursor-canvas"></canvas>
-  <script src="js/script.js?v=258"></script>
+  <script src="js/script.js?v=260"></script>
+  <script>
+    window.addEventListener('load', function() {
+      var tags = document.querySelectorAll('.tools-tag');
+      var figmaTag = tags[7];
+      if (figmaTag) {
+        var rect = figmaTag.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+        var els = document.elementsFromPoint(cx, cy);
+        console.log('=== FIGMA DIAGNOSTIC ===');
+        els.forEach(function(el, i) {
+          var s = window.getComputedStyle(el);
+          console.log('[' + i + ']', el.tagName, el.className.substring(0,40),
+            'z:' + s.zIndex, 'pos:' + s.position, 'pe:' + s.pointerEvents);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
 

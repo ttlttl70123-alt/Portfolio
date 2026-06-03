@@ -2488,8 +2488,15 @@ body.is-loading {
 .page-about .tools-tag:hover {
     z-index: 10;
   color: #000000;
-  
-  
+}
+.page-about .tools-tag:hover .tools-text {
+  opacity: 1;
+  transform: translateY(0);
+  color: #000000;
+}
+.page-about .tools-tag:hover .tools-logo {
+  opacity: 0;
+  transform: translateY(-20px);
 }
 .page-about .tools-text {
     z-index: 10;
@@ -3237,6 +3244,7 @@ body.is-loading {
   clip-path: inset(50% 0 50% 0);
   transition: clip-path 0.55s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
   z-index: 2;
+  pointer-events: none;
   text-align: center;
   white-space: nowrap;
   line-height: 1;
@@ -3257,7 +3265,7 @@ body.is-loading {
 }
 .service-tags-h.is-hovering .service-tags-h__overlay {
   clip-path: inset(0% 0 0% 0);
-  pointer-events: none;
+  pointer-events: none !important;
 }
 .service-tags-h.is-open .service-tags-h__overlay {
   clip-path: inset(0% 0 0% 0);
@@ -3390,4 +3398,23 @@ img.gallery-image[src*="3d_visualization/1.webp"] {
 
 .about-cv-link:hover {
     transform: scale(1.05) rotate(-5deg);
+}
+
+/* Tools hover fix: prevent right-group from blocking tools-tags hover */
+.page-about .experience__right-group {
+  pointer-events: none;
+}
+.page-about .experience__right-group * {
+  pointer-events: none;
+}
+
+/* Force all tools-tags to receive pointer events above any overlapping elements */
+.tools-tags {
+  position: relative;
+  z-index: 50;
+}
+.tools-tag {
+  isolation: isolate;
+  z-index: 50 !important;
+  pointer-events: all !important;
 }

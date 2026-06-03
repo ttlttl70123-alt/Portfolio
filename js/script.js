@@ -410,6 +410,28 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+
+  // ===== TOOLS HOVER (JS-based to bypass any CSS z-index/pointer-events blocking) =====
+  const toolsTags = document.querySelectorAll('.tools-tag');
+  toolsTags.forEach(function(tag) {
+    const logo = tag.querySelector('.tools-logo');
+    const text = tag.querySelector('.tools-text');
+    if (!text) return;
+
+    tag.addEventListener('mouseenter', function() {
+      tag.classList.add('is-hovered');
+      if (logo) { logo.style.opacity = '0'; logo.style.transform = 'translateY(-20px)'; }
+      text.style.opacity = '1';
+      text.style.transform = 'translateY(0)';
+    });
+    tag.addEventListener('mouseleave', function() {
+      tag.classList.remove('is-hovered');
+      if (logo) { logo.style.opacity = '1'; logo.style.transform = 'translateY(0)'; }
+      text.style.opacity = '0';
+      text.style.transform = 'translateY(20px)';
+    });
+  });
+
   // ===== NEW HORIZONTAL SERVICE TAGS (about.html) =====
   const serviceTagsContainer = document.querySelector('.service-tags-h');
   if (serviceTagsContainer) {
@@ -424,7 +446,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const rect = serviceTagsContainer.getBoundingClientRect();
       const expandedHeight = rect.height * 1.44;
       const topOffset = (expandedHeight - rect.height) / 2;
-      overlay.style.top    = (rect.top - topOffset) + 'px';
+      overlay.style.top = (rect.top - topOffset) + 'px';
       overlay.style.height = expandedHeight + 'px';
       overlayText.style.fontSize = (expandedHeight * 1.17) + 'px';
       rafId = requestAnimationFrame(trackLoop);
@@ -441,7 +463,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // 닫히는 CSS 트랜지션(0.55s)이 끝난 뒤에 루프 정지 → 닫히는 동안도 고정 유지
       stopTimer = setTimeout(function() {
         if (!serviceTagsContainer.classList.contains('is-hovering')) {
-          if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+          if (rafId) { cancelAnimationFrame(rafId); rafId = null; } overlay.style.top = ''; overlay.style.height = ''; overlay.style.left = ''; overlay.style.width = '';
         }
       }, 550);
     }
