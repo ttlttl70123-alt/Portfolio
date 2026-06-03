@@ -1959,7 +1959,7 @@ body.is-loading {
   /* 좌: 라벨 | 가운데: 큰 본문 | 우: 일반 본문 */
   grid-template-columns: auto 1fr 1fr;
   gap: clamp(40px, 5vw, 80px);
-  padding: clamp(48px, 7vw, 96px) 17.68vw; /* 원본 10.4vw에서 1.7배 넓힘 */
+  padding: clamp(48px, 7vw, 96px) 10.4vw; /* 원래 넓이로 복원 */
   align-items: start;
 }
 
@@ -2059,7 +2059,7 @@ body.is-loading {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: clamp(12px, 1.5vw, 24px);
-  padding: clamp(24px, 4vw, 48px) 17.68vw clamp(80px, 10vw, 120px); /* 텍스트 여백과 동일하게 맞춤 */
+  padding: clamp(24px, 4vw, 48px) 10.4vw clamp(80px, 10vw, 120px); /* 텍스트 여백과 동일하게 맞춤 */
 }
 
 .pp-gallery__img-placeholder {
