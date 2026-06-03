@@ -1994,7 +1994,7 @@ body.is-loading {
 }
 
 .pp-content__meta {
-  margin-top: clamp(40px, 5vw, 80px);
+  margin-top: clamp(44px, 5.5vw, 88px); /* 기존 40px, 5vw, 80px에서 10% 증가 */
   display: grid;
   grid-template-columns: max-content 1fr;
   column-gap: clamp(42px, 6vw, 84px);
