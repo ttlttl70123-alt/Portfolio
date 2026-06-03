@@ -1910,7 +1910,7 @@ body.is-loading {
 
 .pp-hero__title {
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 8vw, 9rem);
+  font-size: clamp(3.675rem, 8.4vw, 9.45rem); /* 기존 3.5, 8, 9 에서 5% 증가 */
   font-weight: 400;
   letter-spacing: -0.01em;
   line-height: 0.95;
@@ -1920,7 +1920,7 @@ body.is-loading {
 
 .pp-hero__subtitle {
   font-family: var(--font-body);
-  font-size: clamp(1.08rem, 1.8vw, 1.32rem);
+  font-size: clamp(1.134rem, 1.89vw, 1.386rem); /* 기존 1.08, 1.8, 1.32 에서 5% 증가 */
   font-weight: 500;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0;
@@ -1934,7 +1934,7 @@ body.is-loading {
   top: calc(var(--header-height) + 4vw);
   right: 4vw; /* 우측 잉여 여백의 50% 지점 */
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 8vw, 9rem);
+  font-size: clamp(3.675rem, 8.4vw, 9.45rem); /* 5% 증가 */
   font-weight: 400;
   letter-spacing: -0.01em;
   line-height: 0.95;
