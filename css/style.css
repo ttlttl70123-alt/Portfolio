@@ -1998,7 +1998,7 @@ body.is-loading {
   display: grid;
   grid-template-columns: max-content 1fr;
   column-gap: clamp(42px, 6vw, 84px);
-  row-gap: clamp(1.2px, 0.18vw, 3px); /* 기존 대비 20% 증가 */
+  row-gap: clamp(1.08px, 0.162vw, 2.7px); /* 기존 1.2px, 0.18vw, 3px 에서 10% 축소 */
 }
 
 .pp-content__meta p {
@@ -2007,7 +2007,7 @@ body.is-loading {
   font-weight: 400;
   color: #111;
   letter-spacing: 0; /* 자간 0 */
-  line-height: 1.02; /* 0.85에서 20% 증가 (내부 줄바꿈 간격 적용) */
+  line-height: 0.918; /* 기존 1.02 에서 10% 축소 */
   margin: 0;
 }
 
