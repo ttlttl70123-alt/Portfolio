@@ -1905,7 +1905,7 @@ body.is-loading {
   background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 7px; /* 10px에서 30% 축소 */
 }
 
 .pp-hero__title {
