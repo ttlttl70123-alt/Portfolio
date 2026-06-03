@@ -1905,7 +1905,7 @@ body.is-loading {
   background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
   display: flex;
   flex-direction: column;
-  gap: 5px; /* 7px에서 추가로 30% 축소 */
+  gap: 0; /* 강제로 간격 제거 */
 }
 
 .pp-hero__title {
@@ -1925,6 +1925,7 @@ body.is-loading {
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.03em;
   margin: 0;
+  margin-top: -10px; /* 폰트 자체의 여백을 뚫고 강제로 더 위로 올림 */
 }
 
 /* Year tag: top-right corner of hero image (below header) */
