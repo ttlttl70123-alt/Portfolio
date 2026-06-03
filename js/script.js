@@ -256,22 +256,24 @@ document.addEventListener('DOMContentLoaded', () => {
   const targetCount = 100;
   
   // Animate counter
-  const updateCounter = setInterval(() => {
-    currentCount += Math.floor(Math.random() * 5) + 2; // Random increment for realistic feel
-    if (currentCount >= targetCount) {
-      currentCount = targetCount;
-      clearInterval(updateCounter);
-      
-      counterElement.innerText = currentCount;
-            // Complete loading
-        setTimeout(() => {
-          preloader.classList.add('is-hidden');
-          document.body.classList.remove('is-loading');
-        }, 500); // short delay after hitting 100
-    } else {
-      counterElement.innerText = currentCount;
-    }
-  }, 20); // Fast interval
+  if (preloader && counterElement) {
+    const updateCounter = setInterval(() => {
+      currentCount += Math.floor(Math.random() * 5) + 2; // Random increment for realistic feel
+      if (currentCount >= targetCount) {
+        currentCount = targetCount;
+        clearInterval(updateCounter);
+        
+        counterElement.innerText = currentCount;
+              // Complete loading
+          setTimeout(() => {
+            preloader.classList.add('is-hidden');
+            document.body.classList.remove('is-loading');
+          }, 500); // short delay after hitting 100
+      } else {
+        counterElement.innerText = currentCount;
+      }
+    }, 20); // Fast interval
+  }
 
   // Hero texts are now visible by default since we removed the fade-in effect
 
