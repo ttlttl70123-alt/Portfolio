@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== HEADER SCROLL EFFECTS =====
   function updateHeader() {
+    if (!header) return;
     const scrollY = window.scrollY;
     const headerRect = header.getBoundingClientRect();
     const headerCenter = headerRect.top + headerRect.height / 2;
