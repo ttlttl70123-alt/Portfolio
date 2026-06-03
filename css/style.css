@@ -1905,7 +1905,7 @@ body.is-loading {
   background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
   display: flex;
   flex-direction: column;
-  gap: 7px; /* 10px에서 30% 축소 */
+  gap: 5px; /* 7px에서 추가로 30% 축소 */
 }
 
 .pp-hero__title {
@@ -1921,7 +1921,7 @@ body.is-loading {
 .pp-hero__subtitle {
   font-family: var(--font-body);
   font-size: clamp(1.08rem, 1.8vw, 1.32rem);
-  font-weight: 300;
+  font-weight: 500;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.03em;
   margin: 0;
