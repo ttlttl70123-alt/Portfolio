@@ -1893,7 +1893,7 @@ body.is-loading {
   height: 100%;
   background-color: #c0c0c0;
   object-fit: cover;
-  object-position: center 65%;
+  object-position: center 58%;
 }
 
 .pp-hero__overlay {
@@ -2021,7 +2021,7 @@ body.is-loading {
 }
 
 .pp-content__right {
-  grid-column: 3; /* 우측 끝으로 고정 */
+  grid-column: 2 / 4; /* 우측으로 치우친 것을 안쪽으로 당겨 더 넓게 씀 */
   /* Type 리스트의 상단과 위치를 정확히 맞추기 위한 동적 계산식: 
      (라벨 2줄 높이) + (meta 리스트 상단 여백) - (좌측 라벨 끌어올린 여백) */
   margin-top: calc((clamp(3rem, 4.8vw, 4.2rem) * 0.85 * 2) + clamp(40px, 5vw, 80px) - clamp(24px, 3.5vw, 48px));
