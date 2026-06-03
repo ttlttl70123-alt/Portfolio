@@ -1898,11 +1898,11 @@ body.is-loading {
 
 .pp-hero__overlay {
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
-  padding: clamp(32px, 5vw, 64px) 10.4vw clamp(51px, 8vh, 96px) 5.2vw; /* 붉은 박스 좌우 여백 */
-  background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
+  padding: calc(var(--header-height) + clamp(32px, 5vw, 64px)) 10.4vw clamp(32px, 5vw, 64px) 5.2vw;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.1) 60%, transparent 100%);
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1930,8 +1930,8 @@ body.is-loading {
 /* Year tag: top-right corner of hero image (below header) */
 .pp-hero__year {
   position: absolute;
-  top: calc(var(--header-height) + 4vw);
-  right: 4vw; /* 우측 잉여 여백의 50% 지점 */
+  bottom: 4vw;
+  right: 4vw;
   font-family: var(--font-display);
   font-size: clamp(3.5rem, 8vw, 9rem);
   font-weight: 400;
