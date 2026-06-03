@@ -191,29 +191,12 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', scrollHandler);
   }
 
-  function openProjectPage() {
-    projectPage.classList.add('project-page--open');
-    document.body.style.overflow = 'hidden';
-    projectPage.scrollTop = 0;
-    // 브라우저 히스토리에 상태 추가 (뒤로가기 지원)
-    history.pushState({ isProjectOpen: true }, '', '#project');
-  }
-
-  function closeProjectPage(isPopState) {
-    projectPage.classList.remove('project-page--open');
-    document.body.style.overflow = '';
-    // 직접 닫기 버튼/ESC를 누른 경우 히스토리에서도 뒤로가기 실행
-    if (isPopState !== true && window.location.hash === '#project') {
-      history.back();
+  function navigateToProject(card) {
+    const url = card.dataset.url;
+    if (url && url !== '#') {
+      window.location.href = url;
     }
   }
-
-  // 브라우저 뒤로가기 버튼 감지
-  window.addEventListener('popstate', (e) => {
-    if (projectPage.classList.contains('project-page--open')) {
-      closeProjectPage(true); // 히스토리 변경으로 인한 호출임을 표시
-    }
-  });
 
   projectCards.forEach(card => {
     const authOverlay = card.querySelector('.project-card__auth');
