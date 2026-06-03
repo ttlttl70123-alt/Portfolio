@@ -246,15 +246,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Let the default anchor link behavior take over (navigates to projects.html)
   }
 
-  if (projectBack) {
-    projectBack.addEventListener('click', closeProjectPage);
-  }
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && projectPage && projectPage.classList.contains('project-page--open')) {
-      closeProjectPage();
-    }
-  });
+  
 
 
   // ===== PRELOADER & HERO TEXT ANIMATION =====
@@ -781,8 +773,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (hash) {
       const targetCard = document.querySelector(`.project-card[data-project="${hash}"]`);
       if (targetCard) {
-        // Trigger click if it doesn't require password, or just open directly
-        openProjectPage({ currentTarget: targetCard, preventDefault: () => {} });
+        navigateToProject(targetCard);
       }
     }
   });
