@@ -2041,7 +2041,7 @@ body.is-loading {
   font-family: var(--font-body);
   font-size: 0.95rem;
   font-weight: 300;
-  line-height: 1.6;
+  line-height: 1.44; /* 기존 1.6에서 10% 축소 */
   color: #444;
   margin: 0;
   max-width: none;
