@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>J PROJECT - HYEONG-U LEE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Force cursor visibility on white background */
+    .custom-cursor {
+      background-color: rgba(0, 0, 0, 0.3) !important;
+      mix-blend-mode: normal !important;
+      display: block !important;
+    }
+    .custom-cursor--hover {
+      background-color: rgba(0, 0, 0, 0.15) !important;
+    }
+    .cursor-canvas {
+      display: block !important;
+    }
+  </style>
+
+</head>
+<body style="background-color: #ffffff;">
+
+<!-- ── HEADER (same as main) ── -->
+    <header class="pp-header">
+      <a href="index.html" class="pp-header__logo">HOME</a>
+      <nav class="pp-header__nav">
+        <a href="about.html" class="pp-header__link">ABOUT</a>
+        <a href="projects.html" class="pp-header__link">PROJECTS</a>
+        <a href="archive.html" class="pp-header__link">ARCHIVE</a>
+        <a href="index.html#contact" class="pp-header__link">CONTACT</a>
+      </nav>
+    </header>
+
+    <!-- ── FULL-BLEED HERO IMAGE WITH TITLE OVERLAY ── -->
+    <section class="pp-hero">
+      <img src="images/J.project/0_Main.png" alt="" class="pp-hero__img-placeholder">
+
+      <span class="pp-hero__year"><span class="pp-hero__paren">(</span><span class="pp-hero__num">'24</span><span class="pp-hero__paren">)</span></span>
+      <div class="pp-hero__overlay">
+        <h1 class="pp-hero__title">J PROJECT</h1>
+        <p class="pp-hero__subtitle">PROJECT DESCRIPTION</p>
+      </div>
+    </section>
+
+    <!-- ── TEXT CONTENT (reference layout) ── -->
+    <div class="pp-content" style="grid-template-columns: 1.6fr 1fr;">
+      <div class="pp-content__left">
+        <p class="pp-content__label" style="font-size: clamp(2.5rem, 4vw, 3.5rem); white-space: normal; max-width: 100%; line-height: 0.85; letter-spacing: -0.01em;">J PROJECT Overview</p>
+        <p class="pp-content__label" style="font-size: clamp(2.5rem, 4vw, 3.5rem); white-space: normal; max-width: 100%; line-height: 0.85; letter-spacing: -0.01em;">Details</p>
+        <div class="pp-content__meta">
+          <p class="meta-label">TYPE</p>
+          <p class="meta-value">TBD</p>
+          <p class="meta-label">COMPLETION DATE</p>
+          <p class="meta-value">TBD</p>
+          <p class="meta-label">LOCATION</p>
+          <p class="meta-value">TBD</p>
+          <p class="meta-label">INTERIOR SURFACE</p>
+          <p class="meta-value">TBD</p>
+          <p class="meta-label">TOOLS</p>
+          <p class="meta-value">SketchUp, Enscape, AutoCAD...</p>
+          <p class="meta-label">ROLE</p>
+          <p class="meta-value">TBD</p>
+        </div>
+      </div>
+      <div class="pp-content__right" style="grid-column: 2; margin-top: calc((clamp(2.5rem, 4vw, 3.5rem) * 0.85 * 2) + clamp(44px, 5.5vw, 88px) - clamp(24px, 3.5vw, 48px));">
+        <p class="pp-content__body">This is a placeholder description for J PROJECT. Please provide the text when ready so it can be updated to reflect the actual project concept and details.</p>
+      </div>
+    </div>
+
+    <!-- ── GALLERY ── -->
+    <div class="pp-gallery">
+      <!-- 01.jpg (L) -->
+      <img src="images/J.project/01.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 2.jpg (L) -->
+      <img src="images/J.project/2.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 3.jpg (L) -->
+      <img src="images/J.project/3.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      
+      <!-- 4.jpg (P) + Empty -->
+      <img src="images/J.project/4.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <div class="pp-gallery__empty"></div>
+      
+      <!-- 5.jpg (L) -->
+      <img src="images/J.project/5.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 6.jpg (L) -->
+      <img src="images/J.project/6.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 7.jpg (L) -->
+      <img src="images/J.project/7.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      
+      <!-- 8.jpg (P) + 8_2.jpg (P) -->
+      <img src="images/J.project/8.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/8_2.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      
+      <!-- 9.jpg (L) -->
+      <img src="images/J.project/9.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      
+      <!-- 9_1.jpg (P) + Empty -->
+      <img src="images/J.project/9_1.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <div class="pp-gallery__empty"></div>
+      
+      <!-- 9_2.jpg (L) -->
+      <img src="images/J.project/9_2.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      
+      <!-- 10 removed, 11 (P) shifted left + Empty -->
+      <img src="images/J.project/11.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <div class="pp-gallery__empty"></div>
+      
+      <!-- Empty + 12.jpg (P) on right -->
+      <div class="pp-gallery__empty"></div>
+      <img src="images/J.project/12.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      
+      <!-- 13.jpg (P) on left + 14.jpg (P) on right -->
+      <img src="images/J.project/13.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/14.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      
+      <!-- 16.jpg (P) on left + 15.png (P) on right -->
+      <img src="images/J.project/16.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/15.png" alt="" class="pp-gallery__img-placeholder portrait">
+      
+      <!-- 17.jpg (L) -->
+      <img src="images/J.project/17.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      
+      <!-- 20.jpg (P) below 17 + Empty -->
+      <img src="images/J.project/20.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <div class="pp-gallery__empty"></div>
+
+      <!-- 18.jpg (L) -->
+      <img src="images/J.project/18.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      
+      <!-- 19.jpg (P) + Empty -->
+      <img src="images/J.project/19.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <div class="pp-gallery__empty"></div>
+      
+      <!-- 21 removed, 23 on left, 22 on right -->
+      <img src="images/J.project/23.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/22.png" alt="" class="pp-gallery__img-placeholder portrait">
+    </div>
+
+  <!-- ===== FLOATING BACK BUTTON ===== -->
+  <a href="projects.html" id="floating-back-btn" class="floating-back-btn">
+    <span class="btn-text">BACK TO PROJECTS</span>
+  </a>
+
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div class="custom-cursor"></div>
+  <canvas class="cursor-canvas"></canvas>
+  <script src="js/script.js"></script>
+</body>
+</html>
