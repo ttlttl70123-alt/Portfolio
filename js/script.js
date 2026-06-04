@@ -166,7 +166,26 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', updateHeader, { passive: true });
   updateHeader();
 
-  // ===== SCROLL REVEAL ANIMATIONS REMOVED AS REQUESTED =====
+  // ===== SMART HIDE FLOATING BUTTON ON SCROLL =====
+  const floatingBtn = document.querySelector('.floating-back-btn');
+  if (floatingBtn) {
+    let lastScrollTop = window.scrollY || document.documentElement.scrollTop;
+    
+    window.addEventListener('scroll', () => {
+      const currentScrollTop = window.scrollY || document.documentElement.scrollTop;
+      
+      // If scrolling down and past 150px
+      if (currentScrollTop > lastScrollTop && currentScrollTop > 150) {
+        floatingBtn.classList.add('floating-back-btn--hidden');
+      } 
+      // If scrolling up
+      else {
+        floatingBtn.classList.remove('floating-back-btn--hidden');
+      }
+      
+      lastScrollTop = currentScrollTop <= 0 ? 0 : currentScrollTop;
+    }, { passive: true });
+  }
 
   // ===== PROJECT PAGE TRANSITION =====
   const projectTransition = document.getElementById('project-transition');
@@ -780,3 +799,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
+
+  // ===== FLOATING BACK BUTTON DYNAMIC TEXT =====
+  const backBtn = document.getElementById("floating-back-btn");
+  if (backBtn) {
+    if (document.referrer.includes("index.html") || document.referrer.endsWith("/")) {
+      const btnText = backBtn.querySelector(".btn-text");
+      if (btnText) {
+        btnText.textContent = "MORE PROJECTS";
+      }
+    }
+  }

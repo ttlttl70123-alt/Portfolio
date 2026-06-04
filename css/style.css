@@ -1812,6 +1812,70 @@ body.is-loading {
   100% { transform: translateY(-100%); }
 }
 
+/* ── SCROLL INDICATOR ANIMATION ── */
+@keyframes scrollDown {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  100% { transform: translate(-50%, 15px); opacity: 0; }
+}
+
+/* ── FLOATING BACK BUTTON ── */
+.floating-back-btn {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+  display: inline-flex;
+  align-items: center;
+  padding: 15px 17px 11px 17px; /* Increased padding by 40% from baseline */
+  background-color: rgba(17, 17, 17, 0.5); /* Changed opacity to 50% */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  color: #fff; /* White text */
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 1; /* Added to fix vertical centering */
+  letter-spacing: 0em; /* Reduced letter-spacing */
+  text-transform: uppercase;
+  border-radius: 10px; /* Changed to 10px as requested */
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.floating-back-btn:hover {
+  background-color: rgba(17, 17, 17, 0.5); /* Keep background same as non-hover */
+  color: var(--color-accent); /* Text becomes point color */
+  transform: translateX(-50%); /* Removed translateY to stop the jumping effect */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+.floating-back-btn--hidden {
+  transform: translateX(-50%) translateY(100px) !important;
+  opacity: 0;
+  pointer-events: none;
+}
+.floating-back-btn::after {
+  content: '';
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  margin-left: 0.2em; /* Reduced from 0.4em */
+  background-color: currentColor;
+  -webkit-mask-image: url('../images/Arrow.png');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url('../images/Arrow.png');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  transform: translateY(-2px); /* Moved arrow up */
+  transition: transform 0.3s ease;
+}
+.floating-back-btn:hover::after {
+  transform: translateY(-2px) translateX(6px);
+}
+
 /* White background project page */
 .project-page {
   position: fixed;
@@ -2060,7 +2124,7 @@ body.is-loading {
 .pp-gallery {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: clamp(12px, 1.5vw, 24px);
+  gap: clamp(6px, 0.75vw, 12px); /* 50% reduced gap applied globally to all projects */
   padding: clamp(24px, 4vw, 48px) 10.4vw clamp(80px, 10vw, 120px); /* 좌우 좁은 여백 (가장 넓은 본문 영역) */
 }
 
