@@ -47,14 +47,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ===== MOBILE MENU TOGGLE =====
   if (menuBtn && nav) {
+    // Clean up any inline styles on menu button toggle to fix the bug where menu doesn't open
     menuBtn.addEventListener('click', () => {
+      nav.style.transition = '';
+      nav.style.right = '';
+      nav.style.visibility = '';
       menuBtn.classList.toggle('header__menu-btn--open');
       nav.classList.toggle('header__nav--open');
     });
 
     // Close menu on link click — hide instantly to avoid white flash during page transition
-    nav.querySelectorAll('.header__link').forEach(link => {
-      link.addEventListener('click', () => {
+    nav.querySelectorAll('.header__link, .pp-header__link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        const href = link.getAttribute('href');
+        
+        // If clicking CONTACT and we are on the page with "Just Get In Touch"
+        if ((href === '#contact' || href === 'index.html#contact') && document.getElementById('btn-get-in-touch')) {
+          e.preventDefault();
+          const targetElement = document.getElementById('btn-get-in-touch');
+          const rect = targetElement.getBoundingClientRect();
+          const absoluteTop = rect.top + window.scrollY;
+          const targetCenter = absoluteTop + (rect.height / 2);
+          const scrollPos = targetCenter - (window.innerHeight / 2);
+          
+          window.scrollTo({
+            top: scrollPos,
+            behavior: 'smooth'
+          });
+        }
+
         nav.style.transition = 'none';
         nav.style.right = '-100%';
         nav.style.visibility = 'hidden';
