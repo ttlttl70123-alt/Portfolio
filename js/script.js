@@ -6,6 +6,14 @@
  * - Smooth section-aware header styling
  */
 
+// Force scroll to top on main page reload (unless URL has a hash link)
+if ((window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html')) && !window.location.hash) {
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+  window.scrollTo(0, 0);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const header = document.getElementById('header');
   const menuBtn = document.getElementById('menu-btn');
