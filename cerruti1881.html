@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>CERRUTI 1881 - HYEONG-U LEE</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -22,23 +22,28 @@
     }
   </style>
 
+  <link rel="icon" href="images/Smile_emoji.webp" type="image/webp">
 </head>
 <body style="background-color: #ffffff;">
 
 <!-- ── HEADER (same as main) ── -->
-    <header class="pp-header">
+    <header class="pp-header" id="header">
       <a href="index.html" class="pp-header__logo">HOME</a>
-      <nav class="pp-header__nav">
+      <nav class="pp-header__nav" id="main-nav">
         <a href="about.html" class="pp-header__link">ABOUT</a>
         <a href="#projects" class="pp-header__link">PROJECTS</a>
-        <a href="archive.html" class="pp-header__link">ARCHIVE</a>
+        <!-- <a href="archive.html" class="pp-header__link">ARCHIVE</a> -->
         <a href="#contact" class="pp-header__link">CONTACT</a>
       </nav>
+      <button class="header__menu-btn" id="menu-btn" aria-label="메뉴 열기">
+        <span></span>
+        <span></span>
+      </button>
     </header>
 
     <!-- ── FULL-BLEED HERO IMAGE WITH TITLE OVERLAY ── -->
     <section class="pp-hero">
-      <img src="images/1_Cerruti/0.jpg" alt="" class="pp-hero__img-placeholder">
+      <img src="images/1_Cerruti/0.webp" alt="" class="pp-hero__img-placeholder">
 
       <span class="pp-hero__year"><span class="pp-hero__paren">(</span><span class="pp-hero__num">'24</span><span class="pp-hero__paren">)</span></span>
       <div class="pp-hero__overlay">
@@ -50,8 +55,7 @@
     <!-- ── TEXT CONTENT (reference layout) ── -->
     <div class="pp-content" style="grid-template-columns: 1.6fr 1fr;">
       <div class="pp-content__left">
-        <p class="pp-content__label" style="font-size: clamp(2.5rem, 4vw, 3.5rem); white-space: normal; max-width: 100%; line-height: 0.85; letter-spacing: -0.01em;">Global Store Identity Development</p>
-        <p class="pp-content__label" style="font-size: clamp(2.5rem, 4vw, 3.5rem); white-space: normal; max-width: 100%; line-height: 0.85; letter-spacing: -0.01em;">for CERRUTI1881 Rebranding</p>
+        <p class="pp-content__label" style="font-size: clamp(2.5rem, 4vw, 3.5rem); white-space: normal; max-width: 100%; line-height: 0.85; letter-spacing: -0.01em;">Global Store<br>Identity Development<br>for CERRUTI1881 Rebranding</p>
         <div class="pp-content__meta">
           <p class="meta-label">TYPE</p>
           <p class="meta-value">COMMERCIAL</p>
@@ -60,7 +64,7 @@
           <p class="meta-label">LOCATION</p>
           <p class="meta-value">Guangzhou, China</p>
           <p class="meta-label">INTERIOR SURFACE</p>
-          <p class="meta-value">278.1m&sup2;</p>
+          <p class="meta-value">2,993 sq. ft. (278.1 sqm)</p>
           <p class="meta-label">TOOLS</p>
           <p class="meta-value">SketchUp, Enscape, AutoCAD...</p>
           <p class="meta-label">ROLE</p>
@@ -68,67 +72,69 @@
         </div>
       </div>
       <div class="pp-content__right" style="grid-column: 2; margin-top: calc((clamp(2.5rem, 4vw, 3.5rem) * 0.85 * 2) + clamp(44px, 5.5vw, 88px) - clamp(24px, 3.5vw, 48px));">
-        <p class="pp-content__body">It is a brand that started in Italy in 1967. After being acquired by the Chinese Biem.L.Fdlkk Group, they proceeded with a rebranding and requested a new S.I from us. The main request was to make it look like a typical "luxury store." First, we analyzed the roots of the brand. The founder, Nino Cerruti, is close to being the creator of the genderless look. Therefore, we inherited his legacy by intentionally using contrasting materials in the space while simultaneously making them blend together. For the lighting, we incorporated subtle lighting throughout the space as much as possible. It is configured to have minimal direct lighting, yet well-secured illumination, making it luxurious while allowing the gaze to naturally stay on the products. Although it is not a very large space, due to the nature of the brand, we made the space flexibly usable at any time when VIP customers visit. It can be used as a spacious area usually, but can be used as a personal private room when necessary. When thinking about what a luxury store is, I thought that luxury is not about making a space feel difficult to visit. Rather, it is about allowing customers to come in comfortably, experience various products, and leading them to a natural and comfortable purchase. Therefore, we configured the store so that a comfortable, home-like atmosphere melts into it.</p>
+        <p class="pp-content__body">This brand, founded in Italy in 1967, requested a new S.I (Store Identity) from us following its acquisition and subsequent rebranding by the Chinese Biem.L.Fdlkk Group. Their primary request was to create a quintessential 'luxury store.'</p>
+        <p class="pp-content__body" style="margin-top: 1.2rem;">We began by analyzing the brand's roots. The founder, Nino Cerruti, is widely regarded as a pioneer of the genderless look. We honored this legacy by intentionally pairing contrasting materials, ensuring they seamlessly harmonize within the space.</p>
+        <p class="pp-content__body" style="margin-top: 1.2rem;">For the lighting strategy, we maximized the use of subtle, indirect lighting. By minimizing direct lighting while maintaining optimal illumination, we achieved a luxurious atmosphere that naturally guides the customers' gaze toward the products.</p>
+        <p class="pp-content__body" style="margin-top: 1.2rem;">Despite the relatively compact footprint, the space was designed for flexible use to accommodate VIP clientele. It functions as an open, spacious area during regular operations but can be easily transformed into a private consultation room when needed.</p>
+        <p class="pp-content__body" style="margin-top: 1.2rem;">When reflecting on the true definition of a luxury store, I believe it should never feel intimidating or unapproachable. True luxury lies in allowing customers to enter comfortably, experience the products at ease, and be guided toward a natural, unforced purchase. Therefore, we curated the space to exude a warm, residential-like comfort.</p>
       </div>
     </div>
 
     <!-- ── GALLERY ── -->
     <div class="pp-gallery">
       <!-- 0_1 -->
-      <img src="images/1_Cerruti/0_1.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/0_1.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 1 -->
-      <img src="images/1_Cerruti/1.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/1.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 2 -->
-      <img src="images/1_Cerruti/4.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/4.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty">
-        <div class="pp-gallery__caption">THIS IS<br>A SAMPLE<br>DESCRIPTION<br>TEXT BOX</div>
       </div>
       
       <!-- 3 -->
       <div class="pp-gallery__empty"></div>
-      <img src="images/1_Cerruti/6.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/6.webp" alt="" class="pp-gallery__img-placeholder portrait">
       
       <!-- 4 -->
-      <img src="images/1_Cerruti/2.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/2.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 5 -->
       <div class="pp-gallery__empty">
-        <div class="pp-gallery__caption">HERE IS<br>ANOTHER<br>FOUR LINE<br>EXAMPLE</div>
       </div>
-      <img src="images/1_Cerruti/8.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/8.webp" alt="" class="pp-gallery__img-placeholder portrait">
       
       <!-- 6 -->
-      <img src="images/1_Cerruti/3.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/3.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 7 -->
-      <img src="images/1_Cerruti/9.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/9.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty"></div>
       
       <!-- 8 -->
-      <img src="images/1_Cerruti/5.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/5.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 12 inserted above 10 -->
       <div class="pp-gallery__empty"></div>
-      <img src="images/1_Cerruti/12.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/12.webp" alt="" class="pp-gallery__img-placeholder portrait">
       
       <!-- 9 -->
-      <img src="images/1_Cerruti/10.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/10.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty"></div>
       
       <!-- 12 -->
-      <img src="images/1_Cerruti/7.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/7.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 13 inserted above 11 -->
-      <img src="images/1_Cerruti/13.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/13.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty"></div>
       
       <!-- 15 -->
-      <img src="images/1_Cerruti/11.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/11.webp" alt="" class="pp-gallery__img-placeholder landscape">
     </div>
   <!-- ===== FLOATING BACK BUTTON ===== -->
-  <a href="projects.html" id="floating-back-btn" class="floating-back-btn">
+  <a href="projects.html#proj-cerruti1881" id="floating-back-btn" class="floating-back-btn">
     <span class="btn-text">BACK TO PROJECTS</span>
   </a>
 
@@ -136,7 +142,14 @@
   <div class="custom-cursor"></div>
   <canvas class="cursor-canvas"></canvas>
   <script src="js/script.js"></script>
+
+  <!-- Image Lightbox Modal -->
+  <div id="imageModal" class="image-modal">
+    <span class="image-modal__close">&times;</span>
+    <img class="image-modal__content" id="imageModalImg">
+  </div>
 </body>
 </html>
+
 
 

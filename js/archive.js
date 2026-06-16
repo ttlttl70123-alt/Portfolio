@@ -27,17 +27,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Generate a random gallery item
-  const createGalleryItem = () => {
+  const realImages = [
+    'images/Archive/Flight.webp',
+    'images/Archive/KakaoTalk (1).webp',
+    'images/Archive/KakaoTalk (2).webp',
+    'images/Archive/Pro Bono Project Residential Renovation (After) (2).webp',
+    'images/Archive/Pro Bono Project Residential Renovation (After) (3).webp',
+    'images/Archive/Pro Bono Project Residential Renovation (After).webp',
+    'images/Archive/Pro Bono Project Residential Renovation (Before) (2).webp',
+    'images/Archive/Pro Bono Project Residential Renovation (Before) (3).webp',
+    'images/Archive/Pro Bono Project Residential Renovation (Before).webp',
+    'images/Archive/Soom Urban (1).webp',
+    'images/Archive/Soom Urban (2).webp',
+    'images/Archive/Soom Urban (3).webp'
+  ];
+
+  // Generate a gallery item
+  const createGalleryItem = (imgSrc) => {
     const item = document.createElement('div');
     item.className = 'archive-item';
     
     const imgContainer = document.createElement('div');
     imgContainer.className = 'archive-item__img-wrapper';
     
-    const randomHeight = Math.floor(Math.random() * 300) + 150; 
-    imgContainer.style.height = `${randomHeight}px`;
-    imgContainer.style.backgroundColor = '#d3d3d3'; 
+    if (imgSrc) {
+      const img = document.createElement('img');
+      img.src = imgSrc;
+      img.alt = 'Archive Image';
+      img.style.width = '100%';
+      img.style.display = 'block';
+      imgContainer.appendChild(img);
+    } else {
+      const randomHeight = Math.floor(Math.random() * 300) + 150; 
+      imgContainer.style.height = `${randomHeight}px`;
+      imgContainer.style.backgroundColor = '#d3d3d3'; 
+    }
     
     const textArea = document.createElement('div');
     textArea.className = 'archive-item__text-area';
@@ -47,11 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const title = document.createElement('h3');
     title.className = 'archive-item__title';
-    title.textContent = 'Untitled Sketch';
+    
+    let displayTitle = 'Untitled Sketch';
+    if (imgSrc) {
+      const fileName = imgSrc.split('/').pop().replace(/\.[^/.]+$/, '');
+      displayTitle = fileName.replace(/\s*\(\d+\)$/, '').trim();
+    }
+    title.textContent = displayTitle;
     
     const heartIcon = document.createElement('img');
     heartIcon.className = 'archive-item__heart';
-    heartIcon.src = 'images/heart.png';
+    heartIcon.src = 'images/heart.webp';
     heartIcon.alt = 'Like';
     
     heartIcon.addEventListener('click', function() {
@@ -72,11 +102,85 @@ document.addEventListener('DOMContentLoaded', () => {
     return item;
   };
 
-  // Populate columns and measure original heights
-  columns.forEach(colData => {
-    // Generate original set
-    for (let i = 0; i < itemsPerColumn; i++) {
-      colData.el.appendChild(createGalleryItem());
+  function getProjectName(src) {
+    if (!src) return 'GrayBox';
+    let base = src.split('/').pop().replace(/\.[^/.]+$/, '');
+    base = base.replace(/\s*\(\d+\)$/, '').trim();
+    base = base.replace(/\s*\((Before|After|before|after)\)$/i, '').trim();
+    return base;
+  }
+
+  // 1. Group images by project
+  const projects = {};
+  realImages.forEach(img => {
+     const pName = getProjectName(img);
+     if (!projects[pName]) projects[pName] = [];
+     projects[pName].push(img);
+  });
+  const projectNames = Object.keys(projects);
+
+  // 2. Create a 2D grid: grid[row][col]
+  const grid = [];
+  for (let r = 0; r < itemsPerColumn; r++) {
+    grid.push(new Array(numColumns).fill(null));
+  }
+
+  // 3. Place gray boxes (approx 20%)
+  const totalItems = numColumns * itemsPerColumn;
+  const numGray = Math.floor(totalItems * 0.2);
+  let grayCount = 0;
+  while(grayCount < numGray) {
+     let r = Math.floor(Math.random() * itemsPerColumn);
+     let c = Math.floor(Math.random() * numColumns);
+     if (grid[r][c] !== 'GRAY') {
+         grid[r][c] = 'GRAY';
+         grayCount++;
+     }
+  }
+
+  // 4. Fill the rest with organic clusters using BFS Region Growing
+  for (let r = 0; r < itemsPerColumn; r++) {
+    for (let c = 0; c < numColumns; c++) {
+      if (grid[r][c] === null) {
+          // Pick a random project
+          let pName = projectNames[Math.floor(Math.random() * projectNames.length)];
+          let imgs = [...projects[pName]];
+          // Shuffle images to pick randomly without replacement
+          imgs.sort(() => Math.random() - 0.5);
+          
+          // Decide cluster size up to the number of unique images in the project
+          let clusterSize = Math.floor(Math.random() * imgs.length) + 1; 
+          
+          let queue = [[r, c]];
+          while(queue.length > 0 && clusterSize > 0 && imgs.length > 0) {
+              let [currR, currC] = queue.shift();
+              if (grid[currR][currC] === null) {
+                  grid[currR][currC] = imgs.pop();
+                  clusterSize--;
+                  
+                  // Add neighbors
+                  const neighbors = [[0,1],[1,0],[0,-1],[-1,0]];
+                  neighbors.sort(() => Math.random() - 0.5);
+                  for (let [dr, dc] of neighbors) {
+                     let nr = (currR + dr + itemsPerColumn) % itemsPerColumn; // wrap around rows
+                     let nc = currC + dc;
+                     if (nc >= 0 && nc < numColumns) {
+                        if (grid[nr][nc] === null) {
+                           queue.push([nr, nc]);
+                        }
+                     }
+                  }
+              }
+          }
+      }
+    }
+  }
+
+  // Populate columns
+  columns.forEach((colData, c) => {
+    for (let r = 0; r < itemsPerColumn; r++) {
+      let item = grid[r][c] === 'GRAY' ? null : grid[r][c];
+      colData.el.appendChild(createGalleryItem(item));
     }
   });
 

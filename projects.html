@@ -9,6 +9,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=274">
+  <script>
+    // Suppress any scroll restoration by the browser
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+    // If coming back to a specific project, hide the page until we've positioned it
+    if (location.hash && location.hash.startsWith('#proj-')) {
+      document.documentElement.style.visibility = 'hidden';
+    }
+  </script>
+  <link rel="icon" href="images/Smile_emoji.webp" type="image/webp">
 </head>
 <body class="page-projects">
 
@@ -17,8 +26,8 @@
     <a href="index.html" class="header__logo">HOME</a>
     <nav class="header__nav" id="main-nav">
       <a href="about.html" class="header__link">ABOUT</a>
-      <a href="index.html#projects" class="header__link">PROJECTS</a>
-      <a href="archive.html" class="header__link">ARCHIVE</a>
+      <a href="projects.html" class="header__link">PROJECTS</a>
+      <!-- <a href="archive.html" class="header__link">ARCHIVE</a> -->
       <a href="index.html#contact" class="header__link">CONTACT</a>
     </nav>
     <button class="header__menu-btn" id="menu-btn" aria-label="메뉴 열기">
@@ -38,59 +47,147 @@
       <li class="projects-filter__item" data-filter="hospitality"><span class="projects-filter__checkbox"></span>HOSPITALITY</li>
       <li class="projects-filter__item" data-filter="residential"><span class="projects-filter__checkbox"></span>RESIDENTIAL</li>
       <li class="projects-filter__item" data-filter="commercial"><span class="projects-filter__checkbox"></span>COMMERCIAL</li>
-      <li class="projects-filter__item" data-filter="academic"><span class="projects-filter__checkbox"></span>Academic Projects</li>
+      <!-- <li class="projects-filter__item" data-filter="academic"><span class="projects-filter__checkbox"></span>Academic Projects</li> -->
     </ul>
 
     <!-- Projects List -->
     <div class="projects-list">
-      <!-- Placeholder 1 -->
-      <div class="projects-list__item" data-category="hospitality">
-        <div class="thumb-corner thumb-top-left">BRANDING<br>SPACE PROGRAMMING</div>
+
+      <!-- HAEUNDAE PROJECT -->
+      <a href="haeundae-project.html" id="proj-haeundae-project" class="projects-list__item has-lock" data-category="hospitality" style="display: block; text-decoration: none; background-image: url('images/Haeundae/0_Main(blur).webp'); background-size: cover; background-position: center 50%;">
+        <div class="project-card__overlay">
+          <div class="project-card__auth">
+            <img src="images/Lock.webp" alt="Confidential" class="project-card__lock" />
+            <div class="project-card__pw-container">
+              <input type="password" class="project-card__password" />
+              <button class="project-card__submit"></button>
+            </div>
+          </div>
+        </div>
         <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'25</span><span class="thumb-paren">)</span></div>
-        <div class="thumb-corner thumb-bottom-left">PROJECT TITLE</div>
-        <div class="thumb-corner thumb-bottom-right">This is a short description of the project detailing the overall concept and execution.</div>
-      </div>
-      <!-- J PROJECT -->
-      <a href="j-project.html" class="projects-list__item" data-category="residential" style="display: block; text-decoration: none; background-image: url('images/J.project/0_Main.png'); background-size: cover; background-position: center 50%;">
-        <div class="thumb-corner thumb-top-left">INTERIOR DESIGN</div>
-        <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'24</span><span class="thumb-paren">)</span></div>
-        <div class="thumb-corner thumb-bottom-left">J PROJECT</div>
-        <div class="thumb-corner thumb-bottom-right">TBD</div>
+        <div class="thumb-corner thumb-bottom-left">HAEUNDAE PROJECT</div>
+        <div class="thumb-corner thumb-bottom-right">Hospitality<br>Busan, Korea<br>Approx. 30,817 sq. ft.</div>
       </a>
-      <!-- H PROJECT -->
-      <a href="h-project.html" class="projects-list__item" data-category="residential" style="display: block; text-decoration: none; background-image: url('images/H%20project/0_Main.png'); background-size: cover; background-position: center 50%;">
-        <div class="thumb-corner thumb-top-left">INTERIOR DESIGN</div>
+      <!-- ETERNO -->
+      <a href="eterno.html" id="proj-eterno" class="projects-list__item has-lock" data-category="hospitality" style="display: block; text-decoration: none; background-image: url('images/ETERNO/0_Main(blur).webp'); background-size: 105%; background-position: center 46%;">
+        <div class="project-card__overlay">
+          <div class="project-card__auth">
+            <img src="images/Lock.webp" alt="Confidential" class="project-card__lock" />
+            <div class="project-card__pw-container">
+              <input type="password" class="project-card__password" />
+              <button class="project-card__submit"></button>
+            </div>
+          </div>
+        </div>
         <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'25</span><span class="thumb-paren">)</span></div>
-        <div class="thumb-corner thumb-bottom-left">H PROJECT</div>
-        <div class="thumb-corner thumb-bottom-right">Jeju, Korea<br>Approx. 990 sqm<br>Residential</div>
+        <div class="thumb-corner thumb-bottom-left">ETERNO</div>
+        <div class="thumb-corner thumb-bottom-right">Hospitality<br>Seoul, Korea</div>
       </a>
       <!-- Placeholder 3 -->
-      <a href="cerruti1881.html" class="projects-list__item" data-category="commercial" style="display: block; text-decoration: none; background-image: url('images/1_Cerruti/0.jpg'); background-size: cover; background-position: center 53%;">
-        <div class="thumb-corner thumb-top-left">BRANDING<br>SPACE PROGRAMMING</div>
+      <a href="cerruti1881.html" id="proj-cerruti1881" class="projects-list__item" data-category="commercial" style="display: block; text-decoration: none; background-image: url('images/1_Cerruti/0.webp'); background-size: cover; background-position: center 53%;">
         <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'24</span><span class="thumb-paren">)</span></div>
         <div class="thumb-corner thumb-bottom-left">CERRUTI1881</div>
-        <div class="thumb-corner thumb-bottom-right">Guangzhou, China<br>278.1m&sup2;<br>Commercial Space</div>
+        <div class="thumb-corner thumb-bottom-right">Commercial Space<br>Guangzhou, China<br>2,993 sq. ft.</div>
+      </a>
+      <!-- J PROJECT -->
+      <a href="j-project.html" id="proj-j-project" class="projects-list__item has-lock" data-category="residential" style="display: block; text-decoration: none; background-image: url('images/J.project/0_Main(blur).webp'); background-size: cover; background-position: center 60%;">
+        <div class="project-card__overlay">
+          <div class="project-card__auth">
+            <img src="images/Lock.webp" alt="Confidential" class="project-card__lock" />
+            <div class="project-card__pw-container">
+              <input type="password" class="project-card__password" />
+              <button class="project-card__submit"></button>
+            </div>
+          </div>
+        </div>
+        <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'24</span><span class="thumb-paren">)</span></div>
+        <div class="thumb-corner thumb-bottom-left">J PROJECT</div>
+        <div class="thumb-corner thumb-bottom-right">Residential<br>Seoul, Korea<br>1,479 sq. ft.</div>
+      </a>
+      <!-- H PROJECT -->
+      <a href="h-project.html" id="proj-h-project" class="projects-list__item has-lock" data-category="residential" style="display: block; text-decoration: none; background-image: url('images/H%20project/0_Main(blur).webp'); background-size: cover; background-position: center 50%;">
+        <div class="project-card__overlay">
+          <div class="project-card__auth">
+            <img src="images/Lock.webp" alt="Confidential" class="project-card__lock" />
+            <div class="project-card__pw-container">
+              <input type="password" class="project-card__password" />
+              <button class="project-card__submit"></button>
+            </div>
+          </div>
+        </div>
+        <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'24</span><span class="thumb-paren">)</span></div>
+        <div class="thumb-corner thumb-bottom-left">H PROJECT</div>
+        <div class="thumb-corner thumb-bottom-right">Residential<br>Jeju, Korea<br>Approx. 10,656 sq. ft.</div>
       </a>
       <!-- G FORE -->
-      <a href="g-fore.html" class="projects-list__item" data-category="commercial" style="display: block; text-decoration: none; background-image: url('images/G.fore/Main.jpg'); background-size: cover; background-position: center 50%;">
-        <div class="thumb-corner thumb-top-left">INTERIOR DESIGN</div>
+      <a href="g-fore.html" id="proj-g-fore" class="projects-list__item" data-category="commercial" style="display: block; text-decoration: none; background-image: url('images/G.fore/Main.webp'); background-size: cover; background-position: center 60%;">
         <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'24</span><span class="thumb-paren">)</span></div>
         <div class="thumb-corner thumb-bottom-left">G FORE</div>
-        <div class="thumb-corner thumb-bottom-right">Commercial</div>
+        <div class="thumb-corner thumb-bottom-right">Commercial<br>Suwon, Korea<br>Approx. 1,067 sq. ft.</div>
       </a>
       <!-- NOONEE -->
-      <a href="noonee.html" class="projects-list__item" data-category="commercial" style="display: block; text-decoration: none; background-image: url('images/Noonee/Main.jpg'); background-size: cover; background-position: center 57%;">
-        <div class="thumb-corner thumb-top-left">INTERIOR DESIGN</div>
+      <a href="noonee.html" id="proj-noonee" class="projects-list__item" data-category="commercial" style="display: block; text-decoration: none; background-image: url('images/Noonee/Main.webp'); background-size: cover; background-position: center 57%;">
         <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'24</span><span class="thumb-paren">)</span></div>
         <div class="thumb-corner thumb-bottom-left">NOONEE</div>
-        <div class="thumb-corner thumb-bottom-right">Seoul, Korea<br>Commercial</div>
+        <div class="thumb-corner thumb-bottom-right">Commercial<br>Seoul, Korea<br>Approx. 497 sq. ft.</div>
       </a>
+      <!-- BEANPOLE -->
+      <a href="beanpole.html" id="proj-beanpole" class="projects-list__item" data-category="commercial" style="display: block; text-decoration: none; background-image: url('images/Beanpole/Main.webp?v=2'); background-size: cover; background-position: center 87%;">
+        <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'23</span><span class="thumb-paren">)</span></div>
+        <div class="thumb-corner thumb-bottom-left">BEANPOLE</div>
+        <div class="thumb-corner thumb-bottom-right">Commercial<br>Seoul, Korea<br>Approx. 761 sq. ft.</div>
+      </a>
+      <!-- WE ARE FISH IN A SEAFOOD RESTAURANT TANK (Temporarily hidden by user request) -->
+      <a href="we-are-fish.html" id="proj-we-are-fish" class="projects-list__item-hidden" data-category="academic" style="display: none !important; text-decoration: none; background-image: url('images/Academic_04/Main.webp'); background-size: cover; background-position: center 70%;">
+        <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'21</span><span class="thumb-paren">)</span></div>
+        <div class="thumb-corner thumb-bottom-left">We are fish in a seafood restaurant tank</div>
+        <div class="thumb-corner thumb-bottom-right">Academic Project<br>Pohang, Korea</div>
+      </a>
+      <!-- TESLA (Temporarily hidden by user request, uncomment to restore) -->
+      <!--
+      <a href="tesla.html" id="proj-tesla" class="projects-list__item" data-category="academic" style="display: block; text-decoration: none; background-image: url('images/Academic_03/Main.webp'); background-size: cover; background-position: center 51%;">
+        <div class="thumb-corner thumb-top-right"><span class="thumb-paren">(</span><span class="thumb-num">'20</span><span class="thumb-paren">)</span></div>
+        <div class="thumb-corner thumb-bottom-left">TESLA</div>
+        <div class="thumb-corner thumb-bottom-right">Academic Project<br>Gangwon, SEOUL</div>
+      </a>
+      -->
     </div>
   </main>
 
   <div class="custom-cursor"></div>
   <canvas class="cursor-canvas"></canvas>
-  <script src="js/script.js?v=261"></script>
+
+  <!-- ===== INSTANT SCROLL: runs synchronously before script.js, DOM is ready here ===== -->
+  <script>
+    (function() {
+      var hash = location.hash.replace('#', '');
+      if (hash && hash.startsWith('proj-')) {
+        var target = document.getElementById(hash);
+        if (target) {
+          target.id = ''; // Temporarily remove ID to prevent browser native scroll-to-top
+
+          var scrollToTarget = function() {
+            var rect = target.getBoundingClientRect();
+            var scrollPos = rect.top + window.scrollY - (window.innerHeight / 2) + (rect.height / 2);
+            window.scrollTo(0, Math.max(0, scrollPos));
+          };
+
+          // Scroll immediately
+          scrollToTarget();
+
+          // And scroll again on window load to handle any layout shifts or delayed browser behaviors
+          window.addEventListener('load', function() {
+            scrollToTarget();
+            target.id = hash; // Restore the ID
+          });
+        }
+        // Reveal the page now that we're at the right position
+        document.documentElement.style.visibility = '';
+      }
+    })();
+  </script>
+
+  <script src="js/script.js?v=262"></script>
   <script>
     // Handle category filter clicks
     document.addEventListener('DOMContentLoaded', () => {
@@ -99,13 +196,9 @@
       
       filterItems.forEach(item => {
         item.addEventListener('click', () => {
-          // Remove active class from all
           filterItems.forEach(el => el.classList.remove('is-active'));
-          // Add active class to clicked
           item.classList.add('is-active');
-          
           const filterValue = item.getAttribute('data-filter');
-          
           projectItems.forEach(project => {
             if (filterValue === 'all' || project.getAttribute('data-category') === filterValue) {
               project.style.display = 'block';
@@ -119,4 +212,5 @@
   </script>
 </body>
 </html>
+
 

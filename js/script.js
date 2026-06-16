@@ -20,10 +20,11 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(res => res.json())
     .then(data => {
       const country = (data.country || '').toLowerCase().replace(/\b\w/g, c => c.toUpperCase());
-      // 국기 이미지 매핑 (이미지 폴더의 파일명과 매칭)
+      // 국기 이미지 매핑 (이미지 폴더의 파일명과 확장자 매칭)
       const flagMap = {
-        'South Korea': 'KOREA',
-        'Canada': 'CANADA'
+        'South Korea': 'KOREA.webp',
+        'Canada': 'CANADA.png',
+        'United States': 'usa.png'
       };
       if (country) {
         if (heroCountry) heroCountry.textContent = country;
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const heroFlag = document.getElementById('hero-flag');
         const flagKey = flagMap[country];
         if (heroFlag && flagKey) {
-          heroFlag.src = `images/${flagKey}.webp`;
+          heroFlag.src = `images/${flagKey}`;
           heroFlag.alt = `${country} flag`;
           heroFlag.style.display = 'inline-block';
         }
@@ -40,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(() => {
       // API 실패 시 기본값 유지
-      if (geoGreeting) geoGreeting.textContent = 'HI, THERE';
-      if (heroCountry) heroCountry.textContent = 'welcome';
+      if (geoGreeting) geoGreeting.textContent = 'HELLO,';
+      if (heroCountry) heroCountry.textContent = 'there';
     });
 
   // ===== MOBILE MENU TOGGLE =====
@@ -51,9 +52,12 @@ document.addEventListener('DOMContentLoaded', () => {
       nav.classList.toggle('header__nav--open');
     });
 
-    // Close menu on link click
+    // Close menu on link click — hide instantly to avoid white flash during page transition
     nav.querySelectorAll('.header__link').forEach(link => {
       link.addEventListener('click', () => {
+        nav.style.transition = 'none';
+        nav.style.right = '-100%';
+        nav.style.visibility = 'hidden';
         menuBtn.classList.remove('header__menu-btn--open');
         nav.classList.remove('header__nav--open');
       });
@@ -187,11 +191,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
+    function navigateToProject(card) {
+    const url = card.dataset.url || card.getAttribute('href');
+    if (url && url !== '#') {
+      window.location.href = url;
+    }
+  }
+
   // ===== PROJECT PAGE TRANSITION =====
-  const projectTransition = document.getElementById('project-transition');
   const projectPage = document.getElementById('project-page');
   const projectBack = document.getElementById('project-back');
-  const projectCards = document.querySelectorAll('.project-card[data-project]');
+  const projectCards = document.querySelectorAll('.project-card[data-project], .projects-list__item.has-lock');
   const moreProjectsLink = document.querySelector('.projects__header-right .projects__more-link');
   const ppHeader = document.querySelector('.pp-header');
 
@@ -211,17 +221,13 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', scrollHandler);
   }
 
-  function navigateToProject(card) {
-    const url = card.dataset.url;
-    if (url && url !== '#') {
-      window.location.href = url;
-    }
-  }
+
 
   projectCards.forEach(card => {
     const authOverlay = card.querySelector('.project-card__auth');
     if (authOverlay) {
       card.addEventListener('click', (e) => {
+        if (card.tagName.toLowerCase() === 'a') e.preventDefault();
         if (e.target.closest('.project-card__submit')) {
           const pwInput = card.querySelector('.project-card__password');
           const pw = pwInput.value;
@@ -258,7 +264,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     } else {
-      card.addEventListener('click', () => navigateToProject(card));
+      card.addEventListener('click', (e) => {
+        if (e.target.closest('.project-card__info')) return;
+        navigateToProject(card);
+      });
     }
   });
 
@@ -445,7 +454,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const topOffset = (expandedHeight - rect.height) / 2;
       overlay.style.top = (rect.top - topOffset) + 'px';
       overlay.style.height = expandedHeight + 'px';
-      overlayText.style.fontSize = (expandedHeight * 1.17) + 'px';
+      // overlayText.style.fontSize removed to match main page CSS size
       rafId = requestAnimationFrame(trackLoop);
     }
 
@@ -469,7 +478,8 @@ document.addEventListener('DOMContentLoaded', () => {
       tag.addEventListener('mouseenter', function() {
         clearTimeout(leaveTimer);
         if (!serviceTagsContainer.classList.contains('is-open')) {
-          overlayText.textContent = tag.getAttribute('data-title').toLowerCase();
+          const rawTitle = tag.getAttribute('data-title').toLowerCase();
+          overlayText.innerHTML = `<span class="thumb-paren" style="margin-right: 0.05em; font-weight: 400;">(</span>${rawTitle}<span class="thumb-paren" style="margin-left: 0.05em; font-weight: 400;">)</span>`;
           serviceTagsContainer.classList.add('is-hovering');
           startTracking();
         }
@@ -508,59 +518,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalClose = serviceModal.querySelector('.service-modal__close');
     const modalOverlay = serviceModal.querySelector('.service-modal__overlay');
 
-    const openModal = (title, desc, index) => {
+    let galleryImages = [];
+    let galleryCaptions = [];
+    let centerImageIndex = 0;
+
+    const openModal = (title, desc, images, captions, layout) => {
       if (modalTitle) modalTitle.textContent = title;
-      if (modalBody) modalBody.innerHTML = desc; /* <br> 태그 인식을 위해 innerHTML 사용 */
+      if (modalBody) modalBody.innerHTML = desc;
       
-      // 탭 인덱스에 따라 이미지 및 레이아웃 설정
-      if (index === 1) { // 02번 탭 (Spatial Strategy Planning)
+      if (layout === 'horizontal') {
         serviceModal.classList.add('service-modal--horizontal');
-        galleryImages = [
-          'images/02_Spatial_Strategy_Planning/20260527_104840.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104850.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104859.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104902.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104904.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104910.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104912.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104914.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104916.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104918.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104920.webp',
-          'images/02_Spatial_Strategy_Planning/20260527_104922.webp'
-        ];
-      } else if (index === 2) { // 03번 탭 (3D visualization)
-        serviceModal.classList.add('service-modal--horizontal');
-        galleryImages = [
-          'images/3d_visualization/1.webp',
-          'images/3d_visualization/2.webp',
-          'images/3d_visualization/3.webp',
-          'images/3d_visualization/4.webp',
-          'images/3d_visualization/5.png'
-        ];
-      } else if (index === 3) { // 04번 탭 (Industrial design)
-        serviceModal.classList.add('service-modal--horizontal');
-        galleryImages = [
-          'images/03_Product_design1/1.webp',
-          'images/03_Product_design1/2.webp',
-          'images/03_Product_design1/3.webp',
-          'images/03_Product_design1/4.webp',
-          'images/03_Product_design1/5.webp'
-        ];
-      } else { // 01번 탭 (Interior design)
+      } else {
         serviceModal.classList.remove('service-modal--horizontal');
-        galleryImages = [
-          'images/01_Interior desgin/Interior design_03_2.webp',
-          'images/01_Interior desgin/Interior design_07_2.webp',
-          'images/01_Interior desgin/Interior design_05_2.webp',
-          'images/01_Interior desgin/Interior design_01.webp',
-          'images/01_Interior desgin/Interior design_06_2.webp',
-          'images/01_Interior desgin/Interior design_02.webp',
-          'images/01_Interior desgin/Interior design_04_2.webp'
-        ];
       }
-      centerImageIndex = 0; // 초기 화면에서 첫 번째 이미지가 활성화되도록 0으로 설정 (좌측/상단 썸네일 비움)
-      currentTabIndex = index;
+      
+      serviceModal.classList.remove('service-modal--3d');
+      if (title === '3D VISUALIZATION') {
+        serviceModal.classList.add('service-modal--3d');
+      }
+
+      galleryImages = images || [];
+      galleryCaptions = captions || [];
+      centerImageIndex = 0;
       updateCarousel();
 
       if (modalServiceTagsContainer) {
@@ -574,7 +553,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (modalServiceTagsContainer) {
         modalServiceTagsContainer.classList.remove('is-open');
         setTimeout(() => { modalServiceTagsContainer.classList.remove('is-animating'); }, 550);
-        modalServiceTagsContainer.classList.remove('is-hovering'); // 호버 상태 초기화
+        modalServiceTagsContainer.classList.remove('is-hovering');
       }
       serviceModal.classList.remove('is-active');
     };
@@ -583,7 +562,14 @@ document.addEventListener('DOMContentLoaded', () => {
       tag.addEventListener('click', () => {
         const title = tag.getAttribute('data-title');
         const desc = tag.getAttribute('data-desc');
-        openModal(title, desc, index);
+        const layout = tag.getAttribute('data-layout');
+        let images = [];
+        let captions = [];
+        try {
+          images = JSON.parse(tag.getAttribute('data-images') || '[]');
+          captions = JSON.parse(tag.getAttribute('data-captions') || '[]');
+        } catch (e) { console.error("Error parsing modal data", e); }
+        openModal(title, desc, images, captions, layout);
       });
     });
 
@@ -599,15 +585,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const mainImageContainer = document.querySelector('.gallery-image-container');
     const prevBtn = document.querySelector('.gallery-nav--prev');
     const nextBtn = document.querySelector('.gallery-nav--next');
-
-    // 이미지 목록 (나중에 동적으로 변경 가능)
-    let galleryImages = [
-      'images/01_Interior desgin/Interior design_02.webp',
-      'images/01_Interior desgin/Interior design_02.webp',
-      'images/01_Interior desgin/Interior design_02.webp',
-    ];
-    let centerImageIndex = 0; // 초기 화면에서 첫 번째 이미지가 활성화되도록 0으로 설정
-    let currentTabIndex = 0;
 
     function updateCarousel() {
       // 가운데 썸네일은 항상 활성(밝게)
@@ -639,60 +616,19 @@ document.addEventListener('DOMContentLoaded', () => {
       if (mainImageContainer) {
         const mainImg = mainImageContainer.querySelector('img');
         if (mainImg) {
-          mainImg.src = galleryImages[centerImageIndex];
+          mainImg.src = galleryImages[centerImageIndex] || '';
         }
         
-        // 캡션 업데이트
+        // 캡션 업데이트 및 위치 계산
         const captionEl = document.getElementById('galleryCaption');
         if (captionEl) {
-          if (currentTabIndex === 1) {
-            // 02번 탭일 경우 모든 사진에 동일한 캡션 유지
-            captionEl.textContent = '* Selected pages to ensure project confidentiality.';
-          } else if (currentTabIndex === 2) {
-            // 03번 탭 (3D visualization)
-            const captions3D = [
-              "* Farnsworth House 3D Practice ('20)",
-              "* Farnsworth House 3D Practice ('20)",
-              "* Farnsworth House 3D Practice ('20)",
-              "* Automotive Scene 3D Practice ('21)",
-              "* 3D Commission Work for ARIJIAN (Korean Craft Brand) ('22)"
-            ];
-            captionEl.textContent = captions3D[centerImageIndex] || '';
-          } else if (currentTabIndex === 3) {
-            // 04번 탭 (Industrial design)
-            const captions03 = [
-              '* Maserati Snowmobile Designed During Associate Degree',
-              '* From the Graduation Exhibition',
-              '* Automotive Exterior Sketches for Study Abroad Portfolio',
-              '* Automotive Interior Sketches for Study Abroad Portfolio',
-              '* “The Familiar Seat” – Zero Waste Furniture Design'
-            ];
-            captionEl.textContent = captions03[centerImageIndex] || '';
-          } else {
-            // 01번 탭일 경우 각각 지정된 캡션 표시
-            const captions = [
-              '* After second project shoot with Director and team',
-              '* At the site in China (It was so hot)',
-              '* At the workshop in Jeju, Korea',
-              '* At the project site in China',
-              '* At the ski resort',
-              '* Alone at the office on the weekend',
-              '* At the workshop in Japan'
-            ];
-            
-            if (captions[centerImageIndex]) {
-              captionEl.textContent = captions[centerImageIndex];
-            } else {
-              captionEl.textContent = ''; // 문구가 지정되지 않은 남은 사진은 빈 텍스트
-            }
-          }
-          
+          captionEl.textContent = galleryCaptions[centerImageIndex] || '';
+
           // 사진 렌더링 후 테두리 위치 계산 및 캡션 배치
           mainImg.onload = () => {
             let topOffset = 0;
             let leftOffset = 0;
 
-            // 1번 탭(세로형 컨테인)일 때만 실제 렌더링 영역 계산 (2번 탭은 꽉 차있으므로 0유지)
             if (!serviceModal.classList.contains('service-modal--horizontal')) {
               const containerRatio = mainImg.clientWidth / mainImg.clientHeight;
               const imageRatio = mainImg.naturalWidth / mainImg.naturalHeight;
@@ -710,16 +646,14 @@ document.addEventListener('DOMContentLoaded', () => {
               leftOffset = (mainImg.clientWidth - renderedWidth) / 2;
             }
 
-            captionEl.style.top = `calc(${topOffset}px - 22px)`; // 24px과 12px의 중간값 18px 적용
+            captionEl.style.top = `calc(${topOffset}px - 22px)`;
             captionEl.style.left = `${leftOffset}px`;
           };
           
-          // 만약 이미 캐시된 이미지라면 onload가 안 불릴 수 있으므로 강제 실행
           if (mainImg.complete) {
             mainImg.onload();
           }
           
-          // 창 크기 조절 시에도 캡션 위치 업데이트
           window.addEventListener('resize', mainImg.onload);
         }
       }
@@ -759,6 +693,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     // Initialize
     updateCarousel();
+
+    // ── 모바일 전용: 스와이프로 이미지 넘기기 ──
+    // (데스크톱에는 영향 없음)
+    if (mainImageContainer) {
+      let touchStartX = 0;
+      let touchStartY = 0;
+
+      mainImageContainer.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      mainImageContainer.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].clientX - touchStartX;
+        const dy = e.changedTouches[0].clientY - touchStartY;
+
+        // 가로 스와이프가 세로보다 명확할 때만 이미지 전환 (50px 이상)
+        if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+          if (dx < 0 && centerImageIndex < galleryImages.length - 1) {
+            // 왼쪽 스와이프 → 다음 이미지
+            centerImageIndex++;
+            updateCarousel();
+          } else if (dx > 0 && centerImageIndex > 0) {
+            // 오른쪽 스와이프 → 이전 이미지
+            centerImageIndex--;
+            updateCarousel();
+          }
+        }
+      }, { passive: true });
+    }
 
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
@@ -810,3 +774,84 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  // ===== IMAGE LIGHTBOX MODAL =====
+  const imageModal = document.getElementById('imageModal');
+  const imageModalImg = document.getElementById('imageModalImg');
+  const imageModalClose = document.querySelector('.image-modal__close');
+  
+  if (imageModal && imageModalImg && imageModalClose) {
+    document.querySelectorAll('.pp-gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        imageModalImg.src = img.src;
+        imageModal.classList.add('is-active');
+        document.body.style.overflow = 'hidden';
+        document.body.classList.add('modal-zoom-active');
+        document.documentElement.classList.add('modal-zoom-active');
+      });
+    });
+
+    const closeImageModal = () => {
+      imageModal.classList.remove('is-active');
+      document.body.style.overflow = '';
+      document.body.classList.remove('modal-zoom-active');
+      document.documentElement.classList.remove('modal-zoom-active');
+      setTimeout(() => { imageModalImg.src = ''; }, 300);
+    };
+
+    // Allow pinch zoom INSIDE the modal by stopping propagation
+    // (document-level handlers won't fire, so browser handles zoom naturally)
+    ['touchstart', 'touchmove', 'gesturestart'].forEach(type => {
+      imageModal.addEventListener(type, (e) => {
+        e.stopPropagation();
+      }, { passive: false });
+    });
+
+    imageModalClose.addEventListener('click', closeImageModal);
+    imageModal.addEventListener('click', (e) => {
+      if (e.target === imageModal) closeImageModal();
+    });
+  }
+
+  // ===== FIX NAVIGATION HANG ON PROJECT PAGES =====
+  // iOS Safari sometimes hangs on a white screen when navigating from a heavy page to a dark page.
+  // We fade to black first, then explicitly trigger navigation.
+  const navLinksToDarkPage = document.querySelectorAll('.pp-header__logo, .floating-back-btn');
+  navLinksToDarkPage.forEach(link => {
+    link.addEventListener('click', (e) => {
+      if (e.ctrlKey || e.shiftKey || e.metaKey || e.button !== 0) return; // Allow new tabs naturally
+      e.preventDefault();
+      const targetUrl = link.href;
+      document.body.style.transition = 'opacity 0.3s ease, background-color 0.3s ease';
+      document.body.style.backgroundColor = '#131313';
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.href = targetUrl;
+      }, 300);
+    });
+  });
+});
+
+// ===== DISABLE PINCH ZOOM (unconditionally on document) =====
+// Modal uses stopPropagation so its touches never reach here
+document.addEventListener('gesturestart', (e) => {
+  e.preventDefault();
+}, { passive: false });
+
+document.addEventListener('touchstart', (e) => {
+  if (e.touches.length > 1) {
+    // Stop any ongoing momentum scroll immediately, then block zoom
+    window.scrollTo(window.scrollX, window.scrollY);
+    e.preventDefault();
+  }
+}, { passive: false });
+
+document.addEventListener('touchmove', (e) => {
+  if (e.touches.length > 1) {
+    e.preventDefault();
+  }
+}, { passive: false });
+

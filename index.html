@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=1780342290592">
+  <link rel="icon" href="images/Smile_emoji.webp" type="image/webp">
 </head>
 <body class="is-loading">
 
@@ -22,8 +23,8 @@
     <a href="#" class="header__logo">HYEONG-U LEE</a>
     <nav class="header__nav" id="main-nav">
       <a href="about.html" class="header__link">ABOUT</a>
-      <a href="#projects" class="header__link">PROJECTS</a>
-      <a href="archive.html" class="header__link">ARCHIVE</a>
+      <a href="projects.html" class="header__link">PROJECTS</a>
+      <!-- <a href="archive.html" class="header__link">ARCHIVE</a> -->
       <a href="#contact" class="header__link">CONTACT</a>
     </nav>
     <button class="header__menu-btn" id="menu-btn" aria-label="메뉴 열기">
@@ -40,12 +41,11 @@
         <span class="hero__line hero__line--script-row">
           <span class="hero__paren">(</span>
           <img class="hero__flag" id="hero-flag" src="" alt="" style="display:none;" />
-          <em class="hero__cursive" id="hero-country">welcome</em>
+          <em class="hero__cursive" id="hero-country">there</em>
           <span class="hero__paren hero__paren--right">)</span>
-          <span class="hero__disclaimer">*Display based on location data</span>
         </span>
         <span class="hero__line hero__line--arrow-row">
-          <span>Nice to meet your spaces.</span>
+          <span>Nice to meet<br class="mobile-break">your spaces.</span>
           <span class="hero__arrow hero__arrow--text">↓</span>
           <svg class="hero__arrow hero__arrow--svg" viewBox="0 0 24 20" fill="currentColor">
             <path d="M10 0v12l-5.6-5.6L3 7.8 12 16.8l9-9-1.4-1.4L14 12V0h-4z"/>
@@ -73,7 +73,9 @@
         <div class="dark-section__philosophy">
           <div class="philosophy__text-block">
             <div class="philosophy__row">
-              <span class="philosophy__line">NOTHING</span>
+              <span class="philosophy__line">NOTHING
+                <img src="images/I%20Believe.png" class="philosophy__doodle philosophy__doodle--ibelieve" alt="">
+              </span>
             </div>
             <div class="philosophy__row philosophy__row--gap-small">
               <span class="philosophy__line">IS&nbsp;</span>
@@ -90,13 +92,13 @@
             </div>
             <div class="philosophy__row philosophy__row--gap-large">
               <span class="philosophy__line">
-                <img src="images/Someday.webp" class="philosophy__doodle philosophy__doodle--someday" alt="">
-                BECOMES
+                <img src="images/Someday%202.png" class="philosophy__doodle philosophy__doodle--someday" alt="">
+                CREATES
               </span>
             </div>
             <div class="philosophy__row philosophy__row--gap-small">
               <span class="philosophy__line philosophy__line--accent">
-                SYNERGY.
+                CHANGE.
                 <img src="images/Circle.webp" class="philosophy__doodle philosophy__doodle--circle" alt="">
               </span>
             </div>
@@ -117,26 +119,33 @@
     <div class="projects__header">
       <div class="projects__header-left">
         <h2 class="projects__title">WHAT I DO</h2>
-        <p class="projects__subtitle">Let's take a look at the main projects I worked on.</p>
+        <p class="projects__subtitle">Let's take a look at<br>the main projects I worked on.</p>
       </div>
       <div class="projects__header-right">
         <p class="projects__description">
-          The projects are classified into three main categories,<br>
-          showcasing the representative work of each.<br><br>
-          To view more projects, please click the button below.
+          The projects are classified into three main categories,
+          showcasing the representative work of each.
+          <span class="projects__description-highlight">If you would like to view all projects,
+          please click the 'more projects' button on the bottom left.</span><br><br>
+          <span class="projects__description-highlight"><u>The password to access the confidential projects is included in my CV.</u>
+          Please note that these materials are strictly confidential
+          and must not be used for any purpose other than the recruitment process.</span>
         </p>
-        <a href="projects.html" class="projects__more-link">MORE PROJECTS</a>
+        <!-- <a href="projects.html" class="projects__more-link">
+          <img src="images/Star.png" class="projects__star" alt="">
+          MORE PROJECTS
+        </a> -->
       </div>
     </div>
 
     <div class="projects__grid">
       <!-- Project Card 1 -->
-      <div class="project-card" data-project="hospitality" data-url="#">
+      <div class="project-card" data-project="hospitality" data-url="haeundae-project.html">
         <div class="project-card__image">
-          <img src="images/opt_Thumnail_01.webp" alt="Hospitality" class="project-card__img" />
+          <img src="images/Haeundae/Haeundae_0_Main(blur)_original_v3.png" alt="Hospitality" class="project-card__img" />
           <div class="project-card__overlay">
               <div class="project-card__auth">
-                <img src="images/Lock.png" alt="Confidential" class="project-card__lock" />
+                <img src="images/Lock.webp" alt="Confidential" class="project-card__lock" />
                 <div class="project-card__pw-container">
                   <input type="password" class="project-card__password" />
                   <button class="project-card__submit"></button>
@@ -153,10 +162,10 @@
       <!-- Project Card 2 -->
       <div class="project-card" data-project="residential" data-url="h-project.html">
         <div class="project-card__image">
-          <img src="images/opt_Thumnail_03.webp" alt="Residential" class="project-card__img" />
+          <img src="images/H%20project/0_Main(blur).webp" alt="Residential" class="project-card__img" />
           <div class="project-card__overlay">
               <div class="project-card__auth">
-                <img src="images/Lock.png" alt="Confidential" class="project-card__lock" />
+                <img src="images/Lock.webp" alt="Confidential" class="project-card__lock" />
                 <div class="project-card__pw-container">
                   <input type="password" class="project-card__password" />
                   <button class="project-card__submit"></button>
@@ -173,7 +182,7 @@
       <!-- Project Card 3 -->
       <div class="project-card" data-project="commercial" data-url="cerruti1881.html">
         <div class="project-card__image">
-          <img src="images/opt_Thumnail_02.webp" alt="Commercial" class="project-card__img" />
+          <img src="images/opt_Thumbnail_02.webp" alt="Commercial" class="project-card__img" />
         </div>
           <div class="project-card__info">
             <h3 class="project-card__name">Commercial</h3>
@@ -184,12 +193,17 @@
 
     <div class="footer__top-links">
         <div class="footer__top-links-col">
-          <a href="archive.html" class="projects__more-link">And More.. <span class="pp-hero__paren">(</span>ARCHIVE<span class="pp-hero__paren">)</span></a>
-          <p class="project-card__description" style="margin-top: 12px;">Here you can explore a variety of my work beyond interior design. Click here if you'd like to know more about me!</p>
+          <a href="projects.html" class="projects__more-link">
+            More Projects
+          </a>
+          <p class="project-card__description" style="margin-top: 12px;">Discover a wider range of my hospitality, residential, and commercial projects here!</p>
         </div>
         <div></div>
         <div class="footer__top-links-col">
-          <a href="#contact" class="projects__more-link" id="btn-get-in-touch">Just Get in Touch</a>
+          <a href="#contact" class="projects__more-link" id="btn-get-in-touch" onclick="var s=this.querySelector('.projects__star'); if(s) s.style.display='none';">
+            <img src="images/Star.png" class="projects__star" alt="">
+            Just Get in Touch
+          </a>
           <p class="project-card__description" style="margin-top: 12px;">I'd love it if it's about a job opportunity... but a simple 'hi' is always welcome too!</p>
         </div>
       </div>
@@ -199,7 +213,8 @@
       <footer class="footer" id="contact" style="position: relative;">
         <!-- Absolute overlay for business card to align with full-bleed projects grid -->
         <div style="position: absolute; left: var(--space-lg); right: var(--space-lg); bottom: calc(var(--space-lg) * 0.6); top: calc(var(--space-2xl) * 0.6); display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; align-items: flex-end; pointer-events: none; z-index: 10;">
-          <div style="grid-column: 3; justify-self: start; transform: translateX(-7rem); pointer-events: auto;">
+          <div class="popup-card-wrapper" style="grid-column: 3; justify-self: start; transform: translateX(-7rem); pointer-events: auto; position: relative;">
+            <img src="images/Like%20this.png" class="footer__doodle-likethis" alt="">
             <div class="footer__contact-info" id="footer-contact-info" style="position: relative; overflow: hidden;">
               <div class="smile-name-card-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('images/opt_smile02.webp'); background-size: auto 170%; background-repeat: repeat-x; background-position: -95px center; mix-blend-mode: multiply; pointer-events: none; z-index: 0;"></div>
               <div class="contact-info__wrapper" style="position: relative; z-index: 1;">
@@ -217,6 +232,7 @@
             <div class="footer__brand-tagline">
               <span>CREATES</span>
               <span>CHANGE</span>
+              <img src="images/can.png" class="footer__doodle-can" alt="">
             </div>
           </div>
         </div>
@@ -244,20 +260,20 @@
       <a href="#" class="pp-header__logo" id="project-back">HOME</a>
       <nav class="pp-header__nav">
         <a href="about.html" class="pp-header__link">ABOUT</a>
-        <a href="#projects" class="pp-header__link">PROJECTS</a>
-        <a href="archive.html" class="pp-header__link">ARCHIVE</a>
+        <a href="projects.html" class="pp-header__link">PROJECTS</a>
+        <!-- <a href="archive.html" class="pp-header__link">ARCHIVE</a> -->
         <a href="#contact" class="pp-header__link">CONTACT</a>
       </nav>
     </header>
 
     <!-- ── FULL-BLEED HERO IMAGE WITH TITLE OVERLAY ── -->
     <section class="pp-hero">
-      <img src="images/1_Cerruti/0.jpg" alt="" class="pp-hero__img-placeholder">
+      <img src="images/1_Cerruti/0.webp" alt="" class="pp-hero__img-placeholder">
 
       <span class="pp-hero__year"><span class="pp-hero__paren">(</span><span class="pp-hero__num">'24</span><span class="pp-hero__paren">)</span></span>
       <div class="pp-hero__overlay">
         <h1 class="pp-hero__title">CERRUTI1881</h1>
-        <p class="pp-hero__subtitle">A sophisticated blend of modern aesthetics and brand heritage.</p>
+        <p class="pp-hero__subtitle">A SOPHISTICATED BLEND OF MODERN AESTHETICS AND BRAND HERITAGE.</p>
       </div>
     </section>
 
@@ -274,7 +290,7 @@
           <p class="meta-label">LOCATION</p>
           <p class="meta-value">Guangzhou, China</p>
           <p class="meta-label">INTERIOR SURFACE</p>
-          <p class="meta-value">278.1m&sup2;</p>
+          <p class="meta-value">2,993 sq. ft. (278.1 sqm)</p>
           <p class="meta-label">TOOLS</p>
           <p class="meta-value">AutoCAD, SketchUp, Enscape, Photoshop</p>
           <p class="meta-label">ROLE</p>
@@ -289,46 +305,44 @@
     <!-- ── GALLERY ── -->
     <div class="pp-gallery">
       <!-- 1 -->
-      <img src="images/1_Cerruti/1.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/1.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 2 -->
-      <img src="images/1_Cerruti/4.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/4.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty">
-        <div class="pp-gallery__caption">THIS IS<br>A SAMPLE<br>DESCRIPTION<br>TEXT BOX</div>
       </div>
       
       <!-- 3 -->
       <div class="pp-gallery__empty"></div>
-      <img src="images/1_Cerruti/6.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/6.webp" alt="" class="pp-gallery__img-placeholder portrait">
       
       <!-- 4 -->
-      <img src="images/1_Cerruti/2.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/2.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 5 -->
       <div class="pp-gallery__empty">
-        <div class="pp-gallery__caption">HERE IS<br>ANOTHER<br>FOUR LINE<br>EXAMPLE</div>
       </div>
-      <img src="images/1_Cerruti/8.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/8.webp" alt="" class="pp-gallery__img-placeholder portrait">
       
       <!-- 6 -->
-      <img src="images/1_Cerruti/3.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/3.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 7 -->
-      <img src="images/1_Cerruti/9.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/9.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty"></div>
       
       <!-- 8 -->
-      <img src="images/1_Cerruti/5.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/5.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 9 -->
-      <img src="images/1_Cerruti/10.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/1_Cerruti/10.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty"></div>
       
       <!-- 12 -->
-      <img src="images/1_Cerruti/7.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/7.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 15 -->
-      <img src="images/1_Cerruti/11.png" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/1_Cerruti/11.webp" alt="" class="pp-gallery__img-placeholder landscape">
     </div>
 
   </div>
@@ -356,7 +370,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
             </button>
             <div class="gallery-image-container">
-              <img src="images/01_Interior desgin/Interior design_02.webp" alt="Interior Design" class="gallery-image">
+              <img src="images/01_Interior design/Interior design_02.webp" alt="Interior Design" class="gallery-image">
             </div>
             <button class="gallery-nav gallery-nav--next" aria-label="Next image">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
@@ -365,15 +379,15 @@
           <!-- Side Thumbnails (vertical, 3 items, active = center) -->
           <div class="service-modal__gallery-side">
             <div class="gallery-side-thumb" data-index="0">
-              <img src="images/01_Interior desgin/Interior design_02.webp" alt="Thumb 1" class="gallery-image">
+              <img src="images/01_Interior design/Interior design_02.webp" alt="Thumb 1" class="gallery-image">
               <div class="gallery-side-overlay"></div>
             </div>
             <div class="gallery-side-thumb is-active" data-index="1">
-              <img src="images/01_Interior desgin/Interior design_02.webp" alt="Thumb 2" class="gallery-image">
+              <img src="images/01_Interior design/Interior design_02.webp" alt="Thumb 2" class="gallery-image">
               <div class="gallery-side-overlay"></div>
             </div>
             <div class="gallery-side-thumb" data-index="2">
-              <img src="images/01_Interior desgin/Interior design_02.webp" alt="Thumb 3" class="gallery-image">
+              <img src="images/01_Interior design/Interior design_02.webp" alt="Thumb 3" class="gallery-image">
               <div class="gallery-side-overlay"></div>
             </div>
           </div>
@@ -443,6 +457,7 @@
   </script>
 </body>
 </html>
+
 
 
 

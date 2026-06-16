@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>TESLA - HYEONG-U LEE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Force cursor visibility on white background */
+    .custom-cursor {
+      background-color: rgba(0, 0, 0, 0.3) !important;
+      mix-blend-mode: normal !important;
+      display: block !important;
+    }
+    .custom-cursor--hover {
+      background-color: rgba(0, 0, 0, 0.15) !important;
+    }
+    .cursor-canvas {
+      display: block !important;
+    }
+  </style>
+
+  <link rel="icon" href="images/Smile_emoji.webp" type="image/webp">
+</head>
+<body style="background-color: #ffffff;">
+
+<!-- ── HEADER (same as main) ── -->
+    <header class="pp-header">
+      <a href="index.html" class="pp-header__logo">HOME</a>
+      <nav class="pp-header__nav">
+        <a href="about.html" class="pp-header__link">ABOUT</a>
+        <a href="projects.html" class="pp-header__link">PROJECTS</a>
+        <!-- <a href="archive.html" class="pp-header__link">ARCHIVE</a> -->
+        <a href="index.html#contact" class="pp-header__link">CONTACT</a>
+      </nav>
+    </header>
+
+    <!-- ── FULL-BLEED HERO IMAGE WITH TITLE OVERLAY ── -->
+    <section class="pp-hero">
+      <img src="images/Academic_03/Main.webp" alt="" class="pp-hero__img-placeholder">
+
+      <span class="pp-hero__year"><span class="pp-hero__paren">(</span><span class="pp-hero__num">'20</span><span class="pp-hero__paren">)</span></span>
+      <div class="pp-hero__overlay">
+        <h1 class="pp-hero__title">TESLA</h1>
+        <p class="pp-hero__subtitle">LIMIT OF INFINITE</p>
+      </div>
+    </section>
+
+    <!-- ── TEXT CONTENT (reference layout) ── -->
+    <div class="pp-content" style="grid-template-columns: 1.6fr 1fr;">
+      <div class="pp-content__left">
+        <p class="pp-content__label" style="font-size: clamp(2.5rem, 4vw, 3.5rem); white-space: normal; max-width: 100%; line-height: 0.85; letter-spacing: -0.01em;">Tesla Store in Gangwon:<br>EV Charging & Service Hub</p>
+        <div class="pp-content__meta">
+          <p class="meta-label">TYPE</p>
+          <p class="meta-value">Academic Project</p>
+          <p class="meta-label">COMPLETION DATE</p>
+          <p class="meta-value">Worked on in 2020</p>
+          <p class="meta-label">LOCATION</p>
+          <p class="meta-value">Gangwon,SEOUL</p>
+          <p class="meta-label">INTERIOR SURFACE</p>
+          <p class="meta-value"></p>
+          <p class="meta-label">TOOLS</p>
+          <p class="meta-value">3DS MAX, CORONA RENDERER, AUTOCAD...</p>
+          <p class="meta-label">ROLE</p>
+          <p class="meta-value"></p>
+        </div>
+      </div>
+      <div class="pp-content__right" style="grid-column: 2; margin-top: calc((clamp(2.5rem, 4vw, 3.5rem) * 0.85 * 2) + clamp(44px, 5.5vw, 88px) - clamp(24px, 3.5vw, 48px));">
+        <p class="pp-content__body">
+          This academic project was completed during my junior year of university. At the time, South Korea faced a severe shortage of electric vehicle (EV) charging infrastructure. For domestic travel, Koreans frequently drive to Gangwon Province, a trip that typically takes three to four hours from Seoul. However, once outside the metropolitan area, EV facilities were nearly nonexistent, leaving drivers at risk of being stranded if they ran low on battery mid-journey.<br><br>
+          To address this, I designed a Tesla charging station and store in Gangwon Province. By repurposing an existing gas station, the project symbolized the generational shift from internal combustion engines to EVs. Rather than creating a conventional, sales-driven showroom, I designed the space to allow visitors to naturally encounter and experience the products. This approach went beyond simple brand promotion, acting as a direct appeal for the EV system itself.<br><br>
+          Furthermore, unlike internal combustion engine vehicles, which are inherently difficult to keep clean during maintenance due to engine oil and other mechanical fluids, EVs allow for a much cleaner service environment. To maximize this advantage, I integrated a functional maintenance area and designed the spatial layout so that this pristine process is fully visible from anywhere within the store. This transparency was intended to leave a strong, positive impression on consumers.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── GALLERY ── -->
+    <div class="pp-gallery">
+      <img src="images/Academic_03/1.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/Academic_03/2.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/Academic_03/3.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      
+      <!-- Single Portrait Image -->
+      <img src="images/Academic_03/4.webp" alt="" class="pp-gallery__img-placeholder portrait">
+      <div class="pp-gallery__empty portrait"></div>
+    </div>
+
+  <!-- ===== FLOATING BACK BUTTON ===== -->
+  <a href="projects.html#proj-tesla" id="floating-back-btn" class="floating-back-btn">
+    <span class="btn-text">BACK TO PROJECTS</span>
+  </a>
+
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div class="custom-cursor"></div>
+  <canvas class="cursor-canvas"></canvas>
+  <script src="js/script.js"></script>
+
+  <!-- Image Lightbox Modal -->
+  <div id="imageModal" class="image-modal">
+    <span class="image-modal__close">&times;</span>
+    <img class="image-modal__content" id="imageModalImg">
+  </div>
+</body>
+</html>
+

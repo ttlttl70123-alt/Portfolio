@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>We are fish in a seafood restaurant tank - HYEONG-U LEE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    /* Force cursor visibility on white background */
+    .custom-cursor {
+      background-color: rgba(0, 0, 0, 0.3) !important;
+      mix-blend-mode: normal !important;
+      display: block !important;
+    }
+    .custom-cursor--hover {
+      background-color: rgba(0, 0, 0, 0.15) !important;
+    }
+    .cursor-canvas {
+      display: block !important;
+    }
+  </style>
+
+  <link rel="icon" href="images/Smile_emoji.webp" type="image/webp">
+</head>
+<body style="background-color: #ffffff;">
+
+<!-- ── HEADER (same as main) ── -->
+    <header class="pp-header">
+      <a href="index.html" class="pp-header__logo">HOME</a>
+      <nav class="pp-header__nav">
+        <a href="about.html" class="pp-header__link">ABOUT</a>
+        <a href="projects.html" class="pp-header__link">PROJECTS</a>
+        <!-- <a href="archive.html" class="pp-header__link">ARCHIVE</a> -->
+        <a href="index.html#contact" class="pp-header__link">CONTACT</a>
+      </nav>
+    </header>
+
+    <!-- ── FULL-BLEED HERO IMAGE WITH TITLE OVERLAY ── -->
+    <section class="pp-hero">
+      <img src="images/Academic_04/Main.webp" alt="" class="pp-hero__img-placeholder" style="transform: scale(1.2) translateX(3%); object-position: center 80%;">
+
+      <span class="pp-hero__year"><span class="pp-hero__paren">(</span><span class="pp-hero__num">'21</span><span class="pp-hero__paren">)</span></span>
+      <div class="pp-hero__overlay">
+        <h1 class="pp-hero__title" style="font-size: clamp(3rem, 6vw, 6rem);">We are fish in a seafood restaurant tank</h1>
+      </div>
+    </section>
+
+    <!-- ── TEXT CONTENT (reference layout) ── -->
+    <div class="pp-content" style="grid-template-columns: 1.6fr 1fr;">
+      <div class="pp-content__left">
+        <p class="pp-content__label" style="font-size: clamp(2.5rem, 4vw, 3.5rem); white-space: normal; max-width: 100%; line-height: 0.85; letter-spacing: -0.01em;">A Raw Fish Restaurant<br>as an Experiential Space on Mortality</p>
+        <div class="pp-content__meta">
+          <p class="meta-label">TYPE</p>
+          <p class="meta-value">Academic Project</p>
+          <p class="meta-label">COMPLETION DATE</p>
+          <p class="meta-value">Worked on in 2021</p>
+          <p class="meta-label">LOCATION</p>
+          <p class="meta-value">Pohang, Korea</p>
+          <p class="meta-label">INTERIOR SURFACE</p>
+          <p class="meta-value"></p>
+          <p class="meta-label">TOOLS</p>
+          <p class="meta-value">3DS MAX, CORONA RENDERER, AUTOCAD...</p>
+          <p class="meta-label">ROLE</p>
+          <p class="meta-value"></p>
+        </div>
+      </div>
+      <div class="pp-content__right" style="grid-column: 2; margin-top: calc((clamp(2.5rem, 4vw, 3.5rem) * 0.85 * 2) + clamp(44px, 5.5vw, 88px) - clamp(24px, 3.5vw, 48px));">
+        <p class="pp-content__body">
+          After the sudden passing of my grandmother, with whom I shared a deep bond, I realized the necessity of preparing for the concept of death.<br><br>
+          In Korea, a dish called Hoe, freshly caught live fish eaten raw that is distinct from sushi, is highly popular. At traditional raw fish restaurants, known as Hoe-jip, it is customary for customers to select their live fish directly from an aquarium before it is prepared. I saw a reflection of our own unpredictable human fate in the arbitrary death of the fish chosen during this routine process.<br><br>
+          Driven by this realization, I designed a space that operates as a functional raw fish restaurant, but also serves as an experiential exhibition for willing participants. The exhibition allows visitors to retrace the steps of consuming the fish, but from the perspective of the fish itself, prompting a profound reflection on our own mortality.<br><br>
+          For the site, I repurposed an abandoned Haesutang, a traditional Korean public bathhouse that uses seawater. By utilizing a space where humans themselves were once submerged in seawater, I aimed to evoke a direct, visceral empathy with the fish in the tank.
+        </p>
+      </div>
+    </div>
+
+    <!-- ── GALLERY ── -->
+    <div class="pp-gallery">
+      <img src="images/Academic_04/1122.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/Academic_04/1.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/Academic_04/2.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/Academic_04/3.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/Academic_04/4.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      
+      <img src="images/Academic_04/7.webp" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/Academic_04/8.webp" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/Academic_04/9.webp" alt="" class="pp-gallery__img-placeholder portrait">
+      <div class="pp-gallery__empty portrait"></div>
+    </div>
+
+  <!-- ===== FLOATING BACK BUTTON ===== -->
+  <a href="projects.html#proj-we-are-fish" id="floating-back-btn" class="floating-back-btn">
+    <span class="btn-text">BACK TO PROJECTS</span>
+  </a>
+
+  <!-- ===== CUSTOM CURSOR ===== -->
+  <div class="custom-cursor"></div>
+  <canvas class="cursor-canvas"></canvas>
+  <script src="js/script.js"></script>
+
+  <!-- Image Lightbox Modal -->
+  <div id="imageModal" class="image-modal">
+    <span class="image-modal__close">&times;</span>
+    <img class="image-modal__content" id="imageModalImg">
+  </div>
+</body>
+</html>
+

@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>J PROJECT - HYEONG-U LEE</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -22,6 +22,15 @@
     }
   </style>
 
+  <link rel="icon" href="images/Smile_emoji.webp" type="image/webp">
+  <style>
+    @media (max-width: 768px) {
+      .pp-hero__subtitle {
+        font-size: clamp(0.7rem, 3.31vw, 1.3rem) !important;
+        white-space: nowrap !important;
+      }
+    }
+  </style>
 </head>
 <body style="background-color: #ffffff;">
 
@@ -31,118 +40,119 @@
       <nav class="pp-header__nav">
         <a href="about.html" class="pp-header__link">ABOUT</a>
         <a href="projects.html" class="pp-header__link">PROJECTS</a>
-        <a href="archive.html" class="pp-header__link">ARCHIVE</a>
+        <!-- <a href="archive.html" class="pp-header__link">ARCHIVE</a> -->
         <a href="index.html#contact" class="pp-header__link">CONTACT</a>
       </nav>
     </header>
 
     <!-- ── FULL-BLEED HERO IMAGE WITH TITLE OVERLAY ── -->
     <section class="pp-hero">
-      <img src="images/J.project/0_Main.png" alt="" class="pp-hero__img-placeholder">
+      <img src="images/J.project/0_Main.webp" alt="" class="pp-hero__img-placeholder">
 
       <span class="pp-hero__year"><span class="pp-hero__paren">(</span><span class="pp-hero__num">'24</span><span class="pp-hero__paren">)</span></span>
       <div class="pp-hero__overlay">
         <h1 class="pp-hero__title">J PROJECT</h1>
-        <p class="pp-hero__subtitle">PROJECT DESCRIPTION</p>
+        <p class="pp-hero__subtitle">THE WARM SUNLIGHT SEEPING INTO THE CALM</p>
       </div>
     </section>
 
     <!-- ── TEXT CONTENT (reference layout) ── -->
     <div class="pp-content" style="grid-template-columns: 1.6fr 1fr;">
       <div class="pp-content__left">
-        <p class="pp-content__label" style="font-size: clamp(2.5rem, 4vw, 3.5rem); white-space: normal; max-width: 100%; line-height: 0.85; letter-spacing: -0.01em;">J PROJECT Overview</p>
-        <p class="pp-content__label" style="font-size: clamp(2.5rem, 4vw, 3.5rem); white-space: normal; max-width: 100%; line-height: 0.85; letter-spacing: -0.01em;">Details</p>
+        <p class="pp-content__label" style="font-size: clamp(2.5rem, 4vw, 3.5rem); white-space: normal; max-width: 100%; line-height: 0.85; letter-spacing: -0.01em;">Sunroom Addition and<br>Partial Interior Renovation<br>for an Old Vacation Home</p>
         <div class="pp-content__meta">
           <p class="meta-label">TYPE</p>
-          <p class="meta-value">TBD</p>
-          <p class="meta-label">COMPLETION DATE</p>
-          <p class="meta-value">TBD</p>
+          <p class="meta-value">Residential</p>
+          <p class="meta-label">DATE</p>
+          <p class="meta-value">May 2024</p>
           <p class="meta-label">LOCATION</p>
-          <p class="meta-value">TBD</p>
+          <p class="meta-value">Seoul, Korea</p>
           <p class="meta-label">INTERIOR SURFACE</p>
-          <p class="meta-value">TBD</p>
+          <p class="meta-value">1,479 sq. ft. (137.4 sqm)</p>
           <p class="meta-label">TOOLS</p>
           <p class="meta-value">SketchUp, Enscape, AutoCAD...</p>
           <p class="meta-label">ROLE</p>
-          <p class="meta-value">TBD</p>
+          <p class="meta-value">Participated in all project phases from SD to CD<br>Construction Administration</p>
         </div>
       </div>
       <div class="pp-content__right" style="grid-column: 2; margin-top: calc((clamp(2.5rem, 4vw, 3.5rem) * 0.85 * 2) + clamp(44px, 5.5vw, 88px) - clamp(24px, 3.5vw, 48px));">
-        <p class="pp-content__body">This is a placeholder description for J PROJECT. Please provide the text when ready so it can be updated to reflect the actual project concept and details.</p>
+        <p class="pp-content__body">This project involves a private villa owned by a prominent conglomerate family, originally designed by the legendary South Korean architect Kim Swoo-geun. The scope of work encompassed the expansion of the sunroom, alongside the subtle refinement of a section of the living room, two bathrooms, and an adjacent small annex.</p>
+        <p class="pp-content__body" style="margin-top: 1.2rem;">Recognizing the profound historical and architectural significance of the building, the design approach was intentionally restrained. Our overarching strategy was to minimize intervention and preserve the original essence as much as possible, allowing the new spatial elements to quietly and seamlessly harmonize with the existing structure. Rather than aiming for ostentatious glamour, we collaborated with a top-tier contractor to ensure that every newly crafted detail was executed with meticulous craftsmanship.</p>
       </div>
     </div>
 
     <!-- ── GALLERY ── -->
     <div class="pp-gallery">
-      <!-- 01.jpg (L) -->
-      <img src="images/J.project/01.jpg" alt="" class="pp-gallery__img-placeholder landscape">
-      <!-- 2.jpg (L) -->
-      <img src="images/J.project/2.jpg" alt="" class="pp-gallery__img-placeholder landscape">
-      <!-- 3.jpg (L) -->
-      <img src="images/J.project/3.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <img src="images/J.project/og.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 01.webp (L) -->
+      <img src="images/J.project/01.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 2.webp (L) -->
+      <img src="images/J.project/2.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 3.webp (L) -->
+      <img src="images/J.project/3.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
-      <!-- 4.jpg (P) + Empty -->
-      <img src="images/J.project/4.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <!-- 4.webp (P) + Empty -->
+      <img src="images/J.project/4.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty"></div>
       
-      <!-- 5.jpg (L) -->
-      <img src="images/J.project/5.jpg" alt="" class="pp-gallery__img-placeholder landscape">
-      <!-- 6.jpg (L) -->
-      <img src="images/J.project/6.jpg" alt="" class="pp-gallery__img-placeholder landscape">
-      <!-- 7.jpg (L) -->
-      <img src="images/J.project/7.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 5.webp (L) -->
+      <img src="images/J.project/5.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 6.webp (L) -->
+      <img src="images/J.project/6.webp" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 7.webp (L) -->
+      <img src="images/J.project/7.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
-      <!-- 8.jpg (P) + 8_2.jpg (P) -->
-      <img src="images/J.project/8.jpg" alt="" class="pp-gallery__img-placeholder portrait">
-      <img src="images/J.project/8_2.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <!-- 8.webp (P) + 8_2.webp (P) -->
+      <img src="images/J.project/8.webp" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/8_2.webp" alt="" class="pp-gallery__img-placeholder portrait">
       
-      <!-- 9.jpg (L) -->
-      <img src="images/J.project/9.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 9.webp (L) -->
+      <img src="images/J.project/9.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
-      <!-- 9_1.jpg (P) + Empty -->
-      <img src="images/J.project/9_1.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <!-- 9_1.webp (P) + Empty -->
+      <img src="images/J.project/9_1.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty"></div>
       
-      <!-- 9_2.jpg (L) -->
-      <img src="images/J.project/9_2.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 9_2.webp (L) -->
+      <img src="images/J.project/9_2.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
       <!-- 10 removed, 11 (P) shifted left + Empty -->
-      <img src="images/J.project/11.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/11.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty"></div>
       
-      <!-- Empty + 12.jpg (P) on right -->
+      <!-- Empty + 12.webp (P) on right -->
       <div class="pp-gallery__empty"></div>
-      <img src="images/J.project/12.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/12.webp" alt="" class="pp-gallery__img-placeholder portrait">
       
-      <!-- 13.jpg (P) on left + 14.jpg (P) on right -->
-      <img src="images/J.project/13.jpg" alt="" class="pp-gallery__img-placeholder portrait">
-      <img src="images/J.project/14.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <!-- 13.webp (P) on left + 14.webp (P) on right -->
+      <img src="images/J.project/13.webp" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/14.webp" alt="" class="pp-gallery__img-placeholder portrait">
       
-      <!-- 16.jpg (P) on left + 15.png (P) on right -->
-      <img src="images/J.project/16.jpg" alt="" class="pp-gallery__img-placeholder portrait">
-      <img src="images/J.project/15.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <!-- 16.webp (P) on left + 15.webp (P) on right -->
+      <img src="images/J.project/16.webp" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/15.webp" alt="" class="pp-gallery__img-placeholder portrait">
       
-      <!-- 17.jpg (L) -->
-      <img src="images/J.project/17.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 17.webp (L) -->
+      <img src="images/J.project/17.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
-      <!-- 20.jpg (P) below 17 + Empty -->
-      <img src="images/J.project/20.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <!-- 20.webp (P) below 17 + Empty -->
+      <img src="images/J.project/20.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty"></div>
 
-      <!-- 18.jpg (L) -->
-      <img src="images/J.project/18.jpg" alt="" class="pp-gallery__img-placeholder landscape">
+      <!-- 18.webp (L) -->
+      <img src="images/J.project/18.webp" alt="" class="pp-gallery__img-placeholder landscape">
       
-      <!-- 19.jpg (P) + Empty -->
-      <img src="images/J.project/19.jpg" alt="" class="pp-gallery__img-placeholder portrait">
+      <!-- 19.webp (P) + Empty -->
+      <img src="images/J.project/19.webp" alt="" class="pp-gallery__img-placeholder portrait">
       <div class="pp-gallery__empty"></div>
       
       <!-- 21 removed, 23 on left, 22 on right -->
-      <img src="images/J.project/23.jpg" alt="" class="pp-gallery__img-placeholder portrait">
-      <img src="images/J.project/22.png" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/23.webp" alt="" class="pp-gallery__img-placeholder portrait">
+      <img src="images/J.project/22.webp" alt="" class="pp-gallery__img-placeholder portrait">
     </div>
 
   <!-- ===== FLOATING BACK BUTTON ===== -->
-  <a href="projects.html" id="floating-back-btn" class="floating-back-btn">
+  <a href="projects.html#proj-j-project" id="floating-back-btn" class="floating-back-btn">
     <span class="btn-text">BACK TO PROJECTS</span>
   </a>
 
@@ -150,5 +160,12 @@
   <div class="custom-cursor"></div>
   <canvas class="cursor-canvas"></canvas>
   <script src="js/script.js"></script>
+
+  <!-- Image Lightbox Modal -->
+  <div id="imageModal" class="image-modal">
+    <span class="image-modal__close">&times;</span>
+    <img class="image-modal__content" id="imageModalImg">
+  </div>
 </body>
 </html>
+

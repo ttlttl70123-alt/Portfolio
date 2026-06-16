@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Licorice&family=Pretendard:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css?v=1780478661414">
+  <link rel="icon" href="images/Smile_emoji.webp" type="image/webp">
 </head>
 <body class="page-about">
 
@@ -17,8 +18,8 @@
     <a href="index.html" class="header__logo">HOME</a>
     <nav class="header__nav" id="main-nav">
       <a href="about.html" class="header__link">ABOUT</a>
-      <a href="index.html#projects" class="header__link">PROJECTS</a>
-      <a href="archive.html" class="header__link">ARCHIVE</a>
+      <a href="projects.html" class="header__link">PROJECTS</a>
+      <!-- <a href="archive.html" class="header__link">ARCHIVE</a> -->
       <a href="index.html#contact" class="header__link">CONTACT</a>
     </nav>
     <button class="header__menu-btn" id="menu-btn" aria-label="메뉴 열기">
@@ -35,8 +36,9 @@
         <div class="projects__header" style="width: 100%; margin: 0 auto 65px auto;">
           <div class="projects__header-left" style="display: flex; flex-direction: row; align-items: center; gap: clamp(1rem, 2vw, 2rem); margin-top: 50px;">
             <h2 class="projects__title" style="margin-bottom: 0; margin-top: calc(3vw + 23px);">ABOUT ME</h2>
-            <a href="CV.pdf" download class="about-cv-link" style="display: inline-block; transition: transform 0.3s ease; position: relative; top: 2.8vw; left: calc(4vw - 30px);">
-              <img src="images/Folder.png" alt="Download CV" style="height: clamp(3rem, 6vw, 6rem); width: auto; object-fit: contain; cursor: pointer;">
+            <a href="images/CV_UU.pdf" download="Hyeong-U_Lee_CV.pdf" target="_blank" class="about-cv-link" style="display: inline-block; transition: transform 0.3s ease; position: relative; top: 2.8vw; left: calc(4vw - 30px);">
+              <img src="images/download.png" alt="download" style="position: absolute; width: clamp(6rem, 12vw, 12rem); max-width: none; bottom: 100%; left: 50%; transform: translateX(-50%) rotate(-5deg); pointer-events: none; z-index: 2;">
+              <img src="images/Folder.webp" alt="Download CV" style="height: clamp(3rem, 6vw, 6rem); width: auto; object-fit: contain; cursor: pointer; position: relative; z-index: 1;">
             </a>
           </div>
         </div>
@@ -64,12 +66,12 @@
             </p>
             <div class="experience__stats">
               <div class="stat-card">
-                <span class="stat-card__number">2.8<sup class="stat-card__plus">+</sup></span>
-                <span class="stat-card__label">Years Experience</span>
+                <span class="stat-card__number">2<sup class="stat-card__plus">+</sup></span>
+                <span class="stat-card__label">YEARS<br>EXPERIENCE</span>
               </div>
               <div class="stat-card">
-                <span class="stat-card__number">12<sup class="stat-card__plus" style="color: #3A3AF4;">+</sup></span>
-                <span class="stat-card__label">Total Projects</span>
+                <span class="stat-card__number">10<sup class="stat-card__plus" style="color: #3A3AF4;">+</sup></span>
+                <span class="stat-card__label">TOTAL<br>PROJECTS</span>
               </div>
             </div>
           </div>
@@ -93,8 +95,8 @@
             <p class="experience__desc">
               As mentioned above,<br>
               I have a wealth of experience across diverse fields,<br>
-              which I consider to be one of my greatest strengths.<br>
-              Please click on the items below.
+              which I consider to be one of my greatest strengths.<br><br>
+              <span class="projects__description-highlight">Please click on the items below.</span>
             </p>
           </div>
         </div>
@@ -105,25 +107,37 @@
             <span class="service-tags-h__overlay-text"></span>
           </div>
 
-          <div class="service-tag-h" data-title="INTERIOR DESIGN" data-desc="Over two and a half years at Jong Kim Design Studio,<br>I managed a broad range of responsibilities,<br>including design planning, drawing reviews, material selection,<br>FF&amp;E, domestic and international client relations, and site supervision.<br><br>Through seamless communication and collaboration with both<br>business partners and team members, I have developed into a<br>highly adaptable communicator.">
+          <div class="service-tag-h" data-title="INTERIOR DESIGN" data-layout="vertical"
+               data-images='["images/01_Interior design/KakaoTalk_20260608_180700407.webp?v=2","images/01_Interior design/KakaoTalk_20260608_180859830.webp?v=2","images/01_Interior design/KakaoTalk_20260608_181032951.webp?v=2","images/01_Interior design/KakaoTalk_20260608_181707756.webp?v=2","images/01_Interior design/KakaoTalk_20260608_182108876.webp?v=2","images/01_Interior design/KakaoTalk_20260608_182354819.webp?v=2","images/01_Interior design/KakaoTalk_20260608_183020598.webp?v=2","images/01_Interior design/KakaoTalk_20260608_183555734.webp?v=2","images/01_Interior design/KakaoTalk_20260608_184109351.webp?v=2"]'
+               data-captions='["* First site visit","* Joint kick-off meeting with the architecture team","* Selecting FF&E","* On-site meeting in China","* Reviewing alternative materials in China","* Custom furniture factory inspection in China","* Working on the material board for the SD presentation","* In-depth material study for stone","* My desk at the studio"]'
+               data-desc="Over 2.5 years at Jong Kim Design Studio, I managed design planning, drawing reviews, material selection, FF&amp;E, client relations, and site supervision.<br><br>Through collaboration with partners and team members, I've grown into a highly adaptable communicator.">
             <div class="service-tag-h__default">
               <span class="service-tag-h__num">01</span>
               <span class="service-tag-h__name">INTERIOR DESIGN</span>
             </div>
           </div>
-          <div class="service-tag-h" data-title="SPATIAL STRATEGY PLANNING" data-desc="For a large-scale hospitality project,<br>I went beyond simple sculptural aesthetics to provide a compelling, evidence-based proposal.<br><br>By conducting in-depth case studies and data analysis,<br>I defined the core 'why,' 'how,' and 'what' of the space to ensure its strategic viability.">
+          <div class="service-tag-h" data-title="SPATIAL STRATEGY PLANNING" data-layout="horizontal"
+               data-images='["images/02_Spatial_Strategy_Planning/20260527_104840.webp","images/02_Spatial_Strategy_Planning/20260527_104850.webp","images/02_Spatial_Strategy_Planning/20260527_104859.webp","images/02_Spatial_Strategy_Planning/20260527_104902.webp","images/02_Spatial_Strategy_Planning/20260527_104904.webp","images/02_Spatial_Strategy_Planning/20260527_104910.webp","images/02_Spatial_Strategy_Planning/20260527_104912.webp","images/02_Spatial_Strategy_Planning/20260527_104914.webp","images/02_Spatial_Strategy_Planning/20260527_104916.webp","images/02_Spatial_Strategy_Planning/20260527_104918.webp","images/02_Spatial_Strategy_Planning/20260527_104920.webp","images/02_Spatial_Strategy_Planning/20260527_104922.webp"]'
+               data-captions='["* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality.","* Selected pages to ensure project confidentiality."]'
+               data-desc="For a large-scale hospitality project, I went beyond simple sculptural aesthetics to provide a compelling, evidence-based proposal.<br><br>By conducting in-depth case studies and data analysis, I defined the core 'why,' 'how,' and 'what' of the space to ensure its strategic viability.">
             <div class="service-tag-h__default">
               <span class="service-tag-h__num">02</span>
               <span class="service-tag-h__name">SPATIAL STRATEGY PLANNING</span>
             </div>
           </div>
-          <div class="service-tag-h" data-title="3D VISUALIZATION" data-desc="Driven by a desire to push the boundaries of visual expression,<br>I have continuously refined my 3D modeling skills since my student years.<br><br>This dedication has led to several successful freelance 3D commissions.">
+          <div class="service-tag-h" data-title="3D VISUALIZATION" data-layout="horizontal"
+               data-images='["images/3d_visualization/1.webp","images/3d_visualization/2.webp","images/3d_visualization/3.webp","images/3d_visualization/4.webp","images/3d_visualization/5.webp"]'
+               data-captions='["* Farnsworth House 3D Practice (&#39;20)","* Farnsworth House 3D Practice (&#39;20)","* Farnsworth House 3D Practice (&#39;20)","* Automotive Scene 3D Practice (&#39;21)","* 3D Commission Work for ARIJIAN (Korean Craft Brand) (&#39;22)"]'
+               data-desc="Driven by a desire to push the boundaries of visual expression, I have continuously refined my 3D modeling skills since my student years.<br><br>This dedication has led to several successful freelance 3D commissions.">
             <div class="service-tag-h__default">
               <span class="service-tag-h__num">03</span>
               <span class="service-tag-h__name">3D VISUALIZATION</span>
             </div>
           </div>
-          <div class="service-tag-h" data-title="INDUSTRIAL DESIGN" data-desc="Starting with my associate degree in industrial design, followed by a period of preparing my portfolio to study automotive design at ArtCenter in the US,<br><br>I developed a user-centric approach across furniture, product, and transportation design.<br><br>I now integrate this meticulous ethos into my interior design work.">
+          <div class="service-tag-h" data-title="INDUSTRIAL DESIGN" data-layout="horizontal"
+               data-images='["images/03_Product_design1/1.webp","images/03_Product_design1/2.webp","images/03_Product_design1/3.webp","images/03_Product_design1/4.webp","images/03_Product_design1/5.webp"]'
+               data-captions='["* Maserati Snowmobile Designed During Associate Degree","* From the Graduation Exhibition","* Automotive Exterior Sketches for Study Abroad Portfolio","* Automotive Interior Sketches for Study Abroad Portfolio","* “The Familiar Seat” – Zero Waste Furniture Design"]'
+               data-desc="Starting with an associate degree in industrial design and preparing a portfolio for ArtCenter in the US, I developed a user-centric approach across furniture, product, and transportation design.<br><br>I now integrate this meticulous ethos into my interior design work.">
             <div class="service-tag-h__default">
               <span class="service-tag-h__num">04</span>
               <span class="service-tag-h__name">INDUSTRIAL DESIGN</span>
@@ -212,14 +226,14 @@
       <nav class="pp-header__nav">
         <a href="about.html" class="pp-header__link">ABOUT</a>
         <a href="index.html#projects" class="pp-header__link">PROJECTS</a>
-        <a href="archive.html" class="pp-header__link">ARCHIVE</a>
+        <!-- <a href="archive.html" class="pp-header__link">ARCHIVE</a> -->
         <a href="index.html#contact" class="pp-header__link">CONTACT</a>
       </nav>
     </header>
 
     <!-- ── FULL-BLEED HERO IMAGE WITH TITLE OVERLAY ── -->
     <section class="pp-hero">
-      <img src="images/opt_Thumnail_02.webp" alt="" class="pp-hero__img-placeholder">
+      <img src="images/opt_Thumbnail_02.webp" alt="" class="pp-hero__img-placeholder">
 
       <span class="pp-hero__year"><span class="pp-hero__paren">(</span><span class="pp-hero__num">'25</span><span class="pp-hero__paren">)</span></span>
       <div class="pp-hero__overlay">
@@ -255,7 +269,6 @@
       <!-- 2 -->
       <div class="pp-gallery__img-placeholder portrait"></div>
       <div class="pp-gallery__empty">
-        <div class="pp-gallery__caption">THIS IS<br>A SAMPLE<br>DESCRIPTION<br>TEXT BOX</div>
       </div>
       
       <!-- 3 -->
@@ -267,7 +280,6 @@
       
       <!-- 5 -->
       <div class="pp-gallery__empty">
-        <div class="pp-gallery__caption">HERE IS<br>ANOTHER<br>FOUR LINE<br>EXAMPLE</div>
       </div>
       <div class="pp-gallery__img-placeholder portrait"></div>
       
@@ -333,7 +345,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"></path></svg>
             </button>
             <div class="gallery-image-container">
-              <img src="images/01_Interior desgin/Interior design_02.webp" alt="Interior Design" class="gallery-image">
+              <img src="images/01_Interior design/Interior design_02.webp" alt="Interior Design" class="gallery-image">
             </div>
             <button class="gallery-nav gallery-nav--next" aria-label="Next image">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"></path></svg>
@@ -342,15 +354,15 @@
           <!-- Side Thumbnails (vertical, 3 items, active = center) -->
           <div class="service-modal__gallery-side">
             <div class="gallery-side-thumb" data-index="0">
-              <img src="images/01_Interior desgin/Interior design_02.webp" alt="Thumb 1" class="gallery-image">
+              <img src="images/01_Interior design/Interior design_02.webp" alt="Thumb 1" class="gallery-image">
               <div class="gallery-side-overlay"></div>
             </div>
             <div class="gallery-side-thumb is-active" data-index="1">
-              <img src="images/01_Interior desgin/Interior design_02.webp" alt="Thumb 2" class="gallery-image">
+              <img src="images/01_Interior design/Interior design_02.webp" alt="Thumb 2" class="gallery-image">
               <div class="gallery-side-overlay"></div>
             </div>
             <div class="gallery-side-thumb" data-index="2">
-              <img src="images/01_Interior desgin/Interior design_02.webp" alt="Thumb 3" class="gallery-image">
+              <img src="images/01_Interior design/Interior design_02.webp" alt="Thumb 3" class="gallery-image">
               <div class="gallery-side-overlay"></div>
             </div>
           </div>
@@ -383,7 +395,11 @@
     });
   </script>
 
-  
+  <!-- Floating View Projects Button -->
+  <a href="index.html#projects" id="floating-back-btn" class="floating-back-btn">
+    <span class="btn-text">VIEW PROJECT</span>
+  </a>
+
 </body>
 </html>
 
